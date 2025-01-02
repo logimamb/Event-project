@@ -1,0 +1,222 @@
+{
+  "auth": {
+    "signin": {
+      "signIn": "Einloggen",
+      "signInSubtitle": "Willkommen zurück! Bitte geben Sie Ihre Daten ein",
+      "branding": {
+        "title": "Event Manager",
+        "subtitle": "Ihre Komplettlösung für die reibungslose Planung und Verwaltung von Veranstaltungen"
+      },
+      "testimonial": {
+        "quote": "Diese Plattform hat die Art und Weise, wie wir unsere Veranstaltungen verwalten, revolutioniert. Die Benutzerfreundlichkeit und die leistungsstarken Funktionen machen sie zu einem unverzichtbaren Werkzeug für jeden Veranstaltungsorganisator.",
+        "author": "Sarah Johnson",
+        "role": "Veranstaltungsdirektorin"
+      },
+      "emailAddress": "E-Mail-Adresse",
+      "password": "Passwort",
+      "or": "Oder weitermachen mit",
+      "continueWith": "Weiter mit {provider}",
+      "noAccount": "Noch kein Konto?",
+      "signUp": "Registrieren",
+      "error": "Fehler",
+      "invalidCredentials": "Ungültige E-Mail-Adresse oder Passwort",
+      "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten",
+      "forgotPassword": "Passwort vergessen?"
+    },
+    "forgotPassword": {
+      "title": "Passwort zurücksetzen",
+      "subtitle": "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts",
+      "branding": {
+        "title": "Event Manager",
+        "subtitle": "Ihre Komplettlösung für die reibungslose Planung und Verwaltung von Veranstaltungen"
+      },
+      "testimonial": {
+        "quote": "Diese Plattform hat die Art und Weise, wie wir unsere Veranstaltungen verwalten, revolutioniert. Die Benutzerfreundlichkeit und die leistungsstarken Funktionen machen sie zu einem unverzichtbaren Werkzeug für jeden Veranstaltungsorganisator.",
+        "author": "Sarah Johnson",
+        "role": "Veranstaltungsdirektorin"
+      },
+      "email": "E-Mail-Adresse",
+      "submit": "Reset-Link senden",
+      "backToSignIn": "An Ihr Passwort erinnern?",
+      "signIn": "Einloggen",
+      "success": {
+        "title": "Überprüfen Sie Ihre E-Mails",
+        "description": "Wenn für diese E-Mail-Adresse ein Konto vorhanden ist, haben wir Ihnen einen Link zum Zurücksetzen des Passworts gesendet."
+      },
+      "error": {
+        "title": "Fehler",
+        "description": "Beim Senden des Reset-Links ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      }
+    },
+    "register": {
+      "branding": {
+        "title": "Event Manager",
+        "subtitle": "Ihre Komplettlösung für die reibungslose Planung und Verwaltung von Veranstaltungen"
+      },
+      "testimonial": {
+        "quote": "Diese Plattform hat die Art und Weise, wie wir unsere Veranstaltungen verwalten, revolutioniert. Die Benutzerfreundlichkeit und die leistungsstarken Funktionen machen sie zu einem unverzichtbaren Werkzeug für jeden Veranstaltungsorganisator.",
+        "author": "Sarah Johnson",
+        "role": "Veranstaltungsdirektorin"
+      },
+      "form": {
+        "title": "Konto erstellen",
+        "subtitle": "Starten Sie noch heute mit der Verwaltung Ihrer Veranstaltungen",
+        "name": "Vollständiger Name",
+        "namePlaceholder": "Max Mustermann",
+        "email": "E-Mail-Adresse",
+        "emailPlaceholder": "name@beispiel.com",
+        "password": "Passwort",
+        "passwordPlaceholder": "••••••••",
+        "confirmPassword": "Passwort bestätigen",
+        "confirmPasswordPlaceholder": "••••••••",
+        "continueWith": "Weiter mit {provider}",
+        "orContinueWith": "Oder weitermachen mit E-Mail",
+        "submit": "Konto erstellen",
+        "haveAccount": "Sie haben bereits ein Konto?",
+        "signIn": "Einloggen"
+      },
+      "success": {
+        "title": "Erfolg!",
+        "description": "Ihr Konto wurde erstellt. Bitte melden Sie sich an."
+      },
+      "error": {
+        "title": "Fehler",
+        "description": "Es ist etwas schief gelaufen. Bitte versuchen Sie es erneut."
+      }
+    }
+  },
+  "Index": {
+    "featuresNav": "Funktionen",
+    "pricingNav": "Preise",
+    "about": "Über uns",
+    "signUp": "Registrieren",
+    "signIn": "Registrieren",
+    "hero": {
+      "trustedBy": "Vertraut von über 10.000 Eventorganisatoren",
+      "title": "Transformiere Dein",
+      "titleHighlight": "Event-Management",
+      "subtitle": "Optimiere deine Events mit leistungsstarker Automatisierung, nahtlosen Integrationen und intelligenten Einblicken. Die All-in-One-Plattform, die Eventplanung mühelos macht.",
+      "startTrial": "Kostenlos Testen",
+      "watchDemo": "Demo Ansehen"
+    },
+    "features": {
+      "security": "Unternehmenstaugliche Sicherheit",
+      "noCredit": "Keine Kreditkarte erforderlich",
+      "setup": "Einrichtung in Minuten",
+      "smartScheduling": {
+        "title": "Intelligente Terminplanung",
+        "description": "KI-gestützte Terminplanung, die automatisch den perfekten Zeitpunkt für alle Teilnehmer findet."
+      },
+      "globalReach": {
+        "title": "Globale Reichweite",
+        "description": "Veranstaltungen über Zeitzonen hinweg mit automatischer Zeitumrechnung und Lokalisierung."
+      },
+      "instantAnalytics": {
+        "title": "Sofortige Analysen",
+        "description": "Echtzeit-Einblicke in Teilnahme, Engagement und Event-Performance."
+      }
+    },
+    "testimonials": {
+      "title": "Was unsere Nutzer sagen",
+      "trustedBy": "Vertraut von Branchenführern",
+      "testimonial1": {
+        "name": "Sarah Johnson",
+        "role": "Event-Direktorin",
+        "quote": "Diese Plattform hat revolutioniert, wie wir unsere Firmenveranstaltungen managen. Allein die Automatisierungsfunktionen haben uns unzählige Stunden erspart."
+      }
+    },
+    "cta": {
+      "title": "Bereit, deine Events zu transformieren?",
+      "subtitle": "Schließe dich tausenden erfolgreichen Eventorganisatoren an, die unserer Plattform vertrauen.",
+      "button": "Starte deine kostenlose Testversion"
+    },
+    "pricing": {
+      "title": "Preise und Pakete",
+      "subtitle": "Wählen Sie den perfekten Plan für Ihre Bedürfnisse",
+      "popular": "Most Popular",
+      "free": {
+        "title": "Basic",
+        "price": "Kostenlos",
+        "button": "Jetzt starten",
+        "description": "Perfekt zum Einstieg",
+        "features": {
+          "limit1": "Bis zu 5 Veranstaltungen pro Monat",
+          "limit2": "Grundlegende Analysen",
+          "limit3":"E-Mail-Support",
+          "limit4": "1 Teammitglied"
+      }
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Optimal für wachsende Teams", 
+        "price": "29 $/Monat",
+        "button": "Kostenlose Testversion starten", 
+        "features": {
+            "limit1": "Unbegrenzte Anzahl an Veranstaltungen",
+            "limit2": "Erweiterte Analysen",
+            "limit3": "Prioritärer Support",
+            "limit4": "Bis zu 10 Teammitglieder",
+            "limit5": "Individuelle Markenbildung" 
+        }
+    },
+    "enterprise": {
+    "title": "Enterprise",
+    "description": "Für große Unternehmen",
+    "price": "Individuell",
+    "button": "Verkauf kontaktieren",
+    "features": {
+        "limit1": "Alles unbegrenzt",
+        "limit2": "Premium-Support rund um die Uhr",
+        "limit3": "Individuelle Integrationen",
+        "limit4": "Unbegrenzte Anzahl an Teammitgliedern",
+        "limit5": "Erweiterte Sicherheit",
+        "limit6": "Dedizierter Account Manager"
+    }
+}
+    },
+    "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was Sie über unsere Plattform wissen müssen",
+    "q1": {
+        "question": "Wie funktioniert die kostenlose Testversion?",
+        "answer": "Starten Sie mit einer 14-tägigen kostenlosen Testversion unseres Pro-Plans. Keine Kreditkarte erforderlich. Jederzeit kündbar."
+    },
+    "q2": {
+        "question": "Kann ich meinen Plan später ändern?",
+        "answer": "Ja, Sie können Ihren Plan jederzeit upgraden oder downgraden. Änderungen werden sofort wirksam."
+    },
+    "q3": {
+        "question": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "answer": "Wir akzeptieren alle gängigen Kreditkarten, PayPal und Banküberweisungen für Enterprise-Kunden."
+    },
+    "q4": {
+        "question": "Gibt es eine Begrenzung der Anzahl von Veranstaltungen?",
+        "answer": "Kostenlose Pläne sind auf 5 Veranstaltungen pro Monat beschränkt. Pro- und Enterprise-Pläne haben unbegrenzte Veranstaltungen."
+    },
+    "q5": {
+        "question": "Bieten Sie Rückerstattungen an?",
+        "answer": "Ja, wir bieten eine 30-tägige Geld-zurück-Garantie, wenn Sie mit unserem Service nicht zufrieden sind."
+    }
+},
+    "integrations": {
+      "title": "Integrationen",
+      "subtitle": "Verbinden Sie Ihre bevorzugten Tools",
+      "google": {
+        "title": "Google Kalender",
+        "description": "Synchronisieren Sie Events und erhalten Sie automatische Erinnerungen"
+      },
+      "zoom": {
+        "title": "Zoom",
+        "description": "Erstellen und verwalten Sie virtuelle Meetings mühelos"
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Halten Sie Ihr Team mit automatischen Benachrichtigungen auf dem Laufenden"
+      },
+      "teams": {
+        "title": "Microsoft Outlook",
+        "description": "Synchronisieren Sie Events mit Ihrem Outlook-Kalender"
+      }
+    }
+  }
+}

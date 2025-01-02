@@ -1,0 +1,631 @@
+{
+  "auth": {
+    "branding": {
+        "title": "Event Manager",
+        "subtitle": "Your all-in-one solution for seamless event planning and management"
+      },
+      "testimonial": {
+        "quote": "This platform has revolutionized how we manage our events. The ease of use and powerful features make it an essential tool for any event organizer.",
+        "author": "Sarah Johnson",
+        "role": "Event Director"
+      },
+    "signin": {
+      "form":{
+        "submit": "Sign in",
+        "title": "Sign in",
+        "subtitle": "Welcome back! Please enter your details",
+        "emailAddress": "Email address",
+        "emailAddressPlaceholder":"name@example.com",
+        "password": "Password",
+        "passwordPlaceholder":"••••••••",
+        "or": "Or continue with",
+        "continueWith": "Continue with {provider}",
+        "noAccount": "Don't have an account?",
+        "signUp": "Sign up",
+        "error": "Error",
+        "invalidCredentials": "Invalid email or password",
+        "unexpectedError": "An unexpected error occurred",
+        "forgotPassword": "Forgot password?"
+      },
+      "signInSubtitle": "Welcome back! Please enter your details",
+      "emailAddress": "Email address",
+      "password": "Password",
+      "or": "Or continue with",
+      "continueWith": "Continue with {provider}",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "error": "Error",
+      "invalidCredentials": "Invalid email or password",
+      "unexpectedError": "An unexpected error occurred",
+      "forgotPassword": "Forgot password?"
+    },
+    "signOut": "Sign out",
+    "forgotPassword": { 
+      "title": "Reset password",
+      "subtitle": "Enter your email address and we'll send you a link to reset your password",
+      "email": "Email address",
+      "emailPlaceholder": "Email address",
+      "submit": "Send reset link",
+      "backToSignIn": "Remember your password?",
+      "signIn": "Sign in",
+      "success": {
+        "title": "Check your email",
+        "description": "If an account exists for that email, we've sent a password reset link."
+      },
+      "error": {
+        "title": "Error",
+        "description": "An error occurred while sending the reset link. Please try again."
+      }
+    },
+    "register": {
+      "form": {
+        "title": "Create an account",
+        "subtitle": "Start managing your events today",
+        "name": "Full name",
+        "namePlaceholder": "John Doe",
+        "email": "Email address",
+        "emailPlaceholder": "name@example.com",
+        "password": "Password",
+        "passwordPlaceholder": "••••••••",
+        "confirmPassword": "Confirm password",
+        "confirmPasswordPlaceholder": "••••••••",
+        "continueWith": "Continue with {provider}",
+        "orContinueWith": "Or continue with email",
+        "submit": "Create account",
+        "haveAccount": "Already have an account?",
+        "signIn": "Sign in"
+      },
+      "success": {
+        "title": "Success!",
+        "description": "Your account has been created. Please sign in."
+      },
+      "error": {
+        "title": "Error",
+        "description": "Something went wrong. Please try again."
+      }
+    }
+  },
+  "Index": {
+    "title": "Event Manager",
+    "subtitle": "Your all-in-one solution for seamless event planning",
+    "featuresNav": "Features",
+    "pricingNav": "Pricing",
+    "testimonialsNav": "Testimonials",
+    "getStarted": "Get Started",
+    "about": "About",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "register": "Register",
+    "hero": {
+      "trustedBy": "Trusted by 10,000+ event organizers",
+      "title": "Transform Your",
+      "titleHighlight": "Event Management Experience",
+      "subtitle": "Streamline your events with powerful automation, seamless integrations, and intelligent insights. The all-in-one platform that makes event planning effortless.",
+      "startTrial": "Start Free Trial",
+      "watchDemo": "Watch Demo"
+    },
+    "features": {
+      "security": "Enterprise-grade security",
+      "noCredit": "No credit card required",
+      "setup": "Set up in minutes",
+      "smartScheduling": {
+        "title": "Smart Scheduling",
+        "description": "AI-powered scheduling that automatically finds the perfect time for all attendees."
+      },
+      "globalReach": {
+        "title": "Global Reach",
+        "description": "Host events across time zones with automatic time conversion and localization."
+      },
+      "instantAnalytics": {
+        "title": "Instant Analytics",
+        "description": "Real-time insights into attendance, engagement, and event performance."
+      }
+    },
+    "integrations": {
+      "title": "Seamless Integrations",
+      "google": {
+        "title": "Google Calendar",
+        "description": "Sync events with Google Calendar for seamless scheduling and updates."
+      },
+      "zoom": {
+        "title": "Zoom Meetings",
+        "description": "Automatically create and manage Zoom meetings for your events."
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Get notifications and updates directly in your Slack channels."
+      },
+      "teams": {
+        "title": "Microsoft Teams",
+        "description": "Integrate with Teams for collaborative event planning."
+      }
+    },
+    "pricing": {
+      "title": "Simple, Transparent Pricing",
+      "subtitle": "Choose the plan that best fits your needs",
+      "popular": "Most Popular",
+      "free": {
+        "title": "Free",
+        "description": "Perfect for getting started",
+        "price": "$0/month",
+        "button": "Get Started",
+        "features": {
+          "limit1": "Up to 5 events per month",
+          "limit2": "Basic analytics",
+          "limit3": "Email support",
+          "limit4": "1 team member"
+        }
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Best for growing teams",
+        "price": "$29/month",
+        "button": "Start Free Trial",
+        "features": {
+          "limit1": "Unlimited events",
+          "limit2": "Advanced analytics",
+          "limit3": "Priority support",
+          "limit4": "Up to 10 team members",
+          "limit5": "Custom branding"
+        }
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "For large organizations",
+        "price": "Custom",
+        "button": "Contact Sales",
+        "features": {
+          "limit1": "Unlimited everything",
+          "limit2": "24/7 premium support",
+          "limit3": "Custom integrations",
+          "limit4": "Unlimited team members",
+          "limit5": "Advanced security",
+          "limit6": "Dedicated account manager"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about our platform",
+      "q1": {
+        "question": "How does the free trial work?",
+        "answer": "Start with a 14-day free trial of our Pro plan. No credit card required. Cancel anytime."
+      },
+      "q2": {
+        "question": "Can I change my plan later?",
+        "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately."
+      },
+      "q3": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, PayPal, and bank transfers for enterprise customers."
+      },
+      "q4": {
+        "question": "Is there a limit on the number of events?",
+        "answer": "Free plans are limited to 5 events per month. Pro and Enterprise plans have unlimited events."
+      },
+      "q5": {
+        "question": "Do you offer refunds?",
+        "answer": "Yes, we offer a 30-day money-back guarantee if you're not satisfied with our service."
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "trustedBy": "Trusted by Industry Leaders",
+      "testimonial1": {
+        "name": "Sarah Johnson",
+        "role": "Event Director",
+        "quote": "This platform has revolutionized how we manage our corporate events. The automation features alone have saved us countless hours."
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Events?",
+      "subtitle": "Join thousands of successful event organizers who trust our platform.",
+      "button": "Start Your Free Trial"
+    }
+  },
+  "Footer": {
+    "copyright": " 2024 Event Manager. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "features": "Features",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Manage your account settings and preferences"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Configure your account settings",
+    "somethingwrong": "Something went wrong",
+    "tryAgain":"Please try again",
+    "eventManager": "Event Manager",
+    "quickLinks":"Quick Links",
+    "account":"Account",
+    "profile":"Profile",
+    "security":"Security",
+    "notifications":"Notifications",
+    "preferences":"Preferences",
+    "language":"Language",
+    "theme":"Theme",
+    "timezone":"Timezone",
+    "email":"Email",
+    "password":"Password",
+    "changePassword":"Change Password",
+    "twoFactor":"Two-Factor Authentication",
+    "signOut":"Sign Out",
+    "cancel":"Cancel",
+    "saveChanges":"Save Changes",
+    "currentPassword":"Current Password",
+    "newPassword":"New Password",
+    "confirmPassword":"Confirm Password",
+    "settings":"Settings",
+    "dashboard":"Dashboard",
+    "privacy":{
+      "profileVisibility":"Profile Visibility",
+      "calendarVisibility":"Calendar Visibility",
+      "activityVisibility":"Activity Visibility",
+      "showUpcomingEvents":"Show Upcoming Events",
+      "allowTagging":"Allow Tagging",
+      "allowComments":"Allow Comments",
+      "showUpcomingEventsDescription":"Show upcoming events in your dashboard",
+      "allowTaggingDescription":"Allow others to tag your events",
+      "allowCommentsDescription":"Allow others to comment on your events",
+      "saveChanges": "Save Changes",
+      "title":"Privacy",
+      "privacyNote":"By continuing to use Event Manager, you agree to our",
+      "privacyPolicy":"Privacy Policy",
+      "termsOfService":"Terms of Service",
+      "privacyDescription":"We collect and use your personal information in accordance with our",
+      "privacyPolicyLink":"Privacy Policy",
+      "visibilityOptions":{
+        "team":"Team",
+        "title":"Visibility Options",
+        "public":"Public",
+        "private":"Private"
+      }
+    },
+    "display": {
+      "title":"Display",
+      "displayName":"Display Name",
+      "theme":{
+        "title":"Theme",
+        "light":"Light",
+        "dark":"Dark",
+        "system":"System"
+      },
+      "density":{
+        "title":"Density",
+        "comfortable":"Comfortable",
+        "cosy":"Cosy",
+        "compact":"Compact",
+        "comfortableDescription": "A comfortable reading experience",
+        "cosyDescription": "A cosy reading experience",
+        "compactDescription": "A compact reading experience"
+      },
+      "timeFormat":{
+        "title":"Time Format",
+        "12h":"12-hour",
+        "24h":"24-hour"
+      },
+      "dateFormat":{
+        "title":"Date Format",
+        "options": {
+          "MMDDYYYY":"MM/DD/YYYY",
+          "DDMMYYYY":"DD/MM/YYYY",
+          "YYYYMMDD":"YYYY/MM/DD"
+        }
+      },
+      "saveChanges":"Save Changes",
+      "timezone":{
+        "title":"Timezone",
+        "timezone":"Timezone"
+      },
+      "language":{
+        "title":"Language",
+        "language":"Language"
+      }
+    },
+    "security":{
+      "title":"Security",
+      "twoFactorAuth":{
+        "title":"Two-Factor Authentication",
+        "description":"Enable two-factor authentication for added security"
+      },
+      "loginNotifications":"Login Notifications",
+      "loginNotificationsDescription":"Receive notifications when someone logs in to your account",
+      "sessionTimeout":"Session Timeout",
+      "securityTip":"Tip: Use a strong password and enable two-factor authentication for added security",
+      "saveChanges":"Save Changes"
+    },
+    "integrations": {
+      "title":"Integrations",
+      "googleCalendar":{
+        "title":"Google Calendar",
+        "description":"Sync events with Google Calendar for seamless scheduling and updates.",
+        "syncFrequency": {
+          "title":"Sync Frequency",
+          "realtime":"Realtime",
+          "hourly":"Hourly",
+          "daily":"Daily"
+        }
+      },
+      "microsoftOutlook":{
+        "title":"Microsoft Outlook",
+        "description":"Sync events with Microsoft Outlook for seamless scheduling and updates."
+      },
+      "slack":{
+        "title":"Slack",
+        "description":"Get notifications and updates directly in your Slack channels.",
+        "channel":"Channel"
+      },
+      "zoom":{
+        "title":"Zoom Meetings",
+        "description":"Automatically create and manage Zoom meetings for your events.",
+        "autoCreateMeeting":"Auto-create Meetings"
+      },
+      "teams":{
+        "title":"Microsoft Teams",
+        "description":"Integrate with Teams for collaborative event planning."
+      },
+      "saveChanges":"Save Changes"
+    },
+    "profile":{
+      "title":"Profile",
+      "displayName":"Name",
+      "email":"Email",
+      "privacy":"Privacy"
+    }
+  },
+  "dashboard": {
+    "noRecentEvents": "No recent events",
+    "title": "Dashboard",
+    "eventsCreated": "Events Created",
+    "eventsJoined": "Events Joined",
+    "totalActivities": "Total Activities",
+    "totalParticipants": "Total Participants",
+    "recentActivities": "Recent Activities",
+    "noRecentActivities": "No recent activities",
+    "createdEvents": "Created Events",
+    "noCreatedEvents": "No events created yet",
+    "joinedEvents": "Joined Events",
+    "noJoinedEvents": "No events joined yet",
+    "activities": "Activities",
+    "members": "Members",
+    "welcomeBack": "Welcome back!",
+    "dashboardDescription": "Here's what's happening with your events and activities.",
+    "searchPlaceholder": "Search for events...",
+    "stats": {
+      "totalEvents": "Total Events",
+      "totalActivities": "Total Activities",
+      "totalParticipants": "Total Participants",
+      "completionRate": "Completion Rate",
+      "eventsCreated": "Events Created",
+      "eventsJoined": "Events Joined",
+      "upcomingEvents": "Upcoming Events"
+    },
+    "activityOverviewCard": {
+      "title": "Activity Overview",
+      "description": "Your recent activity and progress",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "upcoming": "Upcoming",
+      "cancelled": "Cancelled",
+      "pending": "Pending"
+    },
+    "quickActions": "Quick Actions",
+    "createEvent": "Create Event",
+    "createActivity": "Create Activity",
+    "manageEvents": "Manage Events",
+    "manageActivities": "Manage Activities",
+    "userActivityOverview": "Your Activity Overview",
+    "recentEvents": "Recent Events",
+    "recentActivities": "Recent Activities",
+    "viewAll": "View All",
+    "view": "View",
+    "noEventsFound": "No events found",
+    "noActivitiesFound": "No activities found",
+    "totalEvents": "Total Events",
+    "totalActivities": "Total Activities",
+    "activeParticipants": "Active Participants",
+    "completionRate": "Completion Rate",
+    "eventsCreated": "Events Created",
+    "eventsJoined": "Events Joined",
+    "upcomingEvents": "Upcoming Events",
+    "activityOverview":"Activity Overview",
+    "upcomingActivities": "Upcoming Activities",
+    "totalCreatedEvents": "Total Events Created",
+    "totalJoinedEvents": "Total Events Joined"
+  },
+  "events": {
+    "form": {
+      "createTitle":"Create Event",
+      "titleLabel":"Event Title",
+      "titlePlaceholder":"Enter event title",
+      "descriptionLabel":"Event Description",
+      "descriptionPlaceholder":"Enter event description",
+      "editTitle":"Edit Event",
+      "title": "Title",
+      "description": "Description",
+      "startDateLabel":"Start Date",
+      "endDateLabel":"End Date",
+      "countryLabel":"Country",
+      "countryPlaceholder":"Select country",
+      "cityLabel":"City",
+      "cityPlaceholder":"Enter city",
+      "addressLabel":"Address",
+      "addressPlaceholder":"Enter address",
+      "maxAttendeesLabel":"Max Attendees",
+      "maxAttendeesPlaceholder":"Enter max attendees",
+      "googleCalendarLabel":"Google Calendar",
+      "publicLabel":"Public",
+      "locationLabel":"Location",
+      "locationPlaceholder":"Enter location",
+      "addToGoogleCalendar":"Add to Google Calendar",
+      "saveChanges":"Save Changes",
+      "cancel":"Cancel",
+      "create":"Create",
+      "update":"Update",
+      "highlights": "Highlights",
+      "highlightPlaceholder": "Enter a highlight...",
+      "addHighlight": "Add Highlight",
+      "removeHighlight": "Remove Highlight",
+      "eventTitlePlaceholder": "Enter event title",
+      "eventDescriptionPlaceholder": "Enter event description",
+      "countryPlaceholder": "Enter country",
+      "cityPlaceholder": "Enter city",
+      "addressPlaceholder": "Enter address",
+      "maxAttendeesPlaceholder": "Enter maximum attendees",
+      "selectCalendar": "Select a calendar",
+      "loadingCalendars": "Loading calendars...",
+      "noCalendarsAvailable": "No calendars available",
+      "selectCalendarDescription": "Choose a Google Calendar to sync this event with",
+      "loadingGoogleCalendars": "Loading Google Calendars...",
+      "eventDetails": "Event Details",
+      "invitationDesign": "Invitation Design"
+    },
+    "status": {
+      "upcoming": "Upcoming",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "pending": "Pending",
+      "published": "Published"
+    },
+    "participations": "Participations",
+    "viewDetails": "View Details",
+    "getStarted": "Get Started",
+    "virtualEvent": "Virtual Event",
+    "inPersonEvent": "In-Person Event",
+    "onlineEvent": "Online Event",
+    "location": "Location",
+    "online": "Online",
+    "inPerson": "In-Person",
+    "virtual": "Virtual",
+    "title": "Events",
+    "description": "Manage and organize your events",
+    "createFirstEvent": "Create your first event",
+    "noEventsFound": "No events found",
+    "createEvent": "Create Event",
+    "error":"Error",
+    "errorTitle":"Error",
+    "FailedToFetchEvents": "Failed to load events. Please try again later.",
+    "FailedToCreateEvent": "Failed to create event. Please try again later.",
+    "FailedToUpdateEvent": "Failed to update event. Please try again later.",
+    "FailedToDeleteEvent": "Failed to delete event. Please try again later."
+  },
+  "activities": {
+    "title": "Activities",
+    "description": "Track and manage event activities",
+    "createActivity": "Create Activity",
+    "manageActivities": "Manage Activities",
+    "recentActivities": "Recent Activities",
+    "viewAll": "View All",
+    "viewDetails":"View Details",
+    "selectDateRange": "Select Date Range",
+    "filters": "Filters",
+    "searchPlaceholder": "Search for activities...",
+    "errorLoading": "Error loading activities",
+    "noActivitiesFound": "No activities found",
+    "view": "View",
+    "noActivities": "No activities found"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "description": "Track and analyze your event performance",
+    "dateRangeLabel": "Date Range",
+    "stats": {
+      "totalEvents": "Total Events",
+      "totalEventsDescription": "Total number of events created in the selected period",
+      "totalAttendees": "Total Attendees",
+      "totalAttendeesDescription": "Total number of attendees across all events",
+      "averageAttendance": "Average Attendance",
+      "averageAttendanceDescription": "Average number of attendees per event",
+      "averageDuration": "Average Duration",
+      "averageDurationDescription": "Average duration of events",
+      "completionRate": "Completion Rate",
+      "completionRateDescription": "Percentage of events completed successfully",
+      "activeEvents": "Active Events",
+      "activeEventsDescription": "Number of currently active events"
+    },
+    "charts": {
+      "eventStatus": "Event Status Distribution",
+      "activityProgress": "Activity Progress",
+      "attendeeEngagement": "Attendee Engagement",
+      "eventTrends": "Event Trends"
+    },
+    "tables": {
+      "recentEvents": "Recent Events",
+      "eventTitle": "Event Title",
+      "startDate": "Start Date",
+      "attendees": "Attendees",
+      "status": "Status",
+      "topLocations": "Top Locations",
+      "eventsCount": "{count} events"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "description": "Manage how you receive notifications",
+    "desktop": "Desktop Notifications",
+    "desktopDescription": "Show notifications on your desktop when important events occur",
+    "sound": "Notification Sound",
+    "volume": "Volume",
+    "volumeChanged": "Volume set to {volume}%",
+    "eventReminders": "Event Reminders",
+    "eventRemindersDescription": "Get notified before your events start",
+    "reminderTime": "Reminder Time",
+    "reminderTime5": "5 minutes before",
+    "reminderTime10": "10 minutes before",
+    "reminderTime15": "15 minutes before",
+    "reminderTime30": "30 minutes before",
+    "reminderTime60": "1 hour before",
+    "reminderTimeChanged": "Reminder time set to {time}",
+    "interactions": "Interaction Notifications",
+    "mentions": "Mentions",
+    "mentionsDescription": "Get notified when someone mentions you",
+    "comments": "Comments",
+    "commentsDescription": "Get notified when someone comments on your events",
+    "permissionNeeded": "Enable Notifications",
+    "permissionDescription": "Allow notifications to stay updated about your events",
+    "requestPermission": "Enable Notifications",
+    "permission_required": "Permission Required",
+    "enable_in_browser": "Please enable notifications in your browser settings",
+    "test_title": "Test Notification",
+    "test_body": "This is a test notification. If you can see this, notifications are working!",
+    "test_sent": "Test Notification Sent",
+    "check_notification": "Check your notifications to see if it worked",
+    "test_failed": "Test Failed",
+    "try_again": "Please try again or check your browser settings",
+    "desktopEnabled": "Desktop notifications enabled",
+    "desktopDisabled": "Desktop notifications disabled",
+    "soundEnabled": "Notification sound enabled",
+    "soundDisabled": "Notification sound disabled",
+    "remindersEnabled": "Event reminders enabled",
+    "remindersDisabled": "Event reminders disabled",
+    "mentionsEnabled": "Mention notifications enabled",
+    "mentionsDisabled": "Mention notifications disabled",
+    "commentsEnabled": "Comment notifications enabled",
+    "commentsDisabled": "Comment notifications disabled"
+  },
+  "teams": {
+    "title": "Teams",
+    "create": "Create Team",
+    "settings": "Team Settings",
+    "participants": "Participants",
+    "calendar": "Calendar",
+    "teamCalendar": "Team Calendar",
+    "searchParticipants": "Search participants...",
+    "allParticipants": "All Participants",
+    "activities": "Activities",
+    "events": "Events",
+    "member": "Member",
+    "members": "Members",
+    "role": "Role",
+    "status": "Status"
+  }
+}

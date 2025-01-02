@@ -1,0 +1,171 @@
+{
+  "Index": {
+    "featuresNav": "Funktionen",
+    "pricingNav": "Preise",
+    "about": "Über uns",
+    "signUp": "Registrieren",
+    "signIn": "Anmelden",
+    "register": "Registrieren",
+    "hero": {
+      "trustedBy": "Vertraut von über 10.000 Event-Organisatoren",
+      "title": "Transformieren Sie Ihre",
+      "titleHighlight": "Event-Management-Erfahrung",
+      "subtitle": "Optimieren Sie Ihre Events mit leistungsstarker Automatisierung, nahtloser Integration und intelligenten Einblicken. Die All-in-One-Plattform, die Event-Planung mühelos macht.",
+      "startTrial": "Kostenlose Testversion starten",
+      "watchDemo": "Demo ansehen"
+    },
+    "features": {
+      "security": "Unternehmensweite Sicherheit",
+      "noCredit": "Keine Kreditkarte erforderlich",
+      "setup": "Einrichtung in Minuten",
+      "smartScheduling": {
+        "title": "Intelligente Planung",
+        "description": "KI-gesteuerte Planung, die automatisch die perfekte Zeit für alle Teilnehmer findet."
+      },
+      "globalReach": {
+        "title": "Globale Reichweite",
+        "description": "Veranstaltungen über Zeitzonen hinweg mit automatischer Zeitumrechnung und Lokalisierung."
+      },
+      "instantAnalytics": {
+        "title": "Sofortige Analysen",
+        "description": "Echtzeit-Einblicke in Teilnahme, Engagement und Event-Performance."
+      }
+    },
+    "testimonials": {
+      "title": "Was unsere Nutzer sagen",
+      "trustedBy": "Vertraut von Branchenführern",
+      "testimonial1": {
+        "name": "Sarah Johnson",
+        "role": "Event-Direktorin",
+        "quote": "Diese Plattform hat revolutioniert, wie wir unsere Unternehmensevents managen. Allein die Automatisierungsfunktionen haben uns unzählige Stunden gespart."
+      },
+      "testimonial2": {
+        "name": "Michael Schmidt",
+        "role": "Marketing Manager",
+        "quote": "Die intuitive Benutzeroberfläche und die leistungsstarken Analysefunktionen machen es zum perfekten Tool für unsere Marketing-Events."
+      },
+      "testimonial3": {
+        "name": "Anna Weber",
+        "role": "Konferenz-Koordinatorin",
+        "quote": "Mit dieser Plattform können wir uns auf das Wesentliche konzentrieren - großartige Events zu schaffen. Die Automatisierung nimmt uns die zeitraubende Verwaltungsarbeit ab."
+      }
+    },
+    "cta": {
+      "title": "Bereit, Ihre Events zu transformieren?",
+      "subtitle": "Schließen Sie sich Tausenden erfolgreicher Event-Organisatoren an, die unserer Plattform vertrauen.",
+      "button": "Starten Sie Ihre kostenlose Testversion"
+    },
+    "integrations": {
+      "title": "Nahtlose Integrationen",
+      "google": {
+        "title": "Google Kalender",
+        "description": "Synchronisieren Sie Events mit Google Kalender für nahtlose Planung und Updates."
+      },
+      "zoom": {
+        "title": "Zoom Meetings",
+        "description": "Erstellen und verwalten Sie automatisch Zoom-Meetings für Ihre Events."
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Erhalten Sie Benachrichtigungen und Updates direkt in Ihren Slack-Kanälen."
+      },
+      "teams": {
+        "title": "Microsoft Teams",
+        "description": "Integration mit Teams für kollaborative Event-Planung."
+      }
+    },
+    "pricing": {
+      "title": "Einfache, transparente Preise",
+      "subtitle": "Wählen Sie den Plan, der am besten zu Ihren Bedürfnissen passt",
+      "popular": "Am beliebtesten",
+      "free": {
+        "title": "Kostenlos",
+        "description": "Perfekt zum Einstieg",
+        "price": "0€/Monat",
+        "button": "Jetzt starten",
+        "features": {
+          "limit1": "Bis zu 5 Events pro Monat",
+          "limit2": "Basis-Analysen",
+          "limit3": "E-Mail-Support",
+          "limit4": "1 Teammitglied"
+        }
+      },
+      "pro": {
+        "title": "Pro",
+        "description": "Ideal für wachsende Teams",
+        "price": "29€/Monat",
+        "button": "Kostenlose Testversion starten",
+        "features": {
+          "limit1": "Unbegrenzte Events",
+          "limit2": "Erweiterte Analysen",
+          "limit3": "Prioritäts-Support",
+          "limit4": "Bis zu 10 Teammitglieder",
+          "limit5": "Individuelles Branding"
+        }
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Für große Organisationen",
+        "price": "Individuell",
+        "button": "Vertrieb kontaktieren",
+        "features": {
+          "limit1": "Alles unbegrenzt",
+          "limit2": "24/7 Premium-Support",
+          "limit3": "Individuelle Integrationen",
+          "limit4": "Unbegrenzte Teammitglieder",
+          "limit5": "Erweiterte Sicherheit",
+          "limit6": "Dedizierter Account Manager"
+        }
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Alles, was Sie über unsere Plattform wissen müssen",
+      "q1": {
+        "question": "Wie funktioniert die kostenlose Testversion?",
+        "answer": "Starten Sie mit einer 14-tägigen kostenlosen Testversion unseres Pro-Plans. Keine Kreditkarte erforderlich. Jederzeit kündbar."
+      },
+      "q2": {
+        "question": "Kann ich meinen Plan später ändern?",
+        "answer": "Ja, Sie können Ihren Plan jederzeit upgraden oder downgraden. Änderungen werden sofort wirksam."
+      },
+      "q3": {
+        "question": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "answer": "Wir akzeptieren alle gängigen Kreditkarten, PayPal und Banküberweisung für Geschäftskunden."
+      },
+      "q4": {
+        "question": "Gibt es eine Begrenzung der Anzahl der Events?",
+        "answer": "Kostenlose Pläne sind auf 5 Events pro Monat begrenzt. Pro- und Enterprise-Pläne haben unbegrenzte Events."
+      },
+      "q5": {
+        "question": "Bieten Sie Rückerstattungen an?",
+        "answer": "Ja, wir bieten eine 30-tägige Geld-zurück-Garantie, wenn Sie mit unserem Service nicht zufrieden sind."
+      }
+    }
+  },
+  "auth": {
+    "signin": {
+      "signIn": "Anmelden",
+      "signInSubtitle": "Willkommen zurück! Bitte geben Sie Ihre Details ein",
+      "branding": {
+        "title": "Event Manager",
+        "subtitle": "Ihre All-in-One-Lösung für nahtlose Event-Planung und -Management"
+      },
+      "testimonial": {
+        "quote": "Diese Plattform hat revolutioniert, wie wir unsere Events managen. Die Benutzerfreundlichkeit und leistungsstarken Funktionen machen sie zu einem unverzichtbaren Werkzeug für jeden Event-Organisator.",
+        "author": "Sarah Johnson",
+        "role": "Event Direktorin"
+      },
+      "emailAddress": "E-Mail-Adresse",
+      "password": "Passwort",
+      "or": "Oder weiter mit",
+      "continueWith": "Weiter mit {provider}",
+      "noAccount": "Noch kein Konto?",
+      "signUp": "Registrieren",
+      "error": "Fehler",
+      "invalidCredentials": "Ungültige E-Mail oder Passwort",
+      "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten",
+      "forgotPassword": "Passwort vergessen?"
+    }
+  }
+}

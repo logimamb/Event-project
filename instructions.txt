@@ -1,0 +1,76 @@
+Specifications for the SAAS Student Management System
+Introduction
+This document presents the specifications for a SaaS student management system using Next.js, Prisma, and PostgreSQL technologies. The system must enable efficient management of information relating to students, teachers, classes, as well as communication and monitoring of academic performance.
+Main modules
+Student Management Module
+Student registration:
+Collection of personal information (surname, first name, date of birth).
+Entry of contact details (address, telephone, email).
+Registration of school information (class, level, options).
+School history including grades and assessments.
+Upload photo ID.
+Class and group management:
+Create, modify and delete classes.
+Assign students to classes.
+Schedule management.
+Teacher management:
+Teacher registration.
+Assign lessons to teachers.
+Parent management:
+Registration of parents or guardians.
+Communication system with notifications and messages.
+
+Attendance Tracking Module
+Attendance recording :
+Use of a biometric badge system to capture fingerprints.
+Automatic recording of entry and exit times.
+Automatic generation of attendance sheets.
+Absence alerts:
+Automatic notifications to parents in the event of unjustified absence.
+Detailed absence reports.
+Attendance statistics :
+Calculate attendance rates by student and class.
+Identification of students with the most absences.
+Grades and Assessments Management Module
+Grade entry :
+Entry by teachers with automatic calculation of averages and rankings.
+Report card generation:
+Creation of personalized report cards for each student.
+Progress tracking :
+Graphical representation of academic results.
+Identification of difficulties encountered by students.
+Financial Management Module
+Invoicing:
+Edit and track invoices (schooling, extracurricular activities).
+Sends reminders for late payments.
+Scholarship management:
+Allocate and track scholarships awarded to students.
+Online payment management:
+Integration of a secure payment module.
+Communication module
+Internal messaging:
+Facilitate communication between teachers, students and parents.
+Sending notifications:
+Notifications by email, SMS or via a mobile application.
+Online calendar:
+Share school events (meetings, outings).
+
+Reporting module
+Customized reports :
+Reports on attendance, notes and invoices.
+Data export :
+Export to Excel, PDF, etc.
+Dashboards:
+Visualization of key performance indicators (KPIs) for the facility.
+Other functionalities
+Library management:
+Digital catalog for managing book loans and returns.
+Extra-curricular activities management:
+Registration and tracking of activities offered to students.
+School intranet:
+Secure space for sharing documents and information between educational staff.
+Conclusion
+This specification defines the essential functional requirements for the development of a complete SaaS system dedicated to school management. The technologies chosen (Next.js, Prisma, PostgreSQL) will enable a high-performance, scalable application.
+
+for messaging use nodemailer, for sending messages use Twilio. Use Tailwind css and shadcn for all styling, also set dark or light mode. There are some very nice interfaces, very well styled and very professional.
+for authentication utilse authjs and for image upload use ploadthing

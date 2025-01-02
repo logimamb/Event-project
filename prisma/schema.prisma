@@ -1,0 +1,428 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id                     String                 @id @default(cuid())
+  name                   String?
+  email                  String?                @unique
+  emailVerified          DateTime?
+  image                  String?
+  hashedPassword         String?
+  createdAt              DateTime               @default(now())
+  updatedAt              DateTime               @updatedAt
+  city                   String?
+  country                String?
+  defaultCalendar        String?                @default("primary")
+  locationId             String?
+  notificationsEnabled   Boolean?               @default(true)
+  phoneNumber            String?
+  reminderDefault        Int?                   @default(30)
+  timezone               String?                @default("UTC")
+  visibility             String?                @default("PRIVATE")
+  accounts               Account[]
+  activities             Activity[]
+  activityParticipations ActivityParticipant[]
+  events                 Event[]
+  eventMembers           EventMember[]
+  notificationSettings   NotificationSettings[]
+  sessions               Session[]
+  Location               Location?              @relation(fields: [locationId], references: [id])
+  verificationCodes      VerificationCode[]
+  eventShares           EventShare[]           @relation("sharedByUser")
+  settings      UserSettings?
+  teams         TeamMember[]
+  ownedTeams    Team[]       @relation("TeamOwner")
+  testimonials  Testimonial[]
+
+  @@index([locationId])
+}
+
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+
+model UserSettings {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Profile Settings
+  profile Json? @default("{}")
+
+  // Event Settings
+  event Json? @default("{}")
+
+  // Notification Settings
+  notification Json? @default("{}")
+
+  // Privacy Settings
+  privacy Json? @default("{}")
+
+  // Display Settings
+  display Json? @default("{}")
+
+  // Security Settings
+  security Json? @default("{}")
+
+  // Integration Settings
+  integrations Json? @default("{}")
+
+  @@index([userId])
+}
+
+
+model Activity {
+  id                   String                 @id @default(cuid())
+  title                String
+  description          String?
+  startTime            DateTime
+  endTime              DateTime
+  location             String?
+  capacity             Int                    @default(0)
+  currentParticipants  Int                    @default(0)
+  status               String                 @default("PENDING")
+  eventId              String
+  userId               String
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  event                Event                  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user                 User                   @relation(fields: [userId], references: [id])
+  participants         ActivityParticipant[]
+  notificationSettings NotificationSettings[]
+  teamId               String?
+  team                 Team?                  @relation(fields: [teamId], references: [id])
+
+  @@index([eventId])
+  @@index([userId])
+  @@index([teamId])
+}
+
+
+model Event {
+  id                   String                 @id @default(cuid())
+  title                String
+  description          String?
+  startDate            DateTime
+  endDate              DateTime
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  isPublic             Boolean                @default(false)
+  maxAttendees         Int?
+  currentAttendees     Int                    @default(0)
+  teamId               String?
+  team                 Team?                  @relation(fields: [teamId], references: [id])
+  status               EventStatus            @default(DRAFT)
+  priority             Priority               @default(MEDIUM)
+  shareableSlug        String?                @unique
+  activities           Activity[]
+  location             Location?              @relation(fields: [locationId], references: [id])
+  locationId           String?
+  creatorId            User                   @relation(fields: [userId], references: [id])
+  userId               String
+  members              EventMember[]
+  notificationSettings NotificationSettings[]
+  shares               EventShare[]
+  highlights           Highlight[]
+
+  @@index([userId])
+  @@index([locationId])
+  @@index([teamId])
+}
+
+model EventAttendee {
+  id        String   @id @default(cuid())
+  eventId   String
+  // event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  email     String
+  name      String?
+  status    String   @default("pending") // pending, accepted, declined
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([eventId, email])
+  @@index([eventId])
+}
+
+model Team {
+  id           String        @id @default(cuid())
+  name         String
+  description  String?       @db.Text
+  image        String?
+  ownerId      String
+  owner        User          @relation("TeamOwner", fields: [ownerId], references: [id])
+  members      TeamMember[]
+  activities   Activity[]
+  events       Event[]
+  testimonials Testimonial[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([ownerId])
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  teamId    String
+  team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      String   @default("member") // owner, admin, member
+  status    String   @default("pending") // pending, active, inactive
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([teamId, userId])
+  @@index([teamId])
+  @@index([userId])
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  rating    Int      @default(5)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  teamId    String
+  team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  status    String   @default("pending") // pending, approved, rejected
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([teamId])
+}
+
+
+
+model ActivityInvitation {
+  id         String   @id @default(cuid())
+  email      String
+  token      String   @unique
+  status     String   @default("pending")
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([email])
+}
+
+model ActivityParticipant {
+  id          String    @id @default(cuid())
+  activityId  String
+  userId      String?
+  email       String
+  name        String?
+  uniqueCode  String    @unique @default(cuid())
+  qrCode      String?   // URL or path to stored QR code
+  status      ParticipantStatus @default(PENDING)
+  joinedAt    DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  activity    Activity  @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  user        User?     @relation(fields: [userId], references: [id])
+
+  @@unique([activityId, email])
+  @@index([activityId])
+  @@index([userId])
+  @@index([email])
+}
+
+model Accessibility {
+  id           String     @id @default(cuid())
+  description  String
+  requirements String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  // activities   Activity[]
+}
+
+model Location {
+  id         String  @id @default(cuid())
+  name       String
+  address    String?
+  city       String?
+  state      String?
+  country    String?
+  postalCode String?
+  events     Event[]
+  User       User[]
+}
+
+model EventCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  color       String?
+  icon        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model NotificationSettings {
+  id         String                @id @default(cuid())
+  type       NotificationType
+  channel    NotificationChannel[]
+  timing     Int
+  enabled    Boolean               @default(true)
+  userId     String
+  eventId    String?
+  activityId String?
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+  activity   Activity?             @relation(fields: [activityId], references: [id])
+  event      Event?                @relation(fields: [eventId], references: [id])
+  user       User                  @relation(fields: [userId], references: [id])
+
+  @@unique([userId, eventId, activityId, type])
+}
+
+model VerificationCode {
+  id          String   @id @default(cuid())
+  code        String
+  phoneNumber String
+  expiresAt   DateTime
+  used        Boolean  @default(false)
+  userId      String
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model EventMember {
+  id          String     @id @default(cuid())
+  eventId     String
+  userId      String
+  role        MemberRole @default(MEMBER)
+  permissions String[]   @default([])
+  joinedAt    DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  event       Event      @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user        User       @relation(fields: [userId], references: [id])
+
+  @@unique([eventId, userId])
+  @@index([eventId])
+  @@index([userId])
+}
+
+
+
+enum NotificationType {
+  EVENT_START
+  EVENT_END
+  ACTIVITY_START
+  ACTIVITY_END
+  REMINDER
+}
+
+enum NotificationChannel {
+  EMAIL
+  SMS
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+  COMPLETED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+  GUEST
+}
+
+model EventShare {
+  id        String   @id @default(cuid())
+  eventId   String
+  userId    String
+  email     String
+  token     String   @unique
+  status    ShareStatus @default(PENDING)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user      User     @relation("sharedByUser", fields: [userId], references: [id])
+
+  @@index([eventId])
+  @@index([userId])
+  @@index([email])
+}
+
+enum ShareStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+model Highlight {
+  id        String   @id @default(cuid())
+  text      String   @db.Text
+  eventId   String
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([eventId])
+}
+
+enum ParticipantStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  WAITLISTED
+}

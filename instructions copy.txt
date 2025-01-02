@@ -1,0 +1,20 @@
+Goals
+Event creation: Enable users to create events by defining key information (title, date, description, etc.).
+Activity creation: Once an event has been created, allow users to associate activities with it (tasks, sub-events).
+Intuitive user interface: Design a modern, easy-to-use user interface using Tailwind CSS.
+Robust database: Use Prisma and PostgreSQL to efficiently manage event and activity data.
+Robust backend framework: Rely on Next.js to structure the application and manage HTTP requests.
+Features
+Event creation
+Creation form: An intuitive form for entering event information (title, description, start date, end date, location, etc.).
+Data validation: Checks the validity of data entered (mandatory fields, correct formats).
+Save to database: Save event information to PostgreSQL database via Prisma.
+Activity creation
+Event list: Displays a list of created events, with the option of selecting an event to add activities.
+Add activity form: A form for entering activity information (title, description, start date, end date).
+Event association: Link the activity to the selected event.
+Activity management: Possibility of modifying, deleting or marking as completed an activity.
+User interface
+Modern design: Use of Tailwind CSS to create a visually appealing and consistent interface.
+Seamless user experience: Optimized user experience through careful transitions and animations.
+Responsiveness: Adaptation of the interface to different screen sizes (desktop, tablet, mobile).

@@ -1,0 +1,222 @@
+{
+  "auth": {
+    "signin": {
+      "signIn": "登录",
+      "signInSubtitle": "欢迎回来！请输入您的详细信息",
+      "branding": {
+        "title": "活动管理",
+        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理" 
+      },
+      "testimonial": {
+        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.",
+        "author": "莎拉·约翰逊",
+        "role": "活动总监"
+      },
+      "emailAddress": "电子邮件地址",
+      "password": "密码",
+      "or": "或继续使用",
+      "continueWith": "使用 {provider} 继续",
+      "noAccount": "没有账号？",
+      "signUp": "注册",
+      "error": "错误",
+      "invalidCredentials": "无效的电子邮件或密码",
+      "unexpectedError": "发生意外错误",
+      "forgotPassword": "忘记密码？"
+    },
+    "forgotPassword": {
+    "title": "重置密码", 
+    "subtitle": "请输入您的电子邮件地址，我们将向您发送重置密码的链接", 
+    "branding": {
+        "title": "活动管理", 
+        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理" 
+    },
+    "testimonial": {
+        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.", 
+        "author": "莎拉·约翰逊", 
+        "role": "活动总监" 
+    },
+    "email": "电子邮件地址", 
+    "submit": "发送重置链接", 
+    "backToSignIn": "记得您的密码了吗？", 
+    "signIn": "登录", 
+    "success": {
+        "title": "查看您的邮箱", 
+        "description": "如果该电子邮件存在账户，我们已经向您发送了密码重置链接。" 
+    },
+    "error": {
+        "title": "错误", 
+        "description": "发送重置链接时出错。请再试一次。" 
+    }
+},
+    "register": {
+      "branding": {
+        "title": "活动管理",
+        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理"
+      },
+      "testimonial": {
+        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.",
+        "author": "莎拉·约翰逊",
+        "role": "活动总监"
+      },
+      "form": {
+        "title": "创建一个账户",
+        "subtitle": "立即开始管理您的活动",
+        "name": "全名",
+        "namePlaceholder": "张三",
+        "email": "电子邮件地址",
+        "emailPlaceholder": "name@example.com",
+        "password": "密码",
+        "passwordPlaceholder": "••••••••",
+        "confirmPassword": "确认密码",
+        "confirmPasswordPlaceholder": "••••••••",
+        "continueWith": "使用 {provider} 继续",
+        "orContinueWith": "或继续使用电子邮件",
+        "submit": "创建账户",
+        "haveAccount": "已有账户？",
+        "signIn": "登录" 
+      },
+      "success": {
+        "title": "注册成功！",
+        "description": "您的账户已创建。请登录。"
+      },
+      "error": {
+        "title": "错误",
+        "description": "出现了一些问题。请再试一次。"
+      }
+    }
+  },
+  "Index": {
+    "featuresNav": "功能",
+    "pricingNav": "定价",
+    "about": "关于",
+    "signUp": "注册",
+    "signIn": "登录",
+    "register": "注册",
+    "hero": {
+        "trustedBy": "受到10,000多位活动组织者的信赖",
+        "title": "转变您的",
+        "titleHighlight": "活动管理体验",
+        "subtitle": "通过强大的自动化、无缝集成和智能洞察来简化您的活动。 一站式平台，让活动策划变得轻松自如。",
+        "startTrial": "开始免费试用",
+        "watchDemo": "观看演示"
+    },
+    "features": {
+      "security": "企业级安全",
+      "noCredit": "无需信用卡",
+      "setup": "分钟内完成设置",
+      "smartScheduling": {
+        "title": "智能排程",
+        "description": "人工智能驱动的排程，自动为所有参与者找到最佳时间。"
+      },
+      "globalReach": {
+        "title": "全球覆盖",
+        "description": "跨时区举办活动，自动时间转换和本地化。"
+      },
+      "instantAnalytics": {
+        "title": "即时分析",
+        "description": "实时了解出席率、参与度和活动表现。"
+      }
+    },
+    "integrations": {
+    "title": "无缝集成",
+    "google": {
+        "title": "Google 日历",
+        "description": "将事件与 Google 日历同步，实现无缝的日程安排和更新。"
+    },
+    "zoom": {
+        "title": "Zoom 会议",
+        "description": "自动创建和管理您的活动相关的 Zoom 会议。"
+    },
+    "slack": {
+        "title": "Slack",
+        "description": "直接在您的 Slack 频道中获取通知和更新。"
+    },
+    "teams": {
+        "title": "Microsoft Teams",
+        "description": "与 Teams 集成以进行协作的活动计划。"
+    }
+},
+"pricing": {
+    "title": "简单透明的定价",
+    "subtitle": "选择最适合您需求的计划",
+    "popular": "最受欢迎",
+    "free": {
+        "title": "免费",
+        "description": "非常适合入门",
+        "price": "$0/月",
+        "button": "开始",
+        "features": {
+            "limit1": "每月最多 5 个活动",
+            "limit2": "基本分析",
+            "limit3": "电子邮件支持",
+            "limit4": "1 个团队成员"
+        }
+    },
+    "pro": {
+        "title": "专业版",
+        "description": "最适合成长中的团队",
+        "price": "$29/月",
+        "button": "开始免费试用",
+        "features": {
+            "limit1": "无限活动",
+            "limit2": "高级分析",
+            "limit3": "优先支持",
+            "limit4": "最多 10 个团队成员",
+            "limit5": "自定义品牌"
+        }
+    },
+    "enterprise": {
+        "title": "企业版",
+        "description": "适用于大型组织",
+        "price": "自定义",
+        "button": "联系销售",
+        "features": {
+            "limit1": "无限一切",
+            "limit2": "7x24 小时优质支持",
+            "limit3": "自定义集成",
+            "limit4": "无限团队成员",
+            "limit5": "高级安全",
+            "limit6": "专属客户经理"
+        }
+    }
+},
+    "testimonials": {
+      "title": "用户评价",
+      "trustedBy": "行业领导者信赖",
+      "testimonial1": {
+        "name": "莎拉·约翰逊",
+        "role": "活动总监",
+        "quote": "这个平台彻底改变了我们管理企业活动的方式。仅自动化功能就为我们节省了无数时间。"
+      }
+    },
+    "cta": {
+      "title": "准备好改变您的活动了吗？",
+      "subtitle": "加入成千上万信任我们平台的成功活动组织者。",
+      "button": "开始免费试用"
+    },
+    "faq": {
+    "title": "常见问题",
+    "subtitle": "关于我们平台的所有信息",
+    "q1": {
+        "question": "免费试用如何运作？",
+        "answer": "开始 14 天的 Pro 计划免费试用。 无需信用卡。 随时取消。"
+    },
+    "q2": {
+        "question": "我以后可以更改计划吗？",
+        "answer": "是的，您可以随时升级或降级您的计划。 更改立即生效。"
+    },
+    "q3": {
+        "question": "您接受哪些付款方式？",
+        "answer": "我们接受所有主要的信用卡、PayPal 和企业客户的银行转账。"
+    },
+    "q4": {
+        "question": "活动数量是否有限制？",
+        "answer": "免费计划每月限于 5 个活动。 专业版和企业版计划拥有无限活动。"
+    },
+    "q5": {
+        "question": "您提供退款吗？",
+        "answer": "是的，如果您对我们的服务不满意，我们提供 30 天退款保证。"
+    }
+}
+  }
+}
