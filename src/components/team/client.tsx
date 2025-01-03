@@ -17,13 +17,10 @@ import {
   UserPlus,
   Search,
   UserCog,
-  CalendarIcon,
-  Users,
-  User,
   Filter,
   Plus,
-  Settings,
-  Calendar as CalendarLucide,
+  Calendar,
+  Users
 } from 'lucide-react'
 import {
   DropdownMenu,
@@ -38,6 +35,17 @@ import {
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu"
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { DatePickerWithRange } from "@/components/ui/date-range-picker"
+import { addDays, format } from "date-fns"
+import { DateRange } from "react-day-picker"
+import { useTranslations } from 'next-intl'
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -46,53 +54,38 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useTranslations } from 'next-intl'
-import { format } from "date-fns"
-import { fr } from "date-fns/locale"
-import { DateRange } from "react-day-picker"
-import { cn } from "@/lib/utils"
-import { Calendar as CalendarComponent } from "@/components/ui/calendar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 
 interface TeamMember {
   id: string
-  user: {
+  user?: {
     id: string
     name: string | null
     email: string | null
     image: string | null
   } | null
-  name: string | null
-  email: string | null
-  role: string
-  event: {
+  name?: string | null
+  email?: string | null
+  role?: string
+  status?: string
+  event?: {
     id: string
     title: string
-    type: string
+    status: string
     createdAt: string
   }
-  permissions: {
+  activity?: {
+    id: string
+    title: string
+    status: string
+    createdAt: string
+  }
+  permissions?: {
     canEdit: boolean
     canDelete: boolean
     canInvite: boolean
   } | null
   joinedAt: string
+  type: 'event' | 'activity'
 }
 
 interface ApiResponse {
@@ -100,164 +93,135 @@ interface ApiResponse {
   activityParticipants: TeamMember[];
 }
 
+interface FilterState {
+  search: string;
+  role: string;
+  entityId: string;
+  dateRange: DateRange | undefined;
+  type: 'all' | 'event' | 'activity';
+}
+
 interface MessageDialogProps {
-  isOpen: boolean
-  onClose: () => void
-  onSend: (subject: string, message: string) => void
+  isOpen: boolean;
+  onClose: () => void;
+  onSend: (subject: string, message: string) => void;
 }
 
 interface InviteDialogProps {
-  isOpen: boolean
-  onClose: () => void
-  onInvite: (email: string, eventId: string) => void
-}
-
-interface FilterState {
-  search: string
-  role: string
-  eventId: string
-  dateRange: DateRange | undefined
+  isOpen: boolean;
+  onClose: () => void;
+  onInvite: (email: string, entityId: string) => void;
 }
 
 function MessageDialog({ isOpen, onClose, onSend }: MessageDialogProps) {
+  const t = useTranslations('team')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
-  const t = useTranslations('team.dialogs.message')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     onSend(subject, message)
     setSubject('')
     setMessage('')
-    onClose()
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{t('title')}</DialogTitle>
-          <DialogDescription>{t('description')}</DialogDescription>
+          <DialogTitle>{t('sendMessage')}</DialogTitle>
+          <DialogDescription>{t('messageDescription')}</DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <Label htmlFor="subject">{t('subjectLabel')}</Label>
-              <Input
-                id="subject"
-                placeholder={t('subjectPlaceholder')}
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </div>
-            <div>
-              <Label htmlFor="message">{t('messageLabel')}</Label>
-              <Textarea
-                id="message"
-                placeholder={t('messagePlaceholder')}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={4}
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={onClose}>
-              {t('cancel')}
-            </Button>
-            <Button type="submit">
-              {t('send')}
-            </Button>
-          </DialogFooter>
-        </form>
+        <div className="space-y-4 py-4">
+          <Input
+            placeholder={t('subject')}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <Textarea
+            placeholder={t('message')}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={4}
+          />
+        </div>
+        <DialogFooter>
+          <Button variant="outline" onClick={onClose}>{t('cancel')}</Button>
+          <Button onClick={handleSubmit}>{t('send')}</Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )
 }
 
 function InviteDialog({ isOpen, onClose, onInvite }: InviteDialogProps) {
+  const t = useTranslations('team')
   const [email, setEmail] = useState('')
-  const [selectedEvent, setSelectedEvent] = useState('')
-  const [events, setEvents] = useState<{ id: string, title: string }[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const t = useTranslations('team.dialogs.invite')
+  const [entityId, setEntityId] = useState('')
+  const [entities, setEntities] = useState<Array<{ id: string; title: string; type: string }>>([])
 
   useEffect(() => {
-    if (isOpen) {
-      fetchEvents()
-    }
-  }, [isOpen])
+    fetchEntities()
+  }, [])
 
-  const fetchEvents = async () => {
+  const fetchEntities = async () => {
     try {
-      const response = await fetch('/api/events')
-      if (!response.ok) throw new Error('Failed to fetch events')
-      const data = await response.json()
-      setEvents(data)
-      if (data.length > 0) {
-        setSelectedEvent(data[0].id)
-      }
+      const [eventsResponse, activitiesResponse] = await Promise.all([
+        fetch('/api/events'),
+        fetch('/api/activities')
+      ])
+      
+      const events = await eventsResponse.json()
+      const activities = await activitiesResponse.json()
+
+      setEntities([
+        ...events.map((e: any) => ({ ...e, type: 'event' })),
+        ...activities.map((a: any) => ({ ...a, type: 'activity' }))
+      ])
     } catch (error) {
-      console.error('Failed to fetch events:', error)
+      console.error('Error fetching entities:', error)
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email && selectedEvent) {
-      onInvite(email, selectedEvent)
-      setEmail('')
-      setSelectedEvent('')
-      onClose()
-    }
+  const handleSubmit = () => {
+    onInvite(email, entityId)
+    setEmail('')
+    setEntityId('')
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{t('title')}</DialogTitle>
-          <DialogDescription>{t('description')}</DialogDescription>
+          <DialogTitle>{t('invite')}</DialogTitle>
+          <DialogDescription>{t('inviteDescription')}</DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div>
-              <Label htmlFor="email">{t('emailLabel')}</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder={t('emailPlaceholder')}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="event">{t('eventLabel')}</Label>
-              <select
-                id="event"
-                value={selectedEvent}
-                onChange={(e) => setSelectedEvent(e.target.value)}
-                className="w-full p-2 border rounded-md"
-                required
-              >
-                {events.map((event) => (
-                  <option key={event.id} value={event.id}>
-                    {event.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={onClose}>
-              {t('cancel')}
-            </Button>
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? t('sending') : t('sendInvite')}
-            </Button>
-          </DialogFooter>
-        </form>
+        <div className="space-y-4 py-4">
+          <Input
+            type="email"
+            placeholder={t('email')}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Select value={entityId} onValueChange={setEntityId}>
+            <SelectTrigger>
+              <SelectValue placeholder={t('selectEntity')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">{t('selectEntity')}</SelectItem>
+              {entities.map((entity) => (
+                <SelectItem key={entity.id} value={entity.id}>
+                  {entity.title} ({t(entity.type)})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <DialogFooter>
+          <Button variant="outline" onClick={onClose}>{t('cancel')}</Button>
+          <Button onClick={handleSubmit} disabled={!email || !entityId}>
+            {t('invite')}
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )
@@ -265,54 +229,51 @@ function InviteDialog({ isOpen, onClose, onInvite }: InviteDialogProps) {
 
 export function TeamClient() {
   const t = useTranslations('team')
-  const commonT = useTranslations('common')
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const [filters, setFilters] = useState<FilterState>({
     search: '',
     role: 'all',
-    eventId: 'all',
-    dateRange: undefined
+    entityId: 'all',
+    dateRange: undefined,
+    type: 'all'
   })
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-  const [events, setEvents] = useState<Array<{ id: string; title: string }>>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [showFilters, setShowFilters] = useState(false)
+  const [isMessageDialogOpen, setIsMessageDialogOpen] = useState(false)
   const [isInviteDialogOpen, setIsInviteDialogOpen] = useState(false)
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
-  const [isMessageDialogOpen, setIsMessageDialogOpen] = useState(false)
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
-  const [showFilters, setShowFilters] = useState(false)
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetchTeamMembers()
-    fetchEvents()
   }, [])
-
-  const fetchEvents = async () => {
-    try {
-      const response = await fetch('/api/events')
-      if (!response.ok) throw new Error('Failed to fetch events')
-      const data = await response.json()
-      setEvents(data)
-    } catch (error) {
-      console.error('Error fetching events:', error)
-    }
-  }
 
   const fetchTeamMembers = async () => {
     try {
       const response = await fetch('/api/team')
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || t('errors.fetchFailed'))
+        throw new Error(t('errors.fetchFailed'))
       }
       const data: ApiResponse = await response.json()
-      // Combine both event members and activity participants
-      setTeamMembers([...data.eventMembers, ...data.activityParticipants])
+      
+      // Transform and tag members by type
+      const eventMembers = data.eventMembers.map(member => ({
+        ...member,
+        type: 'event' as const
+      }))
+      
+      const activityMembers = data.activityParticipants.map(member => ({
+        ...member,
+        type: 'activity' as const,
+        role: member.status || 'participant'
+      }))
+      
+      setTeamMembers([...eventMembers, ...activityMembers])
     } catch (error) {
       console.error('Error fetching team members:', error)
       toast({
-        title: t('common:error'),
+        title: t('errors.title'),
         description: String(error),
         variant: 'destructive',
       })
@@ -321,12 +282,12 @@ export function TeamClient() {
     }
   }
 
-  const handleInvite = async (email: string, eventId: string) => {
+  const handleInvite = async (email: string, entityId: string) => {
     try {
       const response = await fetch('/api/team/invite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, eventId }),
+        body: JSON.stringify({ email, entityId }),
       })
 
       if (!response.ok) throw new Error('Failed to send invitation')
@@ -375,137 +336,152 @@ export function TeamClient() {
     }
   }
 
-  const handleDeleteMember = async () => {
-    if (!selectedMember) return
-
-    try {
-      const response = await fetch(`/api/team/${selectedMember.id}`, {
-        method: 'DELETE',
-      })
-
-      if (!response.ok) throw new Error('Failed to remove member')
-
-      toast({
-        title: t('notifications.memberRemoved'),
-        variant: 'default',
-      })
-      fetchTeamMembers()
-    } catch (error) {
-      console.error('Error removing member:', error)
-      toast({
-        title: t('notifications.removeError'),
-        description: String(error),
-        variant: 'destructive',
-      })
-    } finally {
-      setIsDeleteDialogOpen(false)
-    }
-  }
-
-  const handleRoleChange = async (memberId: string, newRole: string) => {
-    try {
-      setLoading(true)
-      const response = await fetch(`/api/team/${memberId}/role`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ role: newRole }),
-      })
-
-      if (!response.ok) {
-        const error = await response.text()
-        throw new Error(error)
-      }
-
-      const updatedMember = await response.json()
-      setTeamMembers(teamMembers.map(m => m.id === memberId ? updatedMember : m))
-      toast({
-        title: t('notifications.roleUpdated'),
-        variant: 'default',
-      })
-    } catch (error) {
-      console.error('Failed to update role:', error)
-      toast({
-        title: t('notifications.roleError'),
-        description: String(error),
-        variant: 'destructive',
-      })
-    } finally {
-      setLoading(false)
-    }
-  }
-
   const filteredMembers = teamMembers.filter(member => {
+    // Search filter
     const searchLower = filters.search.toLowerCase()
     const name = member.user?.name || member.name || ''
     const email = member.user?.email || member.email || ''
-    const eventTitle = member.event?.title || ''
+    const entityTitle = member.event?.title || member.activity?.title || ''
     
     const matchesSearch = 
       name.toLowerCase().includes(searchLower) ||
       email.toLowerCase().includes(searchLower) ||
-      eventTitle.toLowerCase().includes(searchLower)
+      entityTitle.toLowerCase().includes(searchLower)
 
-    const matchesRole = filters.role === 'all' || member.role.toLowerCase() === filters.role.toLowerCase()
-    
-    const matchesEvent = filters.eventId === 'all' || member.event?.id === filters.eventId
+    // Type filter
+    const matchesType = 
+      filters.type === 'all' || 
+      member.type === filters.type
 
+    // Role filter
+    const matchesRole = 
+      filters.role === 'all' || 
+      (member.role?.toLowerCase() === filters.role.toLowerCase())
+
+    // Entity filter
+    const matchesEntity = 
+      filters.entityId === 'all' || 
+      member.event?.id === filters.entityId ||
+      member.activity?.id === filters.entityId
+
+    // Date range filter
     const matchesDateRange = !filters.dateRange?.from || !filters.dateRange?.to || (
-      member.joinedAt && 
       new Date(member.joinedAt) >= filters.dateRange.from &&
       new Date(member.joinedAt) <= filters.dateRange.to
     )
 
-    return matchesSearch && matchesRole && matchesEvent && matchesDateRange
+    return matchesSearch && matchesType && matchesRole && matchesEntity && matchesDateRange
   })
+
+  const getInitials = (name: string | null | undefined) => {
+    if (!name) return '?'
+    return name
+      .split(' ')
+      .map(word => word[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
+  }
+
+  const getRoleColor = (role: string | undefined) => {
+    switch (role?.toLowerCase()) {
+      case 'owner':
+        return 'bg-yellow-500'
+      case 'admin':
+        return 'bg-red-500'
+      case 'moderator':
+        return 'bg-purple-500'
+      case 'accepted':
+        return 'bg-green-500'
+      case 'pending':
+        return 'bg-yellow-500'
+      case 'declined':
+        return 'bg-red-500'
+      default:
+        return 'bg-blue-500'
+    }
+  }
+
+  const uniqueRoles = Array.from(new Set(teamMembers.map(member => member.role).filter(Boolean)))
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mb-6">
         <div className="flex-1 max-w-sm">
           <div className="relative">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder={t('searchPlaceholder')}
+              placeholder={t('search')}
+              className="pl-8"
               value={filters.search}
               onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
-              className="pl-8"
             />
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
+            size="icon"
             onClick={() => setShowFilters(!showFilters)}
           >
-            <Filter className="mr-2 h-4 w-4" />
-            {t('filters.title')}
+            <Filter className="h-4 w-4" />
           </Button>
-          <Button onClick={() => setIsInviteDialogOpen(true)}>
-            <UserPlus className="mr-2 h-4 w-4" />
-            {t('inviteMember')}
+          <Button
+            variant="default"
+            onClick={() => setIsInviteDialogOpen(true)}
+          >
+            <UserPlus className="h-4 w-4 mr-2" />
+            {t('invite')}
           </Button>
         </div>
       </div>
 
       {showFilters && (
-        <div className="p-4 border rounded-lg space-y-4">
+        <Card className="p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <Label>{t('filters.role')}</Label>
+              <label className="text-sm font-medium mb-2 block">{t('type')}</label>
+              <Select
+                value={filters.type}
+                onValueChange={(value: 'all' | 'event' | 'activity') => 
+                  setFilters(prev => ({ ...prev, type: value }))
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder={t('selectType')} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">{t('allTypes')}</SelectItem>
+                  <SelectItem value="event">{t('eventMembers')}</SelectItem>
+                  <SelectItem value="activity">{t('activityParticipants')}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-2 block">{t('role')}</label>
               <Select
                 value={filters.role}
-                onValueChange={(value) => setFilters(prev => ({ ...prev, role: value }))}
+                onValueChange={(value) => 
+                  setFilters(prev => ({ ...prev, role: value }))
+                }
               >
                 <SelectTrigger>
-                  <SelectValue placeholder={t('filters.allRoles')} />
+                  <SelectValue placeholder={t('selectRole')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">{t('filters.allRoles')}</SelectItem>
-                  {['owner', 'admin', 'moderator', 'member', 'guest'].map((role) => (
-                    <SelectItem key={role} value={role}>
-                      {t(`roles.${role}`)}
+                  <SelectItem value="all">{t('allRoles')}</SelectItem>
+                  {uniqueRoles.map((role) => (
+                    <SelectItem key={role} value={role?.toLowerCase() || ''}>
+                      {role}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -513,219 +489,112 @@ export function TeamClient() {
             </div>
 
             <div>
-              <Label>{t('filters.event')}</Label>
-              <Select
-                value={filters.eventId}
-                onValueChange={(value) => setFilters(prev => ({ ...prev, eventId: value }))}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder={t('filters.allEvents')} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">{t('filters.allEvents')}</SelectItem>
-                  {events.map((event) => (
-                    <SelectItem key={event.id} value={event.id}>
-                      {event.title}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <Label>{t('filters.joinDate')}</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className={cn(
-                      "w-full justify-start text-left font-normal",
-                      !filters.dateRange && "text-muted-foreground"
-                    )}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {filters.dateRange?.from ? (
-                      filters.dateRange.to ? (
-                        <>
-                          {format(filters.dateRange.from, "P", { locale: fr })} -{" "}
-                          {format(filters.dateRange.to, "P", { locale: fr })}
-                        </>
-                      ) : (
-                        format(filters.dateRange.from, "P", { locale: fr })
-                      )
-                    ) : (
-                      t('filters.selectDateRange')
-                    )}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <CalendarComponent
-                    initialFocus
-                    mode="range"
-                    defaultMonth={filters.dateRange?.from}
-                    selected={filters.dateRange}
-                    onSelect={(range) => setFilters(prev => ({ ...prev, dateRange: range }))}
-                    numberOfMonths={2}
-                  />
-                </PopoverContent>
-              </Popover>
+              <label className="text-sm font-medium mb-2 block">{t('dateRange')}</label>
+              <DatePickerWithRange
+                date={filters.dateRange}
+                onChange={(range) => 
+                  setFilters(prev => ({ ...prev, dateRange: range }))
+                }
+              />
             </div>
           </div>
 
-          <div className="flex justify-end gap-2">
+          <div className="mt-4 flex justify-end">
             <Button
               variant="outline"
               onClick={() => setFilters({
                 search: '',
                 role: 'all',
-                eventId: 'all',
-                dateRange: undefined
+                entityId: 'all',
+                dateRange: undefined,
+                type: 'all'
               })}
             >
-              {t('filters.reset')}
+              {t('resetFilters')}
             </Button>
           </div>
-        </div>
+        </Card>
       )}
 
-      {isLoading ? (
-        <div className="text-center py-8">{t('loading')}</div>
-      ) : filteredMembers.length === 0 ? (
-        <div className="text-center py-8">
-          <p className="text-muted-foreground">
-            {teamMembers.length === 0 ? t('createFirstMember') : t('noMembers')}
-          </p>
-        </div>
-      ) : (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filteredMembers.map((member) => (
-            <Card key={member.id} className="p-4">
-              <div className="flex items-start justify-between">
-                <div className="flex items-center space-x-4">
-                  <Avatar>
-                    <AvatarImage src={member.user?.image || undefined} />
-                    <AvatarFallback>
-                      {(member.user?.name || member.name || 'U')[0].toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-medium">
-                      {member.user?.name || member.name || t('common:anonymous')}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {member.user?.email || member.email}
-                    </div>
-                    <div className="flex items-center gap-2 mt-1">
-                      <Badge variant="secondary">
-                        {t(`roles.${member.role.toLowerCase()}`)}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {t('joinedAt')} {member.joinedAt ? new Date(member.joinedAt).toLocaleDateString() : t('unknown')}
-                      </span>
-                    </div>
-                  </div>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {filteredMembers.map((member) => (
+          <Card key={member.id} className="p-4">
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <Avatar>
+                  <AvatarImage src={member.user?.image || undefined} />
+                  <AvatarFallback>
+                    {getInitials(member.user?.name || member.name)}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="font-medium">
+                    {member.user?.name || member.name || t('anonymous')}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {member.user?.email || member.email || t('noEmail')}
+                  </p>
                 </div>
-
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="h-8 w-8 p-0">
-                      <MoreVertical className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>{t('actions.title')}</DropdownMenuLabel>
-                    <DropdownMenuItem
-                      onClick={() => {
-                        setSelectedMember(member)
-                        setIsMessageDialogOpen(true)
-                      }}
-                    >
-                      <Mail className="mr-2 h-4 w-4" />
-                      {t('actions.message')}
-                    </DropdownMenuItem>
-
-                    {member.permissions?.canEdit && (
-                      <DropdownMenuSub>
-                        <DropdownMenuSubTrigger>
-                          <Shield className="mr-2 h-4 w-4" />
-                          {t('actions.changeRole')}
-                        </DropdownMenuSubTrigger>
-                        <DropdownMenuPortal>
-                          <DropdownMenuSubContent>
-                            <DropdownMenuItem
-                              onClick={() => handleRoleChange(member.id, 'OWNER')}
-                              disabled={loading || member.role === 'OWNER'}
-                            >
-                              <Crown className="mr-2 h-4 w-4" />
-                              {t('roles.owner')}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => handleRoleChange(member.id, 'ADMIN')}
-                              disabled={loading}
-                            >
-                              <UserCog className="mr-2 h-4 w-4" />
-                              {t('roles.admin')}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => handleRoleChange(member.id, 'MODERATOR')}
-                              disabled={loading}
-                            >
-                              <User className="mr-2 h-4 w-4" />
-                              {t('roles.moderator')}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => handleRoleChange(member.id, 'MEMBER')}
-                              disabled={loading}
-                            >
-                              <User className="mr-2 h-4 w-4" />
-                              {t('roles.member')}
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              onClick={() => handleRoleChange(member.id, 'GUEST')}
-                              disabled={loading}
-                            >
-                              <User className="mr-2 h-4 w-4" />
-                              {t('roles.guest')}
-                            </DropdownMenuItem>
-                          </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                      </DropdownMenuSub>
-                    )}
-
-                    {member.permissions?.canDelete && (
-                      <DropdownMenuItem
-                        className="text-red-600"
-                        onClick={() => {
-                          setSelectedMember(member)
-                          setIsDeleteDialogOpen(true)
-                        }}
-                      >
-                        <Trash2 className="mr-2 h-4 w-4" />
-                        {t('actions.remove')}
-                      </DropdownMenuItem>
-                    )}
-                  </DropdownMenuContent>
-                </DropdownMenu>
               </div>
-
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <MoreVertical className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>{t('actions')}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => {
+                    setSelectedMember(member)
+                    setIsMessageDialogOpen(true)
+                  }}>
+                    <Mail className="mr-2 h-4 w-4" />
+                    {t('sendMessage')}
+                  </DropdownMenuItem>
+                  {member.type === 'event' && (
+                    <DropdownMenuItem>
+                      <UserCog className="mr-2 h-4 w-4" />
+                      {t('manageRole')}
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem className="text-red-600">
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    {t('remove')}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Badge variant="secondary" className={getRoleColor(member.role)}>
+                {member.role || t('member')}
+              </Badge>
+              <Badge variant="outline">
+                {member.type === 'event' ? t('eventMember') : t('activityParticipant')}
+              </Badge>
               {member.event && (
-                <div className="mt-2 text-sm text-muted-foreground">
-                  <CalendarLucide className="inline-block mr-1 h-4 w-4" />
-                  {member.event.title}
-                </div>
+                <Badge variant="outline">
+                  {t('event')}: {member.event.title}
+                </Badge>
               )}
-            </Card>
-          ))}
+              {member.activity && (
+                <Badge variant="outline">
+                  {t('activity')}: {member.activity.title}
+                </Badge>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      {filteredMembers.length === 0 && (
+        <div className="text-center py-8">
+          <p className="text-muted-foreground">{t('noResults')}</p>
         </div>
       )}
 
-      <InviteDialog
-        isOpen={isInviteDialogOpen}
-        onClose={() => setIsInviteDialogOpen(false)}
-        onInvite={handleInvite}
-      />
-
-      <MessageDialog
+      <MessageDialog 
         isOpen={isMessageDialogOpen}
         onClose={() => {
           setIsMessageDialogOpen(false)
@@ -734,22 +603,11 @@ export function TeamClient() {
         onSend={handleSendMessage}
       />
 
-      <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t('dialogs.remove.title')}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t('dialogs.remove.description')}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t('dialogs.remove.cancel')}</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDeleteMember}>
-              {t('dialogs.remove.confirm')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <InviteDialog
+        isOpen={isInviteDialogOpen}
+        onClose={() => setIsInviteDialogOpen(false)}
+        onInvite={handleInvite}
+      />
     </div>
   )
 }

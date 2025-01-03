@@ -189,7 +189,7 @@ export default function ActivityPage({ params }: ActivityPageProps) {
           isSubmitting={isSubmitting}
           isDeleting={isDeleting}
         />
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <ActivityParticipants
             activityId={activity.id}
             capacity={activity.capacity}
@@ -197,7 +197,7 @@ export default function ActivityPage({ params }: ActivityPageProps) {
             initialParticipants={activity.participants}
             onParticipantChange={handleParticipantChange}
           />
-        </div>
+        </div> */}
       </div>
     </DashboardLayout>
   )

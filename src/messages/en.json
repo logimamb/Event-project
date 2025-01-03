@@ -382,6 +382,21 @@
       "privacy":"Privacy"
     }
   },
+  "team": {
+    "errors":{
+      "fetchFailed": "Failed to fetch team members"
+    },
+    "status": "Status",
+    "search":"Search team members...",
+    "actions":"Actions",
+    "sendMessage":"Send Message",
+    "teamMembers":"Team Members",
+    "manageRole":"Manage Role",
+    "remove":"Remove",
+    "event": "Event",
+    "activity": "Activity",
+    "noResults": "No results found"
+  },
   "dashboard": {
     "noRecentEvents": "No recent events",
     "title": "Dashboard",
@@ -445,16 +460,24 @@
   "events": {
     "form": {
       "createTitle":"Create Event",
+      "helpTitle": "Help",
       "titleLabel":"Event Title",
       "titlePlaceholder":"Enter event title",
       "descriptionLabel":"Event Description",
       "descriptionPlaceholder":"Enter event description",
       "editTitle":"Edit Event",
-      "title": "Title",
+      "creating":"Creating...",
       "description": "Description",
       "startDateLabel":"Start Date",
       "endDateLabel":"End Date",
       "countryLabel":"Country",
+      "helpTip1":"Select a start and end date for your event",
+      "helpTip2":"Select a start and end date for your event",
+      "helpTip3":"Select a start and end date for your event",
+      "previewTitle":"Preview",
+      "previewDescription":"Preview description",
+      "title":"Title",
+      "description":"Description",
       "countryPlaceholder":"Select country",
       "cityLabel":"City",
       "cityPlaceholder":"Enter city",
@@ -494,7 +517,8 @@
       "completed": "Completed",
       "cancelled": "Cancelled",
       "pending": "Pending",
-      "published": "Published"
+      "published": "Published",
+      "draft": "Draft"
     },
     "participations": "Participations",
     "viewDetails": "View Details",
@@ -519,6 +543,7 @@
     "FailedToDeleteEvent": "Failed to delete event. Please try again later."
   },
   "activities": {
+    "create":"Create Activity",
     "title": "Activities",
     "description": "Track and manage event activities",
     "createActivity": "Create Activity",
