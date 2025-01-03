@@ -1,118 +1,287 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DateRange } from 'react-day-picker'
 import { motion } from 'framer-motion'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line } from 'recharts'
+import { format } from 'date-fns'
+import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { Progress } from '@/components/ui/progress'
 
 interface ActivityAnalyticsProps {
   dateRange: DateRange | null
 }
 
-const activityProgress = [
-  { status: 'Completed', count: 245, percentage: 45 },
-  { status: 'In Progress', count: 180, percentage: 33 },
-  { status: 'Not Started', count: 120, percentage: 22 },
-]
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82ca9d']
 
-const activityTrends = [
-  { day: 'Mon', completed: 42, inProgress: 28, notStarted: 15 },
-  { day: 'Tue', completed: 38, inProgress: 32, notStarted: 18 },
-  { day: 'Wed', completed: 45, inProgress: 25, notStarted: 12 },
-  { day: 'Thu', completed: 40, inProgress: 30, notStarted: 20 },
-  { day: 'Fri', completed: 35, inProgress: 35, notStarted: 22 },
-  { day: 'Sat', completed: 30, inProgress: 40, notStarted: 25 },
-  { day: 'Sun', completed: 25, inProgress: 45, notStarted: 28 },
-]
+interface AnalyticsData {
+  activitiesByStatus: { name: string; value: number }[]
+  activityTrends: { month: string; activities: number; participants: number }[]
+  participationStats: {
+    totalParticipants: number
+    averageParticipants: number
+    maxParticipants: number
+  }
+  timeDistribution: {
+    morning: number
+    afternoon: number
+    evening: number
+  }
+  statusDistribution: { status: string; count: number }[]
+  completionRate: number
+}
 
-const completionRate = [
-  { week: 'W1', rate: 75 },
-  { week: 'W2', rate: 82 },
-  { week: 'W3', rate: 78 },
-  { week: 'W4', rate: 85 },
-  { week: 'W5', rate: 88 },
-  { week: 'W6', rate: 92 },
-]
+const EMPTY_DATA: AnalyticsData = {
+  activitiesByStatus: [],
+  activityTrends: [],
+  participationStats: {
+    totalParticipants: 0,
+    averageParticipants: 0,
+    maxParticipants: 0
+  },
+  timeDistribution: {
+    morning: 0,
+    afternoon: 0,
+    evening: 0
+  },
+  statusDistribution: [],
+  completionRate: 0
+}
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-4 rounded-lg shadow-lg border">
+        <p className="font-semibold">{label}</p>
+        {payload.map((entry: any, index: number) => (
+          <p key={index} style={{ color: entry.color }}>
+            {entry.name}: {entry.value}
+          </p>
+        ))}
+      </div>
+    )
+  }
+  return null
+}
+
+const CustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name, value }: any) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
+  const x = cx + radius * Math.cos(-midAngle * Math.PI / 180)
+  const y = cy + radius * Math.sin(-midAngle * Math.PI / 180)
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? 'start' : 'end'}
+      dominantBaseline="central"
+      className="text-xs"
+    >
+      {`${name} (${value})`}
+    </text>
+  )
+}
 
 export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
+  const [data, setData] = useState<AnalyticsData>(EMPTY_DATA)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchAnalytics() {
+      try {
+        setLoading(true)
+        const params = new URLSearchParams()
+        if (dateRange?.from) {
+          params.append('from', format(dateRange.from, 'yyyy-MM-dd'))
+        }
+        if (dateRange?.to) {
+          params.append('to', format(dateRange.to, 'yyyy-MM-dd'))
+        }
+
+        const response = await fetch(`/api/analytics/activities?${params.toString()}`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch analytics data')
+        }
+
+        const analyticsData = await response.json()
+        setData(analyticsData)
+        setError(null)
+      } catch (err) {
+        console.error('Error fetching analytics:', err)
+        setError(err instanceof Error ? err.message : 'Failed to load analytics data')
+        setData(EMPTY_DATA)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchAnalytics()
+  }, [dateRange])
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <LoadingSpinner size="lg" />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px] text-red-500">
+        {error}
+      </div>
+    )
+  }
+
+  // Show empty state if no data
+  if (data.activitiesByStatus.length === 0 && data.activityTrends.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px] text-muted-foreground">
+        No activities found for the selected time period
+      </div>
+    )
+  }
+
+  // Convert timeDistribution to array format for charts
+  const timeSlotData = Object.entries(data.timeDistribution).map(([name, value]) => ({
+    name: name.charAt(0).toUpperCase() + name.slice(1),
+    value
+  }))
+
+  // Calculate total activities
+  const totalActivities = data.activitiesByStatus.reduce((sum, item) => sum + item.value, 0)
+
   return (
     <div className="space-y-8">
-      {/* Activity Status Overview */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="grid gap-4 md:grid-cols-3"
-      >
-        {activityProgress.map((status, index) => (
-          <Card key={status.status}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                {status.status}
-              </CardTitle>
-              <span className="text-2xl font-bold">{status.count}</span>
-            </CardHeader>
-            <CardContent>
-              <Progress value={status.percentage} className="h-2" />
-              <p className="text-xs text-muted-foreground mt-2">
-                {status.percentage}% of total activities
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </motion.div>
-
-      {/* Activity Trends */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
+      {/* Summary Cards */}
+      <div className="grid gap-4 md:grid-cols-4">
         <Card>
-          <CardHeader>
-            <CardTitle>Activity Trends</CardTitle>
-            <CardDescription>Daily activity status distribution</CardDescription>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Activities</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={activityTrends}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="day" />
-                  <YAxis />
-                  <Tooltip />
-                  <Area
-                    type="monotone"
-                    dataKey="completed"
-                    stackId="1"
-                    stroke="#4CAF50"
-                    fill="#4CAF50"
-                    name="Completed"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="inProgress"
-                    stackId="1"
-                    stroke="#2196F3"
-                    fill="#2196F3"
-                    name="In Progress"
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="notStarted"
-                    stackId="1"
-                    stroke="#FFC107"
-                    fill="#FFC107"
-                    name="Not Started"
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            <div className="text-2xl font-bold">{totalActivities}</div>
           </CardContent>
         </Card>
-      </motion.div>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Participants</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{data.participationStats.totalParticipants}</div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Avg. Participants</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{data.participationStats.averageParticipants}</div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(data.completionRate)}%</div>
+            <Progress value={data.completionRate} className="mt-2" />
+          </CardContent>
+        </Card>
+      </div>
 
-      {/* Completion Rate */}
+      {/* Activity Status Distribution */}
+      {data.activitiesByStatus.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Activity Status Distribution</CardTitle>
+              <CardDescription>
+                Distribution of activities by status ({totalActivities} total activities)
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={data.activitiesByStatus}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={CustomPieLabel}
+                      outerRadius={100}
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
+                      {data.activitiesByStatus.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip content={CustomTooltip} />
+                    <Legend />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      )}
+
+      {/* Activity Trends */}
+      {data.activityTrends.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Activity Trends</CardTitle>
+              <CardDescription>
+                Monthly trends of activities and participants
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={data.activityTrends}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="month" />
+                    <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+                    <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                    <Tooltip content={CustomTooltip} />
+                    <Legend />
+                    <Line
+                      yAxisId="left"
+                      type="monotone"
+                      dataKey="activities"
+                      stroke="#8884d8"
+                      name="Activities"
+                    />
+                    <Line
+                      yAxisId="right"
+                      type="monotone"
+                      dataKey="participants"
+                      stroke="#82ca9d"
+                      name="Participants"
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      )}
+
+      {/* Time Distribution */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -120,30 +289,69 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
       >
         <Card>
           <CardHeader>
-            <CardTitle>Completion Rate</CardTitle>
-            <CardDescription>Weekly activity completion rate</CardDescription>
+            <CardTitle>Time Distribution</CardTitle>
+            <CardDescription>
+              Distribution of activities across different times of day
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={completionRate}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="week" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line
-                    type="monotone"
-                    dataKey="rate"
-                    stroke="#8884d8"
-                    strokeWidth={2}
-                    name="Completion Rate"
-                  />
-                </LineChart>
+                <PieChart>
+                  <Pie
+                    data={timeSlotData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={CustomPieLabel}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {timeSlotData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip content={CustomTooltip} />
+                  <Legend />
+                </PieChart>
               </ResponsiveContainer>
             </div>
           </CardContent>
         </Card>
       </motion.div>
+
+      {/* Status Distribution Over Time */}
+      {data.statusDistribution.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Status Distribution</CardTitle>
+              <CardDescription>
+                Distribution of activities by their current status
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={data.statusDistribution}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="status" />
+                    <YAxis />
+                    <Tooltip content={CustomTooltip} />
+                    <Legend />
+                    <Bar dataKey="count" fill="#8884d8" name="Activities" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      )}
     </div>
   )
-} 
+}

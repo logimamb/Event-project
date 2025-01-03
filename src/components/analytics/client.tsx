@@ -12,6 +12,7 @@ import { AttendeeAnalytics } from './attendee-analytics'
 import { DateRange } from 'react-day-picker'
 import { addDays, subDays } from 'date-fns'
 import { useTranslations } from '@/lib/use-translations'
+import { WaitAnalytics } from './wait-analytics'
 
 export function AnalyticsClient() {
   const { t } = useTranslations()
@@ -77,7 +78,7 @@ export function AnalyticsClient() {
           </TabsContent>
 
           <TabsContent value="attendees" className="space-y-4">
-            <AttendeeAnalytics dateRange={dateRange} />
+            <WaitAnalytics dateRange={dateRange} />
           </TabsContent>
         </Tabs>
       </motion.div>
