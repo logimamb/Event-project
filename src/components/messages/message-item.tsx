@@ -72,11 +72,39 @@ function getInitials(name: string | null) {
     .toUpperCase()
 }
 
+// Function to strip HTML tags and format the content
+function formatMessageContent(content: string): string {
+  // First, extract key information using regex
+  const dateMatch = content.match(/Date: ([^<]+)/);
+  const timeMatch = content.match(/Time: ([^<]+)/);
+  const locationMatch = content.match(/Location: ([^<]+)/);
+  const codeMatch = content.match(/participation code is: ([^<]+)/);
+
+  // If this is an activity invitation (contains these patterns), format it nicely
+  if (dateMatch || timeMatch || locationMatch) {
+    const parts = [];
+    if (dateMatch) parts.push(`Date: ${dateMatch[1].trim()}`);
+    if (timeMatch) parts.push(`Time: ${timeMatch[1].trim()}`);
+    if (locationMatch) parts.push(`Location: ${locationMatch[1].trim()}`);
+    if (codeMatch) parts.push(`Code: ${codeMatch[1].trim()}`);
+    
+    return parts.join(' • ');
+  }
+
+  // For other messages, just strip HTML tags
+  return content
+    .replace(/<[^>]+>/g, '') // Remove HTML tags
+    .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+    .trim();
+}
+
 export function MessageItem({ message, session, onStar, onArchive }: MessageItemProps) {
   const sender = message.fromUser || message.sender
   const receiver = message.toUser || message.receiver
   const isCurrentUserSender = sender?.id === session?.user?.id
   const otherUser = isCurrentUserSender ? receiver : sender
+
+  const formattedContent = formatMessageContent(message.content)
 
   return (
     <div className="p-4 hover:bg-accent/50 transition-colors">
@@ -157,7 +185,7 @@ export function MessageItem({ message, session, onStar, onArchive }: MessageItem
             )}
           </div>
           <div className="font-medium">{message.subject}</div>
-          <p className="text-sm text-muted-foreground line-clamp-2">{message.content}</p>
+          <p className="text-sm text-muted-foreground line-clamp-2">{formattedContent}</p>
           {message.attachments && message.attachments.length > 0 && (
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Paperclip className="h-4 w-4" />

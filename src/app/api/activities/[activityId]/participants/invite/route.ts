@@ -23,6 +23,7 @@ export async function POST(
       select: {
         id: true,
         title: true,
+        description: true,
         capacity: true,
         currentParticipants: true,
         startTime: true,
@@ -84,7 +85,43 @@ export async function POST(
       data: { currentParticipants: { increment: 1 } }
     })
 
-    // Send email invitation
+    // Find or create recipient user for messages
+    let recipientUser = await prisma.user.findUnique({
+      where: { email }
+    })
+
+    if (!recipientUser) {
+      recipientUser = await prisma.user.create({
+        data: {
+          email,
+          name: name || email.split('@')[0],
+        }
+      })
+    }
+
+    // Store a simple message in the database
+    await prisma.message.create({
+      data: {
+        subject: `New Activity: ${activity.title}`,
+        content: activity.description || `You have been invited to participate in this activity.`,
+        status: 'SENT',
+        type: 'EVENT',
+        priority: 'MEDIUM',
+        category: 'EVENT',
+        fromUser: {
+          connect: {
+            id: session.user.id
+          }
+        },
+        toUser: {
+          connect: {
+            id: recipientUser.id
+          }
+        }
+      }
+    })
+
+    // Create HTML email content for the actual email
     const emailHtml = `
       <h1>You've been invited to an activity!</h1>
       <p>Hello ${name || 'there'},</p>
@@ -100,6 +137,7 @@ export async function POST(
       <img src="${qrCodeUrl}" alt="QR Code" style="width: 200px; height: 200px;" />
     `
 
+    // Send email invitation with HTML content
     await sendEmail({
       to: email,
       subject: `Invitation to ${activity.title}`,

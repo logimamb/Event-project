@@ -4,13 +4,14 @@ import { prisma } from '@/lib/prisma'
 import { authOptions } from '@/lib/auth'
 import { nanoid } from 'nanoid'
 import * as z from 'zod'
+import { format } from 'date-fns'
 
 const memberSchema = z.object({
   eventId: z.string(),
-  email: z.string().email().optional(),
-  phoneNumber: z.string().min(10).optional(),
-  name: z.string().min(1),
-  role: z.enum(['MEMBER', 'MODERATOR', 'ADMIN']),
+  email: z.string().email(),
+  name: z.string().min(1, 'Name is required'),
+  phoneNumber: z.string().optional(),
+  role: z.enum(['OWNER', 'ADMIN', 'MEMBER', 'GUEST']).default('GUEST'),
 }).refine((data) => data.email || data.phoneNumber, {
   message: "Either email or phone number must be provided",
   path: ["email"]
@@ -106,6 +107,44 @@ export async function POST(req: Request) {
         }
       }
     })
+
+    // Fetch complete event data with all required fields
+    const eventDetails = await prisma.event.findUnique({
+      where: { id: validatedData.eventId },
+      select: {
+        title: true,
+        startDate: true,
+        location: true
+      }
+    });
+
+    if (!eventDetails) {
+      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+    }
+
+    try {
+      // Create a message for the new member
+      const message = await prisma.message.create({
+        data: {
+          subject: `Event Invitation: ${eventDetails.title}`,
+          content: `You've been invited to participate in: ${eventDetails.title}\n\nDetails:\n• Date: ${format(eventDetails.startDate, 'PPp')}\n• Location: ${eventDetails.location || 'Not specified'}\n\nPlease check your email for more details.`,
+          type: 'EVENT',
+          priority: 'MEDIUM',
+          category: 'EVENT',
+          fromUserId: session.user.id,
+          toUserId: user.id,
+          status: 'SENT',
+          isArchived: false,
+          isStarred: false,
+          isScheduled: false,
+        }
+      });
+
+      console.log('Created message:', message);
+    } catch (error) {
+      console.error('Error creating message:', error);
+      // Don't fail the request if message creation fails
+    }
 
     return NextResponse.json(member, { status: 201 })
   } catch (error) {

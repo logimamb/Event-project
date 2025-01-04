@@ -35,7 +35,7 @@ import { Loader2, Mail, User } from 'lucide-react'
 const formSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
   name: z.string().min(1, 'Please enter a name'),
-  role: z.enum(['OWNER', 'ADMIN', 'MODERATOR', 'MEMBER', 'GUEST']).default('GUEST'),
+  role: z.enum(['OWNER', 'ADMIN', 'MEMBER', 'GUEST']).default('GUEST'),
 })
 
 interface AddMemberDialogProps {
@@ -174,7 +174,6 @@ export function AddMemberDialog({ eventId, onMemberAdded, trigger }: AddMemberDi
                     <SelectContent>
                       <SelectItem value="GUEST">Guest</SelectItem>
                       <SelectItem value="MEMBER">Member</SelectItem>
-                      <SelectItem value="MODERATOR">Moderator</SelectItem>
                       <SelectItem value="ADMIN">Admin</SelectItem>
                     </SelectContent>
                   </Select>
