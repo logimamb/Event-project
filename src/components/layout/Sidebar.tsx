@@ -16,7 +16,8 @@ import {
   Settings, 
   BarChart3,
   X,
-  Bell 
+  Bell,
+  MessageSquare 
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -42,6 +43,12 @@ const navigation = [
     href: '/activities',
     icon: ListTodo,
     color: 'text-purple-500',
+  },
+  {
+    name: 'Messages',
+    href: '/messages',
+    icon: MessageSquare,
+    color: 'text-yellow-500',
   },
   {
     name: 'Analytics',

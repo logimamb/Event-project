@@ -29,8 +29,8 @@ model User {
   reminderDefault        Int?                   @default(30)
   timezone               String?                @default("UTC")
   visibility             String?                @default("PRIVATE")
-  sentMessages     Message[] @relation("SentMessages")
-  receivedMessages Message[] @relation("ReceivedMessages")
+  sentMessages           Message[]              @relation("SentMessages")
+  receivedMessages       Message[]              @relation("ReceivedMessages")
   accounts               Account[]
   activities             Activity[]
   activityParticipations ActivityParticipant[]
@@ -41,10 +41,15 @@ model User {
   Location               Location?              @relation(fields: [locationId], references: [id])
   verificationCodes      VerificationCode[]
   eventShares           EventShare[]           @relation("sharedByUser")
-  settings      UserSettings?
-  teams         TeamMember[]
-  ownedTeams    Team[]       @relation("TeamOwner")
-  testimonials  Testimonial[]
+  settings              UserSettings?
+  teams                 TeamMember[]
+  ownedTeams            Team[]                 @relation("TeamOwner")
+  testimonials          Testimonial[]
+  messageMentions       MessageMention[]       @relation("MessageMentions")
+  messageReads          MessageRead[]
+  messageTemplates       MessageTemplate[]
+  messageLabels         MessageLabel[]
+  messageDrafts         MessageDraft[]
 
   @@index([locationId])
 }
@@ -194,16 +199,20 @@ model EventAttendee {
 }
 
 model Team {
-  id           String        @id @default(cuid())
+  id               String            @id @default(cuid())
   name         String
   description  String?       @db.Text
   image        String?
-  ownerId      String
   owner        User          @relation("TeamOwner", fields: [ownerId], references: [id])
+  ownerId      String
   members      TeamMember[]
   activities   Activity[]
   events       Event[]
+  messages     Message[]
   testimonials Testimonial[]
+  messageTemplates MessageTemplate[]
+  messageLabels    MessageLabel[]
+  messageDrafts    MessageDraft[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 
@@ -388,19 +397,176 @@ enum MemberRole {
 }
 
 model Message {
-  id          String      @id @default(cuid())
-  fromUser    User        @relation("SentMessages", fields: [fromUserId], references: [id])
-  fromUserId  String
-  toUser      User        @relation("ReceivedMessages", fields: [toUserId], references: [id])
-  toUserId    String
-  subject     String
-  content     String      @db.Text
-  status      String      @default("SENT") // SENT, DELIVERED, READ
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id              String           @id @default(cuid())
+  fromUser        User            @relation("SentMessages", fields: [fromUserId], references: [id])
+  fromUserId      String
+  toUser          User            @relation("ReceivedMessages", fields: [toUserId], references: [id])
+  toUserId        String
+  subject         String
+  content         String          @db.Text
+  status          MessageStatus   @default(SENT)
+  type            MessageType     @default(DIRECT)
+  priority        Priority        @default(MEDIUM)
+  category        MessageCategory @default(GENERAL)
+  teamId          String?
+  team            Team?           @relation(fields: [teamId], references: [id])
+  parentId        String?         // For message threading
+  parent          Message?        @relation("MessageThread", fields: [parentId], references: [id])
+  replies         Message[]       @relation("MessageThread")
+  attachments     MessageAttachment[]
+  labels          MessageLabel[]
+  readBy          MessageRead[]
+  mentions        MessageMention[]
+  dueDate         DateTime?       // For task-type messages
+  reminderDate    DateTime?       // For scheduling reminders
+  isArchived      Boolean         @default(false)
+  isStarred       Boolean         @default(false)
+  isScheduled     Boolean         @default(false)
+  scheduledFor    DateTime?       // For scheduled/delayed sending
+  metadata        Json?           // For extensible properties
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
 
   @@index([fromUserId])
   @@index([toUserId])
+  @@index([teamId])
+  @@index([parentId])
+  @@index([category])
+}
+
+enum MessageStatus {
+  DRAFT
+  SCHEDULED
+  SENT
+  DELIVERED
+  READ
+  ARCHIVED
+  DELETED
+}
+
+enum MessageType {
+  DIRECT
+  TEAM
+  ANNOUNCEMENT
+  TASK
+  EVENT
+  REMINDER
+  FEEDBACK
+}
+
+enum MessageCategory {
+  GENERAL
+  PROJECT
+  MEETING
+  TASK
+  EVENT
+  FEEDBACK
+  APPROVAL
+  REPORT
+  ANNOUNCEMENT
+  QUESTION
+}
+
+model MessageTemplate {
+  id          String    @id @default(cuid())
+  title       String
+  content     String    @db.Text
+  type        MessageType
+  category    String    // e.g., "Welcome", "Task Assignment", "Meeting Follow-up"
+  variables   String[]  // Placeholder variables like {userName}, {taskName}
+  teamId      String?
+  team        Team?     @relation(fields: [teamId], references: [id])
+  createdById String
+  createdBy   User      @relation(fields: [createdById], references: [id])
+  isGlobal    Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([teamId])
+  @@index([createdById])
+}
+
+model MessageAttachment {
+  id          String   @id @default(cuid())
+  messageId   String
+  message     Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  filename    String
+  fileType    String   // MIME type
+  fileSize    Int      // in bytes
+  url         String   // Storage URL
+  uploadedAt  DateTime @default(now())
+  isDeleted   Boolean  @default(false)
+
+  @@index([messageId])
+}
+
+model MessageLabel {
+  id          String    @id @default(cuid())
+  name        String
+  color       String    // Hex color code
+  icon        String?   // Icon identifier
+  teamId      String?
+  team        Team?     @relation(fields: [teamId], references: [id])
+  createdById String
+  createdBy   User      @relation(fields: [createdById], references: [id])
+  messages    Message[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([name, teamId])
+  @@index([teamId])
+  @@index([createdById])
+}
+
+model MessageRead {
+  id          String   @id @default(cuid())
+  messageId   String
+  userId      String
+  readAt      DateTime @default(now())
+  deviceType  String?  // mobile, desktop, tablet
+  deviceInfo  String?  // Browser/app info
+  message     Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId])
+  @@index([messageId])
+  @@index([userId])
+}
+
+model MessageMention {
+  id              String    @id @default(cuid())
+  messageId       String
+  userId          String
+  message         Message   @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user            User      @relation("MessageMentions", fields: [userId], references: [id])
+  isRead          Boolean   @default(false)
+  notifyEmail     Boolean   @default(true)
+  notifyPush      Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+
+  @@unique([messageId, userId])
+  @@index([messageId])
+  @@index([userId])
+}
+
+model MessageDraft {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  subject     String?
+  content     String?   @db.Text
+  toUserIds   String[]  // Array of recipient user IDs
+  teamId      String?
+  team        Team?     @relation(fields: [teamId], references: [id])
+  type        MessageType @default(DIRECT)
+  priority    Priority    @default(MEDIUM)
+  category    MessageCategory @default(GENERAL)
+  attachments Json?      // Array of temporary attachment info
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([teamId])
 }
 
 model EventShare {

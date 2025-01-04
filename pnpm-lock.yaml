@@ -227,6 +227,9 @@ importers:
       stripe:
         specifier: ^17.4.0
         version: 17.4.0
+      swr:
+        specifier: ^2.3.0
+        version: 2.3.0(react@18.3.1)
       tailwind-merge:
         specifier: ^2.0.0
         version: 2.5.5
@@ -253,7 +256,7 @@ importers:
         version: 3.23.8
       zustand:
         specifier: ^5.0.2
-        version: 5.0.2(@types/react@18.3.14)(react@18.3.1)
+        version: 5.0.2(@types/react@18.3.14)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.9
@@ -3944,6 +3947,11 @@ packages:
     resolution: {integrity: sha512-qsjeeq5YjBZ5eMdFuUa4ZosMLxgr5RZ+F+Y1OrDhuOCEInRMA3x74XdBtggJcj9kOeInz0WE+LgCPDkZFlBYJw==}
     engines: {node: '>=12.0.0'}
 
+  swr@2.3.0:
+    resolution: {integrity: sha512-NyZ76wA4yElZWBHzSgEJc28a0u6QZvhb6w0azeL2k7+Q1gAzVK+IqQYXhVOC/mzi+HZIozrZvBVeSeOZNR2bqA==}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   tailwind-merge@2.5.5:
     resolution: {integrity: sha512-0LXunzzAZzo0tEPxV3I297ffKZPlKDrjj7NXphC8V5ak9yHC5zRmxnOe2m/Rd/7ivsOMJe3JZ2JVocoDdQTRBA==}
 
@@ -4157,6 +4165,11 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  use-sync-external-store@1.4.0:
+    resolution: {integrity: sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -8366,6 +8379,12 @@ snapshots:
   svg-pathdata@6.0.3:
     optional: true
 
+  swr@2.3.0(react@18.3.1):
+    dependencies:
+      dequal: 2.0.3
+      react: 18.3.1
+      use-sync-external-store: 1.4.0(react@18.3.1)
+
   tailwind-merge@2.5.5: {}
 
   tailwindcss-animate@1.0.7(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@20.17.9)(typescript@5.7.2))):
@@ -8604,6 +8623,10 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.14
 
+  use-sync-external-store@1.4.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   util-deprecate@1.0.2: {}
 
   utils-merge@1.0.1: {}
@@ -8814,7 +8837,8 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zustand@5.0.2(@types/react@18.3.14)(react@18.3.1):
+  zustand@5.0.2(@types/react@18.3.14)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1)):
     optionalDependencies:
       '@types/react': 18.3.14
       react: 18.3.1
+      use-sync-external-store: 1.4.0(react@18.3.1)

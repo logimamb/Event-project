@@ -85,6 +85,7 @@
     "short-uuid": "^5.2.0",
     "sonner": "^1.7.1",
     "stripe": "^17.4.0",
+    "swr": "^2.3.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "twilio": "^5.4.0",
