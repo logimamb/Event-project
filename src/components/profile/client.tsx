@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,6 +20,29 @@ export function ProfileClient() {
     company: '',
   })
 
+  // Fetch user profile data when component mounts
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch('/api/user/profile')
+        if (response.ok) {
+          const data = await response.json()
+          setFormData({
+            name: data.name || '',
+            email: data.email || '',
+            bio: '',
+            location: data.city || '', // Use city as location
+            company: '',
+          })
+        }
+      } catch (error) {
+        console.error('Failed to fetch profile:', error)
+      }
+    }
+
+    fetchProfile()
+  }, [])
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -37,25 +60,28 @@ export function ProfileClient() {
 
       if (!response.ok) throw new Error('Failed to update profile')
 
+      const updatedData = await response.json()
+      setFormData(prev => ({
+        ...prev,
+        name: updatedData.name || '',
+        email: updatedData.email || '',
+        location: updatedData.city || '',
+      }))
+
       toast({
         title: 'Profile Updated',
         description: 'Your profile has been updated successfully.',
       })
 
-      // Update session data
-      // await update()  
+      setIsEditing(false)
     } catch (error) {
-      
+      console.error('Error updating profile:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to update profile. Please try again.',
+        variant: 'destructive',
+      })
     }
-
-    const response = await fetch("api/user/profile", {})
-
-    const { name, company, ...otherData } = formData; // Destructuring for potential additional data
-
-    console.log('Form data:', otherData);
-    
-    // TODO: Implement profile update
-    setIsEditing(false)
   }
 
   return (
@@ -87,8 +113,8 @@ export function ProfileClient() {
               </Button>
             </div>
             <div className="text-center sm:text-left">
-              <h2 className="text-lg font-medium">{session?.user?.name}</h2>
-              <p className="text-sm text-muted-foreground">{session?.user?.email}</p>
+              <h2 className="text-lg font-medium">{formData.name}</h2>
+              <p className="text-sm text-muted-foreground">{formData.email}</p>
             </div>
           </div>
         </Card>
@@ -183,4 +209,4 @@ export function ProfileClient() {
       </form>
     </div>
   )
-} 
+}

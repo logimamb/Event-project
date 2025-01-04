@@ -18,14 +18,13 @@ export async function GET() {
         name: true,
         email: true,
         image: true,
+        locationId: true,
         city: true,
         country: true,
-        Location: {
-          select: {
-            city: true,
-            country: true
-          }
-        }
+        phoneNumber: true,
+        timezone: true,
+        visibility: true,
+        notificationsEnabled: true
       }
     })
     return NextResponse.json(data)
@@ -42,28 +41,25 @@ export async function PATCH(request: Request) {
     }
 
     const data = await request.json()
-    console.log('Received data:', data)
 
-    // Remove undefined values from update data
-    const updateData: any = {
+    // Only include fields that exist in the Prisma schema
+    const updateData = {
       name: data.name,
       email: data.email,
-      notificationsEnabled: data.emailNotifications === 'true'
+      city: data.city,
+      country: data.country,
+      phoneNumber: data.phoneNumber,
+      timezone: data.timezone,
+      visibility: data.visibility,
+      notificationsEnabled: data.emailNotifications
     }
 
-    // Add city/country if location is provided
-    if (data.location) {
-      updateData.city = data.location
-    }
-
-    // Filter out undefined values
+    // Remove undefined values
     Object.keys(updateData).forEach(key => {
       if (updateData[key] === undefined) {
         delete updateData[key]
       }
     })
-
-    console.log('Updating user with:', updateData)
 
     // Update user profile
     const updatedUser = await prisma.user.update({
@@ -75,18 +71,16 @@ export async function PATCH(request: Request) {
         name: true,
         email: true,
         image: true,
+        locationId: true,
         city: true,
         country: true,
-        Location: {
-          select: {
-            city: true,
-            country: true
-          }
-        }
+        phoneNumber: true,
+        timezone: true,
+        visibility: true,
+        notificationsEnabled: true
       }
     })
 
-    console.log('Updated user:', updatedUser)
     return NextResponse.json(updatedUser)
   } catch (error) {
     console.error('Profile Update Error:', error)
