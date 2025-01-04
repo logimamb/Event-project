@@ -27,6 +27,27 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { prisma }
 
+// Helper function to ensure database connection
+export async function ensureDatabaseConnection() {
+  try {
+    // Test the connection with a simple query
+    await prisma.$queryRaw`SELECT 1`
+    return true
+  } catch (error) {
+    console.error('Database connection error:', error)
+    // Try to reconnect
+    try {
+      await prisma.$disconnect()
+      await new Promise(resolve => setTimeout(resolve, 1000)) // Wait 1 second
+      await prisma.$connect()
+      return true
+    } catch (reconnectError) {
+      console.error('Failed to reconnect to database:', reconnectError)
+      return false
+    }
+  }
+}
+
 export async function connectToDatabase() {
   try {
     await prisma.$connect()
@@ -42,7 +63,7 @@ export async function disconnectFromDatabase() {
   try {
     await prisma.$disconnect()
     console.log('Successfully disconnected from database')
-    return false
+    return true
   } catch (error) {
     console.error('Failed to disconnect from database:', error)
     return false

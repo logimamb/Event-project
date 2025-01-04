@@ -36,6 +36,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { cn } from '@/lib/utils'
+import { ShareActivityDialog } from '@/components/ShareActivityDialog'
 
 interface ActivityDetailsProps {
   activity: {
@@ -196,6 +197,10 @@ export function ActivityDetails({
               Back
             </Button>
             <div className="flex items-center gap-2">
+              <ShareActivityDialog 
+                activity={activity}
+                size="sm"
+              />
               <Button
                 variant="outline"
                 size="sm"

@@ -13,12 +13,6 @@ export default createMiddleware({
 });
 
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/_next` or `/_vercel`
-  // - … if they contain a dot (e.g. `favicon.ico`)
-  matcher: [
-    '/((?!api|_next|_vercel|.*\\..*).*)',
-    // Also match '/' since it's not matched by the previous pattern
-    '/'
-  ]
+  // Skip locale prefix for api routes and static files
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };
