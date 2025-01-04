@@ -4,12 +4,57 @@ import { authOptions } from '@/lib/auth'
 import { prisma, ensureDatabaseConnection } from '@/lib/prisma'
 import { sendEmail } from '@/lib/email'
 
-// Add a GET endpoint for testing
 export async function GET(
   request: Request,
   { params }: { params: { locale: string } }
 ) {
-  return NextResponse.json({ message: 'Messages API is working', locale: params.locale })
+  try {
+    const session = await getServerSession(authOptions)
+    if (!session?.user?.id) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
+    const messages = await prisma.message.findMany({
+      where: {
+        OR: [
+          { fromUserId: session.user.id },
+          { toUserId: session.user.id }
+        ]
+      },
+      include: {
+        fromUser: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true
+          }
+        },
+        toUser: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true
+          }
+        }
+      },
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+
+    return NextResponse.json(messages)
+  } catch (error) {
+    console.error('Error fetching messages:', error)
+    return NextResponse.json(
+      { error: 'Failed to fetch messages' },
+      { status: 500 }
+    )
+  }
 }
 
 export async function POST(
@@ -17,7 +62,6 @@ export async function POST(
   { params }: { params: { locale: string } }
 ) {
   try {
-    // Ensure database connection is healthy
     const isConnected = await ensureDatabaseConnection()
     if (!isConnected) {
       return NextResponse.json(
@@ -44,42 +88,47 @@ export async function POST(
       )
     }
 
-    let recipientDetails = null
+    // Find or create recipient user
+    let recipientUser = await prisma.user.findUnique({
+      where: { email: recipientEmail }
+    })
 
-    if (recipientId) {
-      // Try to find the recipient by user ID first
-      recipientDetails = await prisma.user.findUnique({
-        where: { id: recipientId },
-        select: {
-          id: true,
-          email: true,
-          name: true
+    if (!recipientUser) {
+      // Create a temporary user if they don't exist
+      recipientUser = await prisma.user.create({
+        data: {
+          email: recipientEmail,
+          name: recipientEmail.split('@')[0], // Use part before @ as name
         }
       })
     }
 
-    if (!recipientDetails && recipientEmail) {
-      // If no user found or no recipientId provided, use the direct email
-      recipientDetails = {
-        id: null,
-        email: recipientEmail,
-        name: null
+    // Store the message in the database
+    console.log('Storing message in database')
+    const storedMessage = await prisma.message.create({
+      data: {
+        subject,
+        content: message,
+        status: 'SENT',
+        fromUser: {
+          connect: {
+            id: session.user.id
+          }
+        },
+        toUser: {
+          connect: {
+            id: recipientUser.id
+          }
+        }
       }
-    }
-
-    console.log('Recipient details:', recipientDetails)
-
-    if (!recipientDetails?.email) {
-      return NextResponse.json(
-        { error: 'No valid recipient email found' },
-        { status: 400 }
-      )
-    }
+    })
+    
+    console.log('Message stored successfully:', storedMessage.id)
 
     // Send email using nodemailer
-    console.log('Sending email to:', recipientDetails.email)
+    console.log('Sending email to:', recipientEmail)
     const emailResult = await sendEmail({
-      to: recipientDetails.email,
+      to: recipientEmail,
       subject: subject,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -97,32 +146,17 @@ export async function POST(
 
     if (!emailResult.success) {
       console.error('Error sending email:', emailResult.error)
-      return NextResponse.json(
-        { error: 'Failed to send email: ' + emailResult.error },
-        { status: 500 }
-      )
-    }
-
-    // Store the message in the database only if we have a recipient user ID
-    if (recipientDetails.id) {
-      console.log('Storing message in database')
-      const storedMessage = await prisma.message.create({
-        data: {
-          fromUserId: session.user.id,
-          toUserId: recipientDetails.id,
-          subject,
-          content: message,
-          status: 'SENT'
-        }
+      return NextResponse.json({
+        success: true,
+        warning: 'Message saved but email delivery failed: ' + emailResult.error,
+        data: storedMessage
       })
-      console.log('Message stored successfully:', storedMessage.id)
-    } else {
-      console.log('Skipping database storage as recipient has no user account')
     }
 
     return NextResponse.json({
       success: true,
-      message: 'Message sent successfully'
+      message: 'Message sent successfully',
+      data: storedMessage
     })
   } catch (error) {
     console.error('Error in messages route:', error)
