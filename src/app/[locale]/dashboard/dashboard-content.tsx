@@ -198,7 +198,7 @@ export function DashboardContent({ stats }: DashboardContentProps) {
         <Card className="overflow-hidden backdrop-blur-sm bg-gradient-to-br from-card/50 to-card/30 border-primary/20">
           <div className="p-6">
             <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              Quick Actions
+              {t('quickActions')}
               <div className="h-1 w-1 rounded-full bg-primary animate-pulse" />
             </h2>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

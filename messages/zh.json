@@ -1,222 +1,767 @@
 {
   "auth": {
-    "signin": {
-      "signIn": "登录",
-      "signInSubtitle": "欢迎回来！请输入您的详细信息",
-      "branding": {
-        "title": "活动管理",
-        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理" 
-      },
-      "testimonial": {
-        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.",
-        "author": "莎拉·约翰逊",
-        "role": "活动总监"
-      },
-      "emailAddress": "电子邮件地址",
-      "password": "密码",
-      "or": "或继续使用",
-      "continueWith": "使用 {provider} 继续",
-      "noAccount": "没有账号？",
-      "signUp": "注册",
-      "error": "错误",
-      "invalidCredentials": "无效的电子邮件或密码",
-      "unexpectedError": "发生意外错误",
-      "forgotPassword": "忘记密码？"
-    },
-    "forgotPassword": {
-    "title": "重置密码", 
-    "subtitle": "请输入您的电子邮件地址，我们将向您发送重置密码的链接", 
     "branding": {
-        "title": "活动管理", 
-        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理" 
-    },
-    "testimonial": {
-        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.", 
-        "author": "莎拉·约翰逊", 
-        "role": "活动总监" 
-    },
-    "email": "电子邮件地址", 
-    "submit": "发送重置链接", 
-    "backToSignIn": "记得您的密码了吗？", 
-    "signIn": "登录", 
-    "success": {
-        "title": "查看您的邮箱", 
-        "description": "如果该电子邮件存在账户，我们已经向您发送了密码重置链接。" 
-    },
-    "error": {
-        "title": "错误", 
-        "description": "发送重置链接时出错。请再试一次。" 
-    }
+    "title": "活动管理器", 
+    "subtitle": "您一站式无缝活动规划和管理解决方案" 
 },
-    "register": {
-      "branding": {
-        "title": "活动管理",
-        "subtitle": "您的一体化解决方案，可实现无缝的活动策划和管理"
-      },
-      "testimonial": {
-        "quote": "该平台彻底改变了我们管理活动的方式。易用性和强大功能使它成为任何活动组织者的必备工具.",
-        "author": "莎拉·约翰逊",
-        "role": "活动总监"
-      },
-      "form": {
-        "title": "创建一个账户",
-        "subtitle": "立即开始管理您的活动",
-        "name": "全名",
-        "namePlaceholder": "张三",
-        "email": "电子邮件地址",
-        "emailPlaceholder": "name@example.com",
-        "password": "密码",
-        "passwordPlaceholder": "••••••••",
-        "confirmPassword": "确认密码",
-        "confirmPasswordPlaceholder": "••••••••",
-        "continueWith": "使用 {provider} 继续",
-        "orContinueWith": "或继续使用电子邮件",
-        "submit": "创建账户",
-        "haveAccount": "已有账户？",
-        "signIn": "登录" 
-      },
-      "success": {
-        "title": "注册成功！",
-        "description": "您的账户已创建。请登录。"
-      },
-      "error": {
-        "title": "错误",
-        "description": "出现了一些问题。请再试一次。"
-      }
-    }
+"testimonial": {
+    "quote": "这个平台彻底改变了我们管理活动的方式。 易用性和强大的功能使其成为任何活动组织者的必备工具。",
+    "author": "Sarah Johnson",
+    "role": "活动总监" 
+},
+"signin": {
+  "form": {
+    "submit": "登录",
+    "title": "登录",
+    "subtitle": "欢迎回来！ 请输入您的详细信息",
+    "emailAddress": "电子邮件地址",
+    "emailAddressPlaceholder": "name@example.com",
+    "password": "密码",
+    "passwordPlaceholder": "••••••••",
+    "or": "或者继续使用",
+    "continueWith": "使用 {provider} 继续",
+    "noAccount": "没有账号？",
+    "signUp": "注册",
+    "error": "错误",
+    "invalidCredentials": "无效的电子邮件或密码",
+    "unexpectedError": "发生意外错误",
+    "forgotPassword": "忘记密码？"
+  },
+  "signInSubtitle": "欢迎回来！ 请输入您的详细信息",
+  "emailAddress": "电子邮件地址",
+  "password": "密码",
+  "or": "或者继续使用",
+  "continueWith": "使用 {provider} 继续",
+  "noAccount": "没有账号？",
+  "signUp": "注册",
+  "error": "错误",
+  "invalidCredentials": "无效的电子邮件或密码",
+  "unexpectedError": "发生意外错误",
+  "forgotPassword": "忘记密码？"
+},
+"signOut": "退出",
+"forgotPassword": {
+  "title": "重置密码",
+  "subtitle": "输入您的电子邮件地址，我们将向您发送重置密码的链接",
+  "email": "电子邮件地址",
+  "emailPlaceholder": "电子邮件地址",
+  "submit": "发送重置链接",
+  "backToSignIn": "记得您的密码了吗？",
+  "signIn": "登录",
+  "success": {
+    "title": "查看您的电子邮件",
+    "description": "如果该电子邮件存在帐户，我们已经发送了密码重置链接。"
+  },
+  "error": {
+    "title": "错误",
+    "description": "发送重置链接时出错。 请再试一次。"
+  }
+},
+"register": {
+  "form": {
+    "title": "创建帐户",
+    "subtitle": "立即开始管理您的活动",
+    "name": "全名",
+    "namePlaceholder": "张三",
+    "email": "电子邮件地址",
+    "emailPlaceholder": "name@example.com",
+    "password": "密码",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "确认密码",
+    "confirmPasswordPlaceholder": "••••••••",
+    "continueWith": "使用 {provider} 继续",
+    "orContinueWith": "或继续使用电子邮件",
+    "submit": "创建帐户",
+    "haveAccount": "已经拥有帐户？",
+    "signIn": "登录"
+  },
+  "success": {
+    "title": "成功！",
+    "description": "您的帐户已创建。 请登录。"
+  },
+  "error": {
+    "title": "错误",
+    "description": "系统出现了一些问题。 请再试一次。"
+  }
+}
   },
   "Index": {
-    "featuresNav": "功能",
-    "pricingNav": "定价",
-    "about": "关于",
-    "signUp": "注册",
-    "signIn": "登录",
-    "register": "注册",
-    "hero": {
-        "trustedBy": "受到10,000多位活动组织者的信赖",
-        "title": "转变您的",
-        "titleHighlight": "活动管理体验",
-        "subtitle": "通过强大的自动化、无缝集成和智能洞察来简化您的活动。 一站式平台，让活动策划变得轻松自如。",
-        "startTrial": "开始免费试用",
-        "watchDemo": "观看演示"
+  "title": "活动管理器",
+  "subtitle": "您一站式无缝活动规划解决方案",
+  "featuresNav": "功能",
+  "pricingNav": "定价",
+  "testimonialsNav": "推荐",
+  "getStarted": "开始",
+  "about": "关于",
+  "signUp": "注册",
+  "signIn": "登录",
+  "register": "注册",
+  "hero": {
+    "trustedBy": "受到 10,000 多名活动组织者的信赖",
+    "title": "转变您的",
+    "titleHighlight": "活动管理体验",
+    "subtitle": "通过强大的自动化、无缝集成和智能洞察简化您的活动。 一站式平台，让活动规划变得轻松。",
+    "startTrial": "开始免费试用",
+    "watchDemo": "观看演示"
+  },
+  "features": {
+    "security": "企业级安全",
+    "noCredit": "无需信用卡",
+    "setup": "几分钟内设置",
+    "smartScheduling": {
+      "title": "智能调度",
+      "description": "AI 驱动的调度，可自动为所有与会者找到最佳时间。"
     },
-    "features": {
-      "security": "企业级安全",
-      "noCredit": "无需信用卡",
-      "setup": "分钟内完成设置",
-      "smartScheduling": {
-        "title": "智能排程",
-        "description": "人工智能驱动的排程，自动为所有参与者找到最佳时间。"
-      },
-      "globalReach": {
-        "title": "全球覆盖",
-        "description": "跨时区举办活动，自动时间转换和本地化。"
-      },
-      "instantAnalytics": {
-        "title": "即时分析",
-        "description": "实时了解出席率、参与度和活动表现。"
-      }
+    "globalReach": {
+      "title": "全球覆盖",
+      "description": "在所有时区举办活动，并自动进行时间转换和本地化。"
     },
-    "integrations": {
+    "instantAnalytics": {
+      "title": "即时分析",
+      "description": "实时洞察出席率、参与度和活动绩效。"
+    }
+  },
+  "integrations": {
     "title": "无缝集成",
     "google": {
-        "title": "Google 日历",
-        "description": "将事件与 Google 日历同步，实现无缝的日程安排和更新。"
+      "title": "Google 日历",
+      "description": "将活动与 Google 日历同步，实现无缝调度和更新。"
     },
     "zoom": {
-        "title": "Zoom 会议",
-        "description": "自动创建和管理您的活动相关的 Zoom 会议。"
+      "title": "Zoom 会议",
+      "description": "自动为您的活动创建和管理 Zoom 会议。"
     },
     "slack": {
-        "title": "Slack",
-        "description": "直接在您的 Slack 频道中获取通知和更新。"
+      "title": "Slack",
+      "description": "直接在您的 Slack 频道中获取通知和更新。"
     },
     "teams": {
-        "title": "Microsoft Teams",
-        "description": "与 Teams 集成以进行协作的活动计划。"
+      "title": "Microsoft Teams",
+      "description": "与 Teams 集成以进行协作活动规划。"
     }
-},
-"pricing": {
+  },
+  "pricing": {
     "title": "简单透明的定价",
     "subtitle": "选择最适合您需求的计划",
     "popular": "最受欢迎",
     "free": {
-        "title": "免费",
-        "description": "非常适合入门",
-        "price": "$0/月",
-        "button": "开始",
-        "features": {
-            "limit1": "每月最多 5 个活动",
-            "limit2": "基本分析",
-            "limit3": "电子邮件支持",
-            "limit4": "1 个团队成员"
-        }
-    },
-    "pro": {
-        "title": "专业版",
-        "description": "最适合成长中的团队",
-        "price": "$29/月",
-        "button": "开始免费试用",
-        "features": {
-            "limit1": "无限活动",
-            "limit2": "高级分析",
-            "limit3": "优先支持",
-            "limit4": "最多 10 个团队成员",
-            "limit5": "自定义品牌"
-        }
-    },
-    "enterprise": {
-        "title": "企业版",
-        "description": "适用于大型组织",
-        "price": "自定义",
-        "button": "联系销售",
-        "features": {
-            "limit1": "无限一切",
-            "limit2": "7x24 小时优质支持",
-            "limit3": "自定义集成",
-            "limit4": "无限团队成员",
-            "limit5": "高级安全",
-            "limit6": "专属客户经理"
-        }
-    }
-},
-    "testimonials": {
-      "title": "用户评价",
-      "trustedBy": "行业领导者信赖",
-      "testimonial1": {
-        "name": "莎拉·约翰逊",
-        "role": "活动总监",
-        "quote": "这个平台彻底改变了我们管理企业活动的方式。仅自动化功能就为我们节省了无数时间。"
+      "title": "免费",
+      "description": "非常适合入门",
+      "price": "0 美元/月",
+      "button": "开始",
+      "features": {
+        "limit1": "每月最多 5 个活动",
+        "limit2": "基本分析",
+        "limit3": "电子邮件支持",
+        "limit4": "1 个团队成员"
       }
     },
-    "cta": {
-      "title": "准备好改变您的活动了吗？",
-      "subtitle": "加入成千上万信任我们平台的成功活动组织者。",
-      "button": "开始免费试用"
+    "pro": {
+      "title": "专业版",
+      "description": "最适合成长中的团队",
+      "price": "29 美元/月",
+      "button": "开始免费试用",
+      "features": {
+        "limit1": "无限活动",
+        "limit2": "高级分析",
+        "limit3": "优先支持",
+        "limit4": "最多 10 个团队成员",
+        "limit5": "自定义品牌"
+      }
     },
-    "faq": {
+    "enterprise": {
+      "title": "企业版",
+      "description": "适用于大型组织",
+      "price": "自定义",
+      "button": "联系销售",
+      "features": {
+        "limit1": "无限一切",
+        "limit2": "全天候优质支持",
+        "limit3": "自定义集成",
+        "limit4": "无限团队成员",
+        "limit5": "高级安全",
+        "limit6": "专职客户经理"
+      }
+    }
+  },
+  "faq": {
     "title": "常见问题",
-    "subtitle": "关于我们平台的所有信息",
+    "subtitle": "您需要了解的有关我们平台的所有信息",
     "q1": {
-        "question": "免费试用如何运作？",
-        "answer": "开始 14 天的 Pro 计划免费试用。 无需信用卡。 随时取消。"
+      "question": "免费试用如何运作？",
+      "answer": "开始 14 天免费试用我们的 Pro 计划。 无需信用卡。 随时取消。"
     },
     "q2": {
-        "question": "我以后可以更改计划吗？",
-        "answer": "是的，您可以随时升级或降级您的计划。 更改立即生效。"
+      "question": "我以后可以更改我的计划吗？",
+      "answer": "是的，您可以随时升级或降级您的计划。 更改立即生效。"
     },
     "q3": {
-        "question": "您接受哪些付款方式？",
-        "answer": "我们接受所有主要的信用卡、PayPal 和企业客户的银行转账。"
+      "question": "您接受哪些付款方式？",
+      "answer": "我们接受所有主要的信用卡、PayPal 和企业客户的银行转账。"
     },
     "q4": {
-        "question": "活动数量是否有限制？",
-        "answer": "免费计划每月限于 5 个活动。 专业版和企业版计划拥有无限活动。"
+      "question": "活动数量是否有限制？",
+      "answer": "免费计划每月限于 5 个活动。 专业版和企业版计划具有无限的活动。"
     },
     "q5": {
-        "question": "您提供退款吗？",
-        "answer": "是的，如果您对我们的服务不满意，我们提供 30 天退款保证。"
+      "question": "您提供退款吗？",
+      "answer": "是的，如果您对我们的服务不满意，我们提供 30 天退款保证。"
     }
-}
+  },
+  "testimonials": {
+    "title": "我们的用户怎么说",
+    "trustedBy": "受行业领导者的信赖",
+    "testimonial1": {
+      "name": "Sarah Johnson",
+      "role": "活动总监",
+      "quote": "这个平台彻底改变了我们管理公司活动的方式。 单是自动化功能就为我们节省了无数时间。"
+    }
+  },
+  "cta": {
+    "title": "准备好改变您的活动了吗？",
+    "subtitle": "加入数千名信赖我们平台的成功活动组织者行列。",
+    "button": "开始免费试用"
   }
+  },
+  "Footer": {
+    "copyright": "© 2024 活动管理器。保留所有权利。",
+    "links": {
+      "home": "主页",
+      "about": "关于",
+      "features": "功能",
+      "pricing": "定价",
+      "contact": "联系",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    }
+  },
+  "profile": {
+    "title": "个人资料",
+    "description": "管理您的帐户设置和偏好"
+  },
+  "settings": {
+    "title": "设置",
+    "description": "配置您的帐户设置",
+    "somethingwrong": "出现了一些问题",
+    "tryAgain": "请重试",
+    "eventManager": "活动管理器",
+    "quickLinks": "快速链接",
+    "account": "帐户",
+    "profile": "个人资料",
+    "security": "安全",
+    "notifications": "通知",
+    "preferences": "偏好设置",
+    "language": "语言",
+    "theme": "主题",
+    "timezone": "时区",
+    "email": "电子邮件",
+    "password": "密码",
+    "changePassword": "更改密码",
+    "twoFactor": "双因素身份验证",
+    "signOut": "退出",
+    "cancel": "取消",
+    "saveChanges": "保存更改",
+    "currentPassword": "当前密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认密码",
+    "settings": "设置",
+    "dashboard": "仪表板",
+    "privacy": {
+      "profileVisibility": "个人资料可见性",
+      "calendarVisibility": "日历可见性",
+      "activityVisibility": "活动可见性",
+      "showUpcomingEvents": "显示即将发生的事件",
+      "allowTagging": "允许标记",
+      "allowComments": "允许评论",
+      "showUpcomingEventsDescription": "在您的仪表板上显示即将发生的事件",
+      "allowTaggingDescription": "允许其他人标记您的活动",
+      "allowCommentsDescription": "允许其他人评论您的活动",
+      "saveChanges": "保存更改",
+      "title": "隐私",
+      "privacyNote": "继续使用活动管理器，即表示您同意我们的",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "服务条款",
+      "privacyDescription": "我们根据我们的隐私政策收集和使用您的个人信息",
+      "privacyPolicyLink": "隐私政策",
+      "visibilityOptions": {
+        "team": "团队",
+        "title": "可见性选项",
+        "public": "公开",
+        "private": "私有"
+      }
+    },
+    "display": {
+      "title": "显示",
+      "displayName": "显示名称",
+      "theme": {
+        "title": "主题",
+        "light": "浅色",
+        "dark": "深色",
+        "system": "系统"
+      },
+      "density": {
+        "title": "密度",
+        "comfortable": "舒适",
+        "cosy": "舒适",
+        "compact": "紧凑",
+        "comfortableDescription": "舒适的阅读体验",
+        "cosyDescription": "舒适的阅读体验",
+        "compactDescription": "紧凑的阅读体验"
+      },
+      "timeFormat": {
+        "title": "时间格式",
+        "12h": "12 小时",
+        "24h": "24 小时"
+      },
+      "dateFormat": {
+        "title": "日期格式",
+        "options": {
+          "MMDDYYYY": "MM/DD/YYYY",
+          "DDMMYYYY": "DD/MM/YYYY",
+          "YYYYMMDD": "YYYY/MM/DD"
+        }
+      },
+      "saveChanges": "保存更改",
+      "timezone": {
+        "title": "时区",
+        "timezone": "时区"
+      },
+      "language": {
+        "title": "语言",
+        "language": "语言"
+      }
+    },
+    "security": {
+      "title": "安全",
+      "twoFactorAuth": {
+        "title": "双因素身份验证",
+        "description": "启用双因素身份验证以增强安全性"
+      },
+      "loginNotifications": "登录通知",
+      "loginNotificationsDescription": "当有人登录您的帐户时收到通知",
+      "sessionTimeout": "会话超时",
+      "securityTip": "提示：使用强密码并启用双因素身份验证以增强安全性",
+      "saveChanges": "保存更改"
+    },
+    "integrations": {
+      "title": "集成",
+      "googleCalendar": {
+        "title": "Google 日历",
+        "description": "将活动与 Google 日历同步，实现无缝调度和更新。",
+        "syncFrequency": {
+          "title": "同步频率",
+          "realtime": "实时",
+          "hourly": "每小时",
+          "daily": "每天"
+        }
+      },
+      "microsoftOutlook": {
+        "title": "Microsoft Outlook",
+        "description": "将活动与 Microsoft Outlook 同步，实现无缝调度和更新。"
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "直接在您的 Slack 频道中获取通知和更新。",
+        "channel": "频道"
+      },
+      "zoom": {
+        "title": "Zoom 会议",
+        "description": "自动为您的活动创建和管理 Zoom 会议。",
+        "autoCreateMeeting": "自动创建会议"
+      },
+      "teams": {
+        "title": "Microsoft Teams",
+        "description": "与 Teams 集成以进行协作活动规划。"
+      },
+      "saveChanges": "保存更改"
+    },
+    "profile": {
+      "title": "个人资料",
+      "displayName": "姓名",
+      "email": "电子邮件",
+      "privacy": "隐私"
+    }
+  },
+  "team": {
+    "errors": {
+      "fetchFailed": "无法获取团队成员"
+    },
+    "status": "状态",
+    "search": "搜索团队成员...",
+    "actions": "操作",
+    "sendMessage": "发送消息",
+    "teamMembers": "团队成员",
+    "manageRole": "管理角色",
+    "remove": "删除",
+    "event": "活动",
+    "activity": "活动",
+    "noResults": "未找到结果"
+  },
+  "dashboard": {
+    "noRecentEvents": "没有最近的活动",
+    "title": "仪表板",
+    "eventsCreated": "已创建的活动",
+    "eventsJoined": "已加入的活动",
+    "totalActivities": "总活动",
+    "totalParticipants": "总参与者",
+    "recentActivities": "最近的活动",
+    "noRecentActivities": "没有最近的活动",
+    "createdEvents": "已创建的活动",
+    "noCreatedEvents": "尚未创建任何活动",
+    "joinedEvents": "已加入的活动",
+    "noJoinedEvents": "尚未加入任何活动",
+    "activities": "活动",
+    "members": "成员",
+    "welcomeBack": "欢迎回来！",
+    "dashboardDescription": "以下是您的活动和活动的情况。",
+    "searchPlaceholder": "搜索活动...",
+    "stats": {
+      "totalEvents": "总活动",
+      "totalActivities": "总活动",
+      "totalParticipants": "总参与者",
+      "completionRate": "完成率",
+      "eventsCreated": "已创建的活动",
+      "eventsJoined": "已加入的活动",
+      "upcomingEvents": "即将到来的活动"
+    },
+    "activityOverviewCard": {
+      "title": "活动概览",
+      "description": "您的最近活动和进度",
+      "inProgress": "进行中",
+      "completed": "已完成",
+      "upcoming": "即将到来",
+      "cancelled": "已取消",
+      "pending": "待处理"
+    },
+    "quickActions": "快速操作",
+    "createEvent": "创建活动",
+    "createActivity": "创建活动",
+    "manageEvents": "管理活动",
+    "manageActivities": "管理活动",
+    "userActivityOverview": "您的活动概览",
+    "recentEvents": "最近的活动",
+    "recentActivities": "最近的活动",
+    "viewAll": "查看全部",
+    "view": "查看",
+    "noEventsFound": "未找到活动",
+    "noActivitiesFound": "未找到活动",
+    "totalEvents": "总活动",
+    "totalActivities": "总活动",
+    "activeParticipants": "活跃参与者",
+    "completionRate": "完成率",
+    "eventsCreated": "已创建的活动",
+    "eventsJoined": "已加入的活动",
+    "upcomingEvents": "即将到来的活动",
+    "activityOverview": "活动概览",
+    "upcomingActivities": "即将到来的活动",
+    "totalCreatedEvents": "已创建的活动总数",
+    "totalJoinedEvents": "已加入的活动总数"
+  },
+  "events": {
+    "form": {
+      "createTitle": "创建活动",
+      "helpTitle": "帮助",
+      "titleLabel": "活动标题",
+      "titlePlaceholder": "输入活动标题",
+      "descriptionLabel": "活动描述",
+      "descriptionPlaceholder": "输入活动描述",
+      "editTitle": "编辑活动",
+      "creating": "正在创建...",
+      "description": "描述",
+      "startDateLabel": "开始日期",
+      "endDateLabel": "结束日期",
+      "countryLabel": "国家",
+      "helpTip1": "为您的活动选择开始日期和结束日期",
+      "helpTip2": "为您的活动选择开始日期和结束日期",
+      "helpTip3": "为您的活动选择开始日期和结束日期",
+      "previewTitle": "预览",
+      "previewDescription": "预览描述",
+      "title": "标题",
+      "description": "描述",
+      "countryPlaceholder": "选择国家",
+      "cityLabel": "城市",
+      "cityPlaceholder": "输入城市",
+      "addressLabel": "地址",
+      "addressPlaceholder": "输入地址",
+      "maxAttendeesLabel": "最大参与者人数",
+      "maxAttendeesPlaceholder": "输入最大参与者人数",
+      "googleCalendarLabel": "Google 日历",
+      "publicLabel": "公开",
+      "locationLabel": "位置",
+      "locationPlaceholder": "输入位置",
+      "addToGoogleCalendar": "添加到 Google 日历",
+      "saveChanges": "保存更改",
+      "cancel": "取消",
+      "create": "创建",
+      "update": "更新",
+      "highlights": "亮点",
+      "highlightPlaceholder": "输入亮点...",
+      "addHighlight": "添加亮点",
+      "removeHighlight": "删除亮点",
+      "eventTitlePlaceholder": "输入活动标题",
+      "eventDescriptionPlaceholder": "输入活动描述",
+      "countryPlaceholder": "输入国家",
+      "cityPlaceholder": "输入城市",
+      "addressPlaceholder": "输入地址",
+      "maxAttendeesPlaceholder": "输入最大参与者人数",
+      "selectCalendar": "选择日历",
+      "loadingCalendars": "正在加载日历...",
+      "noCalendarsAvailable": "没有可用的日历",
+      "selectCalendarDescription": "选择要与此事件同步的 Google 日历",
+      "loadingGoogleCalendars": "正在加载 Google 日历...",
+      "eventDetails": "活动详细信息",
+      "invitationDesign": "邀请设计"
+    },
+    "status": {
+      "upcoming": "即将到来",
+      "completed": "已完成",
+      "cancelled": "已取消",
+      "pending": "待处理",
+      "published": "已发布",
+      "draft": "草稿"
+    },
+    "participations": "参与",
+    "viewDetails": "查看详细信息",
+    "getStarted": "开始",
+    "virtualEvent": "虚拟活动",
+    "inPersonEvent": "面对面活动",
+    "onlineEvent": "在线活动",
+    "location": "位置",
+    "online": "在线",
+    "inPerson": "面对面",
+    "virtual": "虚拟",
+    "title": "活动",
+    "description": "管理和组织您的活动",
+    "createFirstEvent": "创建您的第一个活动",
+    "noEventsFound": "未找到活动",
+    "createEvent": "创建活动",
+    "error": "错误",
+    "errorTitle": "错误",
+    "FailedToFetchEvents": "无法加载活动。 请稍后重试。",
+    "FailedToCreateEvent": "无法创建活动。 请稍后重试。",
+    "FailedToUpdateEvent": "无法更新活动。 请稍后重试。",
+    "FailedToDeleteEvent": "无法删除活动。 请稍后重试。"
+  },
+  "activities": {
+    "create": "创建活动",
+    "title": "活动",
+    "description": "跟踪和管理活动活动",
+    "createActivity": "创建活动",
+    "manageActivities": "管理活动",
+    "recentActivities": "最近的活动",
+    "viewAll": "查看全部",
+    "viewDetails": "查看详情",
+    "selectDateRange": "选择日期范围",
+    "filters": "过滤器",
+    "searchPlaceholder": "搜索活动...",
+    "errorLoading": "加载活动时出错",
+    "noActivitiesFound": "未找到活动",
+    "view": "查看",
+    "noActivities": "未找到活动"
+  },
+  "analytics": {
+    "overview":"概览",
+    "events":"活动",
+    "attendees":"与会者",
+    "title": "分析",
+    "description": "跟踪和分析您的活动表现",
+    "dateRangeLabel": "日期范围",
+    "stats": {
+      "totalEvents": "活动总数",
+      "totalEventsDescription": "在选定期间内创建的活动总数",
+      "totalAttendees": "与会者总数",
+      "totalAttendeesDescription": "所有活动中的与会者总数",
+      "averageAttendance": "平均出席率",
+      "averageAttendanceDescription": "每个活动的平均与会者人数",
+      "averageDuration": "平均时长",
+      "averageDurationDescription": "活动的平均时长",
+      "completionRate": "完成率",
+      "completionRateDescription": "成功完成的活动百分比",
+      "activeEvents": "活动中",
+      "activeEventsDescription": "当前活动的活动数量"
+    },
+    "activities":{
+      "title":"活动",
+      "participants":"参与者",
+      "noEventFound": "未找到所选期间的任何活动",
+      "noActivities": "未找到所选期间的任何活动",
+      "totalActivities":"活动总数",
+      "totalParticipants":"参与者总数",
+      "avgParticipants":"平均参与者",
+      "avgDuration":"平均时长",
+      "avgDurationDescription":"活动的平均时长",
+      "completionRate":"完成率",
+      "eventStatus":"活动状态分布",
+      "activityProgress":"活动进度",
+      "activityStatusDistribution":"活动状态分布",
+      "durationInHours":"时长（小时）",
+      "distributionOfActivitiesByStatus":"按状态分布的活动",
+      "activityTrends":"活动趋势",
+      "monthlyTrendsOfActivitiesAndParticipants":"活动和参与者的月度趋势",
+      "mostActiveTime":"活动高峰时间",
+      "timeDistribution":"时间分布",
+      "averageDuration":"平均时长",
+      "averageDurationDescription":"活动的平均时长",
+      "statusDistribution":"状态分布"
+    },
+    "status": {
+      "pendingEvents": "待处理活动",
+      "upcomingEvents": "即将发生的活动",
+      "completedEvents": "已完成活动"
+    },
+    "charts": {
+      "eventStatus": "活动状态分布",
+      "activityProgress": "活动进度",
+      "durationInHours":"时长（小时）",
+      "durationInMinutes":"时长（分钟）",
+      "attendeeEngagement": "与会者参与度",
+      "eventTrends": "活动趋势",
+      "hours":"小时",
+      "mostActiveTime": "最活跃时间",
+      "averageDuration": "平均时长",
+      "eventStatusDescription": "每个状态下的活动百分比",
+      "totalEvents": "活动总数"
+    },
+    "tables": {
+      "totalEvents":"总活动",
+      "recentEvents": "最近的活动",
+      "eventTitle": "活动标题",
+      "startDate": "开始日期",
+      "events":"活动",
+      "attendees": "参与者",
+      "status": "状态",
+      "topLocations": "热门地点",
+      "eventsCount": "{count} 个活动"
+    }
+  },
+  "notifications": {
+    "title": "通知",
+    "description": "管理您如何接收通知",
+    "desktop": "桌面通知",
+    "desktopDescription": "当发生重要事件时，在桌面上显示通知",
+    "sound": "通知声音",
+    "volume": "音量",
+    "volumeChanged": "音量设置为 {volume}%",
+    "eventReminders": "活动提醒",
+    "eventRemindersDescription": "在活动开始前收到通知",
+    "reminderTime": "提醒时间",
+    "reminderTime5": "5 分钟前",
+    "reminderTime10": "10 分钟前",
+    "reminderTime15": "15 分钟前",
+    "reminderTime30": "30 分钟前",
+    "reminderTime60": "1 小时前",
+    "reminderTimeChanged": "提醒时间设置为 {time}",
+    "interactions": "交互通知",
+    "mentions": "提及",
+    "mentionsDescription": "有人提及您时收到通知",
+    "comments": "评论",
+    "commentsDescription": "有人评论您的活动时收到通知",
+    "permissionNeeded": "启用通知",
+    "permissionDescription": "允许通知保持有关您的活动的更新",
+    "requestPermission": "启用通知",
+    "permission_required": "需要权限",
+    "enable_in_browser": "请在浏览器设置中启用通知",
+    "test_title": "测试通知",
+    "test_body": "这是测试通知。 如果您能看到此消息，则表示通知有效！",
+    "test_sent": "已发送测试通知",
+    "check_notification": "检查您的通知以查看是否有效",
+    "test_failed": "测试失败",
+    "try_again": "请重试或检查您的浏览器设置",
+    "desktopEnabled": "已启用桌面通知",
+    "desktopDisabled": "已禁用桌面通知",
+    "soundEnabled": "已启用通知声音",
+    "soundDisabled": "已禁用通知声音",
+    "remindersEnabled": "已启用活动提醒",
+    "remindersDisabled": "已禁用活动提醒",
+    "mentionsEnabled": "已启用提及通知",
+    "mentionsDisabled": "已禁用提及通知",
+    "commentsEnabled": "已启用评论通知",
+    "commentsDisabled": "已禁用评论通知"
+  },
+  "teams": {
+    "title": "团队",
+    "create": "创建团队",
+    "settings": "团队设置",
+    "participants": "参与者",
+    "calendar": "日历",
+    "teamCalendar": "团队日历",
+    "searchParticipants": "搜索参与者...",
+    "allParticipants": "所有参与者",
+    "activities": "活动",
+    "events": "活动",
+    "member": "成员",
+    "members": "成员",
+    "role": "角色",
+    "status": "状态"
+  },
+  "messages": {
+  "error_starring_message": "标注消息失败", 
+  "type":"类型",
+  "content":"内容",
+  "error_loading_messages": "加载消息失败",
+  "error_loading_users": "加载用户失败",
+  "message_sent": "消息已发送",
+  "error_refreshing_messages": "刷新消息失败",
+  "message_archived": "消息已归档",
+  "message_unarchived": "消息已取消归档",
+  "error_archiving_message": "归档消息失败",
+  "inbox": "收件箱",
+  "sent": "已发送",
+  "starred": "加星标",
+  "archived": "已归档",
+  "drafts": "草稿",
+  "all": "全部",
+  "noMessagesFound": "未找到任何消息",
+  "noStarredMessagesFound": "未找到任何加星标的消息",
+  "hide_archived": "隐藏已归档",
+  "show_archived": "显示已归档",
+  "show_all": "显示全部",
+  "show_starred": "显示加星标",
+  "search_placeholder": "搜索消息...",
+  "reply": "回复",
+  "forward": "转发",
+  "filters": "筛选器",
+  "from": "发件人",
+  "message_type": "消息类型",
+  "date_range": "日期范围",
+  "search": "搜索",
+  "no_messages_found": "未找到任何消息",
+  "direct": "私信",
+  "team": "团队",
+  "task": "任务",
+  "event": "事件",
+  "reminder": "提醒",
+  "feedback": "反馈",
+  "priority": "优先级",
+  "low": "低",
+  "medium": "中",
+  "high": "高",
+  "general": "常规",
+  "project": "项目",
+  "meeting": "会议",
+  "approval": "批准",
+  "report": "报告",
+  "announcement": "公告",
+  "question": "问题",
+  "draft": "草稿",
+  "scheduled": "已安排",
+  "delivered": "已送达",
+  "read": "已读",
+  "deleted": "已删除",
+  "category": "类别",
+  "clear_filters": "清除筛选器",
+  "no_messages": "无消息",
+  "new_message": "新消息",
+  "new_message_description": "撰写新消息",
+  "message_details": "消息详情",
+  "select_recipient": "选择收件人",
+  "subject": "主题",
+  "message": "消息",
+  "subject_placeholder": "请输入主题",
+  "content_placeholder": "请输入消息",
+  "send": "发送",
+  "cancel": "取消",
+  "error_sending_message": "发送消息失败",
+  "to": "收件人"
+}
 }

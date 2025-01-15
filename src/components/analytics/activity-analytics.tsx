@@ -8,6 +8,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { format } from 'date-fns'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { Progress } from '@/components/ui/progress'
+import { useTranslations } from 'next-intl'
 
 interface ActivityAnalyticsProps {
   dateRange: DateRange | null
@@ -85,6 +86,7 @@ const CustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, n
 }
 
 export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
+  const t = useTranslations('analytics')
   const [data, setData] = useState<AnalyticsData>(EMPTY_DATA)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -141,7 +143,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
   if (data.activitiesByStatus.length === 0 && data.activityTrends.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[400px] text-muted-foreground">
-        No activities found for the selected time period
+        {t('activities.noActivities')}
       </div>
     )
   }
@@ -161,7 +163,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
       <div className="grid gap-4 md:grid-cols-4">
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Total Activities</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('activities.totalActivities')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalActivities}</div>
@@ -169,7 +171,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Total Participants</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('activities.totalParticipants')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{data.participationStats.totalParticipants}</div>
@@ -177,7 +179,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Avg. Participants</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('activities.avgParticipants')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{data.participationStats.averageParticipants}</div>
@@ -185,7 +187,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('activities.completionRate')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{Math.round(data.completionRate)}%</div>
@@ -202,9 +204,9 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Activity Status Distribution</CardTitle>
+              <CardTitle>{t('activities.activityStatusDistribution')}</CardTitle>
               <CardDescription>
-                Distribution of activities by status ({totalActivities} total activities)
+                {t('activities.distributionOfActivitiesByStatus')} ({totalActivities} {t('activities.totalActivities')})
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -244,9 +246,9 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Activity Trends</CardTitle>
+              <CardTitle>{t('activities.activityTrends')}</CardTitle>
               <CardDescription>
-                Monthly trends of activities and participants
+                {t('activities.monthlyTrendsOfActivitiesAndParticipants')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -264,14 +266,14 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
                       type="monotone"
                       dataKey="activities"
                       stroke="#8884d8"
-                      name="Activities"
+                      name={t('activities.title')}
                     />
                     <Line
                       yAxisId="right"
                       type="monotone"
                       dataKey="participants"
                       stroke="#82ca9d"
-                      name="Participants"
+                      name={t('activities.participants')}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -289,9 +291,9 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
       >
         <Card>
           <CardHeader>
-            <CardTitle>Time Distribution</CardTitle>
+            <CardTitle>{t('activities.timeDistribution')}</CardTitle>
             <CardDescription>
-              Distribution of activities across different times of day
+              {t('activities.monthlyTrendsOfActivitiesAndParticipants')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -330,9 +332,9 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Status Distribution</CardTitle>
+              <CardTitle>{t('activities.statusDistribution')}</CardTitle>
               <CardDescription>
-                Distribution of activities by their current status
+                {t('activities.distributionOfActivitiesByStatus')}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -344,7 +346,7 @@ export function ActivityAnalytics({ dateRange }: ActivityAnalyticsProps) {
                     <YAxis />
                     <Tooltip content={CustomTooltip} />
                     <Legend />
-                    <Bar dataKey="count" fill="#8884d8" name="Activities" />
+                    <Bar dataKey="count" fill="#8884d8" name={t('activities.title')} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

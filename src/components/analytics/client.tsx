@@ -11,11 +11,11 @@ import { ActivityAnalytics } from './activity-analytics'
 import { AttendeeAnalytics } from './attendee-analytics'
 import { DateRange } from 'react-day-picker'
 import { addDays, subDays } from 'date-fns'
-import { useTranslations } from '@/lib/use-translations'
+import { useTranslations } from 'next-intl'
 import { WaitAnalytics } from './wait-analytics'
 
 export function AnalyticsClient() {
-  const { t } = useTranslations()
+  const t = useTranslations('analytics')
   const [dateRange, setDateRange] = useState<DateRange | null>({
     from: subDays(new Date(), 30),
     to: new Date(),
@@ -31,10 +31,10 @@ export function AnalyticsClient() {
           className="space-y-1"
         >
           <h1 className="text-3xl font-bold tracking-tight" tabIndex={0}>
-            Analytics & Insights
+            {t('title')}
           </h1>
           <p className="text-muted-foreground" tabIndex={0}>
-            Comprehensive analytics and performance metrics for your events
+            {t('description')}
           </p>
         </motion.div>
 
@@ -59,10 +59,10 @@ export function AnalyticsClient() {
       >
         <Tabs defaultValue="overview" className="space-y-8">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="events">Events</TabsTrigger>
-            <TabsTrigger value="activities">Activities</TabsTrigger>
-            <TabsTrigger value="attendees">Attendees</TabsTrigger>
+            <TabsTrigger value="overview">{t('overview')}</TabsTrigger>
+            <TabsTrigger value="events">{t('events')}</TabsTrigger>
+            <TabsTrigger value="activities">{t('activities.title')}</TabsTrigger>
+            <TabsTrigger value="attendees">{t('attendees')}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4">

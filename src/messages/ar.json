@@ -1,280 +1,766 @@
 {
   "auth": {
-    "signin": {
-    "signIn": "تسجيل الدخول",
-    "signInSubtitle": "أهلاً بعودتك! يرجى إدخال بياناتك",
     "branding": {
-        "title": "مدير الحدث",
-        "subtitle": "حلولك الشاملة للتخطيط وإدارة الفعاليات بسلاسة"
-    },
-    "testimonial": {
-        "quote": "لقد غيرت هذه المنصة ثورة في كيفية إدارة أحداثنا. سهولة الاستخدام والميزات القوية تجعلها أداة أساسية لأي منظم فعاليات.",
-        "author": "سارة جونسون",
-        "role": "مدير الفعاليات"
-    },
-    "emailAddress": "عنوان البريد الإلكتروني",
-    "password": "كلمة السر",
-    "or": "أو تابع مع",
-    "continueWith": "تابع مع {provider}",
-    "noAccount": "ليس لديك حساب؟",
-    "signUp": "تسجيل",
-    "error": "خطأ",
-    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
-    "unexpectedError": "حدث خطأ غير متوقع",
-    "forgotPassword": "هل نسيت كلمة السر؟"
+    "title": "منظم الفعاليات",
+    "subtitle": "حل شامل لتخطيط وإدارة الفعاليات بسلاسة"
   },
-  "forgotPassword": {
-      "title": "إعادة تعيين كلمة المرور",
-      "subtitle": "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور",
-      "branding": {
-          "title": "مدير الفعاليات",
-          "subtitle": "حلولك الشاملة لتخطيط وإدارة الفعاليات بسلاسة"
-      },
-      "testimonial": {
-          "quote": "لقد غيرت هذه المنصة ثورة في كيفية إدارة أحداثنا. سهولة الاستخدام والميزات القوية تجعلها أداة أساسية لأي منظم فعاليات.",
-          "author": "سارة جونسون",
-          "role": "مديرة الفعاليات"
-      },
-      "email": "عنوان البريد الإلكتروني",
-      "submit": "إرسال رابط إعادة التعيين",
-      "backToSignIn": "هل تتذكر كلمة المرور؟",
-      "signIn": "تسجيل الدخول",
-      "success": {
-          "title": "تحقق من بريدك الإلكتروني",
-          "description": "إذا كان هناك حساب لهذا البريد الإلكتروني، فقد أرسلنا لك رابط إعادة تعيين كلمة المرور."
-      },
-      "error": {
-          "title": "خطأ",
-          "description": "حدث خطأ أثناء إرسال رابط إعادة التعيين. يرجى المحاولة مرة أخرى."
-      }
+  "testimonial": {
+    "quote": "لقد أحدث هذا النظام ثورة في كيفية إدارة فعالياتنا. إن سهولة الاستخدام والميزات القوية تجعله أداة أساسية لأي منظم فعاليات.",
+    "author": "سارة جونسون",
+    "role": "مدير الفعاليات"
+  },
+  "signin": {
+    "form": {
+      "submit": "تسجيل الدخول",
+      "title": "تسجيل الدخول",
+      "subtitle": "مرحبا بعودتك! الرجاء إدخال تفاصيلك",
+      "emailAddress": "البريد الإلكتروني",
+      "emailAddressPlaceholder": "name@example.com",
+      "password": "كلمة السر",
+      "passwordPlaceholder": "••••••••",
+      "or": "أو الاستمرار مع",
+      "continueWith": "استمر مع {provider}",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "اشتراك",
+      "error": "خطأ",
+      "invalidCredentials": "بريد إلكتروني أو كلمة مرور غير صالحة",
+      "unexpectedError": "حدث خطأ غير متوقع",
+      "forgotPassword": "نسيت كلمة السر؟"
     },
-    "register": {
-      "branding": {
-        "title": "مدير الفعاليات",
-        "subtitle": "حلولك الشاملة لتخطيط وإدارة الفعاليات بسلاسة"
-      },
-      "testimonial": {
-        "quote": "لقد غيرت هذه المنصة ثورة في كيفية إدارة أحداثنا. سهولة الاستخدام والميزات القوية تجعلها أداة أساسية لأي منظم فعاليات.",
-        "author": "سارة جونسون",
-        "role": "مديرة الفعاليات"
-      },
-      "form": {
-        "title": "إنشاء حساب",
-        "subtitle": "ابدأ في إدارة فعالياتك اليوم",
-        "name": "الاسم الكامل",
-        "namePlaceholder": "علي أحمد",  "email": "البريد الإلكتروني",
-        "emailPlaceholder": "name@example.com",
-        "password": "كلمة المرور",
-        "passwordPlaceholder": "••••••••",
-        "confirmPassword": "تأكيد كلمة المرور",
-        "confirmPasswordPlaceholder": "••••••••",
-        "continueWith": "المتابعة باستخدام {provider}",
-        "orContinueWith": "أو المتابعة باستخدام البريد الإلكتروني",
-        "submit": "إنشاء حساب",
-        "haveAccount": "هل لديك حساب موجود؟",
-        "signIn": "تسجيل الدخول"
-      },
-      "success": {
-        "title": "تم بنجاح!",
-        "description": "تم إنشاء حسابك. يرجى تسجيل الدخول."
-      },
-      "error": {
-        "title": "خطأ",
-        "description": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
-      }
+    "signInSubtitle": "مرحبا بعودتك! الرجاء إدخال تفاصيلك",
+    "emailAddress": "البريد الإلكتروني",
+    "password": "كلمة السر",
+    "or": "أو الاستمرار مع",
+    "continueWith": "استمر مع {provider}",
+    "noAccount": "ليس لديك حساب؟",
+    "signUp": "اشتراك",
+    "error": "خطأ",
+    "invalidCredentials": "بريد إلكتروني أو كلمة مرور غير صالحة",
+    "unexpectedError": "حدث خطأ غير متوقع",
+    "forgotPassword": "نسيت كلمة السر؟"
+  },
+  "signOut": "تسجيل الخروج",
+  "forgotPassword": {
+    "title": "إعادة تعيين كلمة المرور",
+    "subtitle": "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة مرورك",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "submit": "إرسال رابط إعادة التعيين",
+    "backToSignIn": "تتذكر كلمة مرورك؟",
+    "signIn": "تسجيل الدخول",
+    "success": {
+      "title": "تحقق من بريدك الإلكتروني",
+      "description": "إذا كان هناك حساب لهذا البريد الإلكتروني ، فقد أرسلنا رابط إعادة تعيين كلمة المرور."
+    },
+    "error": {
+      "title": "خطأ",
+      "description": "حدث خطأ أثناء إرسال رابط إعادة التعيين. الرجاء المحاولة مرة أخرى."
     }
+  },
+  "register": {
+    "form": {
+      "title": "إنشاء حساب",
+      "subtitle": "ابدأ في إدارة فعالياتك اليوم",
+      "name": "الاسم الكامل",
+      "namePlaceholder": "جون دوس",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "name@example.com",
+      "password": "كلمة السر",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "••••••••",
+      "continueWith": "استمر مع {provider}",
+      "orContinueWith": "أو الاستمرار بالبريد الإلكتروني",
+      "submit": "إنشاء حساب",
+      "haveAccount": "هل لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول"
+    },
+    "success": {
+      "title": "نجاح!",
+      "description": "تم إنشاء حسابك. الرجاء تسجيل الدخول."
+    },
+    "error": {
+      "title": "خطأ",
+      "description": "حدث خطأ ما. الرجاء المحاولة مرة أخرى."
+    }
+  }
   },
   "Index": {
-    "featuresNav": "الميزات",
-    "pricingNav": "التسعير",
-    "about": "حول",
-    "signUp": "تسجيل",
-    "signIn": "تسجيل الدخول",
-    "register": "تسجيل",
-    "hero": {
-        "trustedBy": "موثوق به من قبل أكثر من 10000 منظم حدث",
-        "title": "تحويل",
-        "titleHighlight": "تجربة إدارة الحدث",
-        "subtitle": "بسّط أحداثك مع الأتمتة القوية والدمج السلس والرؤى الذكية. المنصة الشاملة التي تجعل تخطيط الحدث سهلاً." ,
-        "startTrial": "ابدأ التجربة المجانية",
-        "watchDemo": "شاهد العرض التوضيحي"
-
+  "title": "مدير الفعاليات",
+  "subtitle": "حل شامل لتخطيط وإدارة الفعاليات بسلاسة",
+  "featuresNav": "الميزات",
+  "pricingNav": "التسعير",
+  "testimonialsNav": "الشهادات",
+  "getStarted": "البدء",
+  "about": "حول",
+  "signUp": "تسجيل",
+  "signIn": "تسجيل الدخول",
+  "register": "تسجيل",
+  "hero": {
+    "trustedBy": "موثوق به من قبل أكثر من 10000 منظم فعاليات",
+    "title": "تحويل الخاص بك",
+    "titleHighlight": "تجربة إدارة الفعاليات",
+    "subtitle": "تبسيط فعالياتك من خلال الأتمتة القوية والدمج السلس والرؤى الذكية. المنصة الشاملة التي تجعل تخطيط الفعاليات سهلاً.",
+    "startTrial": "ابدأ الإصدار التجريبي المجاني",
+    "watchDemo": "شاهد العرض التوضيحي"
+  },
+  "features": {
+    "security": "أمان على مستوى المؤسسة",
+    "noCredit": "لا توجد بطاقة ائتمان مطلوبة",
+    "setup": "الإعداد في دقائق",
+    "smartScheduling": {
+      "title": "الجدولة الذكية",
+      "description": "الجدولة المدعومة بالذكاء الاصطناعي التي تجد تلقائيًا الوقت المثالي لجميع الحضور."
     },
-    "features": {
-      "security": "أمان على مستوى المؤسسات",
-      "noCredit": "لا تحتاج بطاقة ائتمان",
-      "setup": "إعداد في دقائق",
-      "smartScheduling": {
-        "title": "جدولة ذكية",
-        "description": "جدولة مدعومة بالذكاء الاصطناعي تجد تلقائياً الوقت المثالي لجميع الحاضرين."
-      },
-      "globalReach": {
-        "title": "وصول عالمي",
-        "description": "استضف الفعاليات عبر المناطق الزمنية مع تحويل وتوطين تلقائي للوقت."
-      },
-      "instantAnalytics": {
-        "title": "تحليلات فورية",
-        "description": "رؤى في الوقت الفعلي حول الحضور والمشاركة وأداء الفعالية."
-      }
+    "globalReach": {
+      "title": "التغطية العالمية",
+      "description": "استضافة الفعاليات عبر المناطق الزمنية مع التحويل التلقائي للوقت والتوطين."
     },
-    "testimonials": {
-      "title": "ماذا يقول مستخدمونا",
-      "trustedBy": "موثوق به من قادة الصناعة",
-      "testimonial1": {
-        "name": "سارة جونسون",
-        "role": "مديرة الفعاليات",
-        "quote": "لقد غيرت هذه المنصة طريقة إدارتنا لفعاليات الشركة. ميزات الأتمتة وحدها وفرت لنا ساعات لا تحصى."
-      }
-    },
-    "cta": {
-      "title": "مستعد لتحويل فعالياتك؟",
-      "subtitle": "انضم إلى آلاف منظمي الفعاليات الناجحين الذين يثقون بمنصتنا.",
-      "button": "ابدأ نسختك التجريبية المجانية"
-    },
-    "pricing": {
-      "title": "الباقات والأسعار",
-      "subtitle": "اختر الخطة المثالية لاحتياجاتك",
-      "monthly": "شهري",
-      "yearly": "سنوي",
-      "basic": {
-        "name": "أساسي",
-        "price": "مجاناً",
-        "description": "مثالي للبدء",
-        "features": [
-          "حتى 3 فعاليات نشطة",
-          "إدارة أساسية للضيوف",
-          "تكامل مع التقويم",
-          "دعم عبر البريد الإلكتروني"
-        ]
-      },
-      "pro": {
-        "name": "احترافي",
-        "price": "29$",
-        "description": "مثالي للمنظمين المنتظمين",
-        "features": [
-          "فعاليات غير محدودة",
-          "إدارة متقدمة للضيوف",
-          "تحليلات مفصلة",
-          "دعم ذو أولوية"
-        ]
-      },
-      "enterprise": {
-        "name": "مؤسسات",
-        "price": "مخصص",
-        "description": "للمؤسسات الكبيرة",
-        "features": [
-          "ميزات مخصصة",
-          "واجهة برمجة مخصصة",
-          "مدير حساب مخصص",
-          "اتفاقية مستوى خدمة مضمونة"
-        ]
-      }
-    },
-    "faq": {
-    "title": "الأسئلة المتداولة",
-    "subtitle": "كل ما تحتاج معرفته عن منصتنا",
-    "q1": {
-        "question": "كيف تعمل التجربة المجانية؟",
-        "answer": "ابدأ بتجربة مجانية لمدة 14 يومًا لخطة Pro. لا توجد حاجة إلى بطاقة ائتمان. يمكنك الإلغاء في أي وقت."
-    },
-    "q2": {
-        "question": "هل يمكنني تغيير خطتي لاحقًا؟",
-        "answer": "نعم، يمكنك الترقية أو التخفيض من خطتك في أي وقت. تسري التغييرات على الفور."
-    },
-    "q3": {
-        "question": "ما هي طرق الدفع التي تقبلونها؟",
-        "answer": "نحن نقبل جميع بطاقات الائتمان الرئيسية و PayPal و التحويلات البنكية لعملاء المؤسسات."
-    },
-    "q4": {
-        "question": "هل هناك حد لعدد الأحداث؟",
-        "answer": "تقتصر الخطط المجانية على 5 أحداث في الشهر. لدى خطط Pro و Enterprise أحداث غير محدودة."
-    },
-    "q5": {
-        "question": "هل تقدمون استرداد الأموال؟",
-        "answer": "نعم، نحن نقدم ضمان استرداد الأموال لمدة 30 يومًا إذا لم تكن راضيًا عن خدمتنا."
+    "instantAnalytics": {
+      "title": "تحليلات فورية",
+      "description": "رؤى في الوقت الفعلي حول الحضور والمشاركة وأداء الفعالية."
     }
-},
-    "integrations": {
-    "title": "تكاملات سلسة",
+  },
+  "integrations": {
+    "title": "التكاملات السلسة",
     "google": {
-        "title": "Google Calendar",
-        "description": "مزامنة الأحداث مع Google Calendar للحصول على جدولة وتحديثات سلسة."
+      "title": "جوجل كـالـندر",
+      "description": "مزامنة الأحداث مع Google Calendar للتخطيط وال تحديثات سلسة."
     },
     "zoom": {
-        "title": "اجتماعات Zoom",
-        "description": "إنشاء وإدارة اجتماعات Zoom تلقائيًا لأحداثك."
+      "title": "اجتماعات زووم",
+      "description": "إنشاء وإدارة اجتماعات Zoom تلقائيًا لفعالياتك."
     },
     "slack": {
-        "title": "Slack",
-        "description": "احصل على إشعارات وتحديثات مباشرة في قنوات Slack الخاصة بك."
+      "title": "سكرب",
+      "description": "الحصول على إشعارات والتحديثات مباشرة في قنوات Slack الخاصة بك."
     },
     "teams": {
-        "title": "Microsoft Teams",
-        "description": "التكامل مع Teams للتخطيط التعاوني للفعاليات."
+      "title": "فرق مايكروسوفت",
+      "description": "التكامل مع فرق مايكروسوفت للتخطيط التعاوني للفعاليات."
     }
-},
-"pricing": {
+  },
+  "pricing": {
     "title": "أسعار بسيطة وشفافة",
     "subtitle": "اختر الخطة التي تناسب احتياجاتك بشكل أفضل",
     "popular": "الأكثر شعبية",
     "free": {
-        "title": "مجاني",
-        "description": "مثالي للبدء",
-        "price": "0 دولار/شهر",
-        "button": "ابدأ الآن",
-        "features": {
-            "limit1": "حتى 5 أحداث في الشهر",
-            "limit2": "تحليلات أساسية",
-            "limit3": "دعم عبر البريد الإلكتروني",
-            "limit4": "1 عضو فريق"
-        }
+      "title": "مجاني",
+      "description": "مثالي للبدء",
+      "price": "0 دولار / شهر",
+      "button": "البدء",
+      "features": {
+        "limit1": "ما يصل إلى 5 أحداث شهريًا",
+        "limit2": "تحليلات أساسية",
+        "limit3": "دعم البريد الإلكتروني",
+        "limit4": "1 عضو فريق"
+      }
     },
     "pro": {
-        "title": "برو",
-        "description": "أفضل للفريق المتنامي",
-        "price": "29 دولار/شهر",
-        "button": "ابدأ التجربة المجانية",
-        "features": {
-            "limit1": "أحداث غير محدودة",
-            "limit2": "تحليلات متقدمة",
-            "limit3": "دعم أولوية",
-            "limit4": "ما يصل إلى 10 أعضاء فريق",
-            "limit5": "علامة تجارية مخصصة"
-        }
+      "title": "برو",
+      "description": "أفضل للفرق المتنامية",
+      "price": "29 دولارًا / شهر",
+      "button": "ابدأ الإصدار التجريبي المجاني",
+      "features": {
+        "limit1": "أحداث غير محدودة",
+        "limit2": "تحليلات متقدمة",
+        "limit3": "دعم أولوية",
+        "limit4": "ما يصل إلى 10 أعضاء في الفريق",
+        "limit5": "العلامة التجارية المخصصة"
+      }
     },
     "enterprise": {
-        "title": "شركة",
-        "description": "للمؤسسات الكبيرة",
-        "price": "مخصص",
-        "button": "اتصل بالمبيعات",
-        "features": {
-            "limit1": "كل شيء غير محدود",
-            "limit2": "دعم ممتاز على مدار 24/7",
-            "limit3": "تكاملات مخصصة",
-            "limit4": "أعضاء فريق غير محدودين",
-            "limit5": "أمان متقدم",
-            "limit6": "مدير حساب مخصص"
-        }
+      "title": "مؤسسة",
+      "description": "للمؤسسات الكبيرة",
+      "price": "مخصص",
+      "button": "اتصل بالمبيعات",
+      "features": {
+        "limit1": "كل شيء غير محدود",
+        "limit2": "دعم متميز على مدار 24/7",
+        "limit3": "تكاملات مخصصة",
+        "limit4": "أعضاء الفريق غير محدودين",
+        "limit5": "أمان متقدم",
+        "limit6": "مدير حساب مخصص"
+      }
     }
-}
+  },
+  "faq": {
+    "title": "الأسئلة المتداولة",
+    "subtitle": "كل ما تحتاج لمعرفته حول نظامنا الأساسي",
+    "q1": {
+      "question": "كيف تعمل الإصدار التجريبي المجاني؟",
+      "answer": "ابدأ بإصدار تجريبي مجاني لمدة 14 يومًا من خطة Pro الخاصة بنا. لا توجد بطاقة ائتمان مطلوبة. إلغاء في أي وقت."
+    },
+    "q2": {
+      "question": "هل يمكنني تغيير خطتي لاحقًا؟",
+      "answer": "نعم ، يمكنك الترقية أو الترقية إلى إصدار أقل من خطتك في أي وقت. تسري التغييرات على الفور."
+    },
+    "q3": {
+      "question": "ما طرق الدفع التي تقبلونها؟",
+      "answer": "نقبل جميع بطاقات الائتمان الرئيسية و PayPal والتحويلات البنكية لعملاء المؤسسات."
+    },
+    "q4": {
+      "question": "هل هناك حد لعدد الأحداث؟",
+      "answer": "تقتصر الخطط المجانية على 5 أحداث شهريًا. خطط Pro و Enterprise لديها أحداث غير محدودة."
+    },
+    "q5": {
+      "question": "هل تقدمون استرداد الأموال؟",
+      "answer": "نعم ، نحن نقدم ضمان استرداد الأموال لمدة 30 يومًا إذا لم تكن راضيًا عن خدمتنا."
+    }
+  },
+  "testimonials": {
+    "title": "ما يقوله مستخدمونا",
+    "trustedBy": "موثوق به من قبل قادة الصناعة",
+    "testimonial1": {
+      "name": "سارة جونسون",
+      "role": "مدير الفعاليات",
+      "quote": "لقد أحدث هذا النظام ثورة في كيفية إدارة فعالياتنا المؤسسية. لقد وفرت ميزات الأتمتة وحدها ساعات لا حصر لها."
+    }
+  },
+  "cta": {
+    "title": "جاهز لتحويل فعالياتك؟",
+    "subtitle": "انضم إلى آلاف منظمي الفعاليات الناجحين الذين يثقون في نظامنا الأساسي.",
+    "button": "ابدأ الإصدار التجريبي المجاني"
+  }
+  },
+  "Footer": {
+    "copyright": "© 2024 مدير الفعاليات. جميع الحقوق محفوظة.",
+    "links": {
+      "home": "الرئيسية",
+      "about": "حول",
+      "features": "الميزات",
+      "pricing": "التسعير",
+      "contact": "اتصل",
+      "privacy": "سياسة الخصوصية",
+      "terms": "شروط الخدمة"
+    }
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "description": "إدارة إعدادات حسابك وتفضيلاتك"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "description": "تكوين إعدادات حسابك",
+    "somethingwrong": "حدث خطأ ما",
+    "tryAgain": "الرجاء المحاولة مرة أخرى",
+    "eventManager": "مدير الفعاليات",
+    "quickLinks": "الروابط السريعة",
+    "account": "الحساب",
+    "profile": "الملف الشخصي",
+    "security": "الأمان",
+    "notifications": "الإشعارات",
+    "preferences": "التفضيلات",
+    "language": "اللغة",
+    "theme": "الموضوع",
+    "timezone": "المنطقة الزمنية",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة السر",
+    "changePassword": "تغيير كلمة السر",
+    "twoFactor": "المصادقة الثنائية",
+    "signOut": "تسجيل الخروج",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة مرور جديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "settings": "الإعدادات",
+    "dashboard": "لوحة التحكم",
+    "privacy": {
+      "profileVisibility": "رؤية الملف الشخصي",
+      "calendarVisibility": "رؤية التقويم",
+      "activityVisibility": "رؤية النشاط",
+      "showUpcomingEvents": "إظهار الأحداث القادمة",
+      "allowTagging": "السماح بالوسم",
+      "allowComments": "السماح بالتعليقات",
+      "showUpcomingEventsDescription": "إظهار الأحداث القادمة في لوحة التحكم الخاصة بك",
+      "allowTaggingDescription": "السماح للآخرين بوضع علامات على أحداثك",
+      "allowCommentsDescription": "السماح للآخرين بالتعليق على أحداثك",
+      "saveChanges": "حفظ التغييرات",
+      "title": "الخصوصية",
+      "privacyNote": "باستمرار استخدام مدير الفعاليات ، فإنك توافق على",
+      "privacyPolicy": "سياسة الخصوصية",
+      "termsOfService": "شروط الخدمة",
+      "privacyDescription": "نحن نجمع ونستخدم معلوماتك الشخصية وفقًا لـ",
+      "privacyPolicyLink": "سياسة الخصوصية",
+      "visibilityOptions": {
+        "team": "فريق",
+        "title": "خيارات الرؤية",
+        "public": "عام",
+        "private": "خاص"
+      }
+    },
+    "display": {
+      "title": "عرض",
+      "displayName": "اسم العرض",
+      "theme": {
+        "title": "الموضوع",
+        "light": "فاتح",
+        "dark": "داكن",
+        "system": "النظام"
+      },
+      "density": {
+        "title": "الكثافة",
+        "comfortable": "مريح",
+        "cosy": "دافئ",
+        "compact": "مدمج",
+        "comfortableDescription": "تجربة قراءة مريحة",
+        "cosyDescription": "تجربة قراءة دافئة",
+        "compactDescription": "تجربة قراءة مدمجة"
+      },
+      "timeFormat": {
+        "title": "تنسيق الوقت",
+        "12h": "12 ساعة",
+        "24h": "24 ساعة"
+      },
+      "dateFormat": {
+        "title": "تنسيق التاريخ",
+        "options": {
+          "MMDDYYYY": "MM/DD/YYYY",
+          "DDMMYYYY": "DD/MM/YYYY",
+          "YYYYMMDD": "YYYY/MM/DD"
+        }
+      },
+      "saveChanges": "حفظ التغييرات",
+      "timezone": {
+        "title": "المنطقة الزمنية",
+        "timezone": "المنطقة الزمنية"
+      },
+      "language": {
+        "title": "اللغة",
+        "language": "اللغة"
+      }
+    },
+    "security": {
+      "title": "الأمان",
+      "twoFactorAuth": {
+        "title": "المصادقة الثنائية",
+        "description": "قم بتمكين المصادقة الثنائية للحصول على مزيد من الأمان"
+      },
+      "loginNotifications": "إشعارات تسجيل الدخول",
+      "loginNotificationsDescription": "تلقى إشعارات عندما يقوم شخص ما بتسجيل الدخول إلى حسابك",
+      "sessionTimeout": "وقت انتهاء الجلسة",
+      "securityTip": "نصيحة: استخدم كلمة مرور قوية وقم بتمكين المصادقة الثنائية للحصول على مزيد من الأمان",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "integrations": {
+      "title": "التكاملات",
+      "googleCalendar": {
+        "title": "جوجل كـالـندر",
+        "description": "مزامنة الأحداث مع Google Calendar للتخطيط وال تحديثات سلسة.",
+        "syncFrequency": {
+          "title": "تردد المزامنة",
+          "realtime": "في الوقت الحقيقي",
+          "hourly": "ساعة بعد ساعة",
+          "daily": "يوميًا"
+        }
+      },
+      "microsoftOutlook": {
+        "title": "مايكروسوفت أوتلوك",
+        "description": "مزامنة الأحداث مع Microsoft Outlook للتخطيط وال تحديثات سلسة."
+      },
+      "slack": {
+        "title": "سكرب",
+        "description": "الحصول على إشعارات والتحديثات مباشرة في قنوات Slack الخاصة بك.",
+        "channel": "القناة"
+      },
+      "zoom": {
+        "title": "اجتماعات زووم",
+        "description": "إنشاء وإدارة اجتماعات Zoom تلقائيًا لفعالياتك.",
+        "autoCreateMeeting": "إنشاء الاجتماعات تلقائيًا"
+      },
+      "teams": {
+        "title": "فرق مايكروسوفت",
+        "description": "التكامل مع فرق مايكروسوفت للتخطيط التعاوني للفعاليات."
+      },
+      "saveChanges": "حفظ التغييرات"
+    },
+    "profile": {
+      "title": "الملف الشخصي",
+      "displayName": "الاسم",
+      "email": "البريد الإلكتروني",
+      "privacy": "الخصوصية"
+    }
+  },
+  "team": {
+    "errors": {
+      "fetchFailed": "فشل استرجاع أعضاء الفريق"
+    },
+    "status": "الحالة",
+    "search": "بحث عن أعضاء الفريق...",
+    "actions": "الإجراءات",
+    "sendMessage": "إرسال رسالة",
+    "teamMembers": "أعضاء الفريق",
+    "manageRole": "إدارة الدور",
+    "remove": "إزالة",
+    "event": "الحدث",
+    "activity": "النشاط",
+    "noResults": "لا توجد نتائج"
   },
   "dashboard": {
+    "noRecentEvents": "لا توجد أحداث حديثة",
     "title": "لوحة التحكم",
-    "welcome": "مرحباً بعودتك، {name}!",
-    "overview": "نظرة عامة",
-    "manageActivities": "إدارة الأنشطة",
-    "manageActivitiesDescription": "إنشاء وإدارة الفعاليات والأنشطة الخاصة بك",
-    "upcomingEvents": "الفعاليات القادمة",
-    "upcomingEventsDescription": "عرض وإدارة الفعاليات القادمة",
-    "calendar": "التقويم",
-    "calendarDescription": "عرض جدولك الزمني بتنسيق التقويم",
-    "settings": "الإعدادات",
-    "settingsDescription": "تكوين إعدادات حسابك",
+    "eventsCreated": "الأحداث التي تم إنشاؤها",
+    "eventsJoined": "الأحداث التي انضممت إليها",
+    "totalActivities": "مجموع الأنشطة",
+    "totalParticipants": "مجموع المشاركين",
+    "recentActivities": "الأنشطة الحديثة",
+    "noRecentActivities": "لا توجد أنشطة حديثة",
+    "createdEvents": "الأحداث التي تم إنشاؤها",
+    "noCreatedEvents": "لم يتم إنشاء أي أحداث بعد",
+    "joinedEvents": "الأحداث التي انضممت إليها",
+    "noJoinedEvents": "لم تنضم إلى أي أحداث بعد",
+    "activities": "الأنشطة",
+    "members": "الأعضاء",
+    "welcomeBack": "أهلا بعودتك!",
+    "dashboardDescription": "إليك ما يحدث في أحداثك وأنشطتك.",
+    "searchPlaceholder": "بحث عن الأحداث...",
     "stats": {
-      "totalEvents": "إجمالي الفعاليات",
-      "upcomingEvents": "الفعاليات القادمة",
-      "pastEvents": "الفعاليات السابقة",
-      "activeParticipants": "المشاركون النشطون"
-    }
-  }
+      "totalEvents": "مجموع الأحداث",
+      "totalActivities": "مجموع الأنشطة",
+      "totalParticipants": "مجموع المشاركين",
+      "completionRate": "معدل الإكمال",
+      "eventsCreated": "الأحداث التي تم إنشاؤها",
+      "eventsJoined": "الأحداث التي انضممت إليها",
+      "upcomingEvents": "الأحداث القادمة"
+    },
+    "activityOverviewCard": {
+      "title": "نظرة عامة على النشاط",
+      "description": "نشاطك الأخير والتقدم المحرز",
+      "inProgress": "قيد التقدم",
+      "completed": "مكتمل",
+      "upcoming": "قادم",
+      "cancelled": "ملغي",
+      "pending": "قيد الانتظار"
+    },
+    "quickActions": "الإجراءات السريعة",
+    "createEvent": "إنشاء حدث",
+    "createActivity": "إنشاء نشاط",
+    "manageEvents": "إدارة الأحداث",
+    "manageActivities": "إدارة الأنشطة",
+    "userActivityOverview": "نظرة عامة على نشاطك",
+    "recentEvents": "الأحداث الحديثة",
+    "recentActivities": "الأنشطة الحديثة",
+    "viewAll": "عرض الكل",
+    "view": "عرض",
+    "noEventsFound": "لم يتم العثور على أحداث",
+    "noActivitiesFound": "لم يتم العثور على أنشطة",
+    "totalEvents": "مجموع الأحداث",
+    "totalActivities": "مجموع الأنشطة",
+    "activeParticipants": "المشاركون النشطون",
+    "completionRate": "معدل الإكمال",
+    "eventsCreated": "الأحداث التي تم إنشاؤها",
+    "eventsJoined": "الأحداث التي انضممت إليها",
+    "upcomingEvents": "الأحداث القادمة",
+    "activityOverview": "نظرة عامة على النشاط",
+    "upcomingActivities": "الأنشطة القادمة",
+    "totalCreatedEvents": "مجموع الأحداث التي تم إنشاؤها",
+    "totalJoinedEvents": "مجموع الأحداث التي انضممت إليها"
+  },
+  "events": {
+    "form": {
+      "createTitle": "إنشاء حدث",
+      "helpTitle": "مساعدة",
+      "titleLabel": "عنوان الحدث",
+      "titlePlaceholder": "أدخل عنوان الحدث",
+      "descriptionLabel": "وصف الحدث",
+      "descriptionPlaceholder": "أدخل وصف الحدث",
+      "editTitle": "تحرير الحدث",
+      "creating": "جار الإنشاء...",
+      "description": "وصف",
+      "startDateLabel": "تاريخ البدء",
+      "endDateLabel": "تاريخ الانتهاء",
+      "countryLabel": "بلد",
+      "helpTip1": "حدد تاريخ بدء وانتهاء لحدثك",
+      "helpTip2": "حدد تاريخ بدء وانتهاء لحدثك",
+      "helpTip3": "حدد تاريخ بدء وانتهاء لحدثك",
+      "previewTitle": "معاينة",
+      "previewDescription": "معاينة الوصف",
+      "title": "عنوان",
+      "description": "وصف",
+      "countryPlaceholder": "حدد البلد",
+      "cityLabel": "مدينة",
+      "cityPlaceholder": "أدخل المدينة",
+      "addressLabel": "عنوان",
+      "addressPlaceholder": "أدخل العنوان",
+      "maxAttendeesLabel": "الحد الأقصى للحضور",
+      "maxAttendeesPlaceholder": "أدخل الحد الأقصى للحضور",
+      "googleCalendarLabel": "جوجل كـالـندر",
+      "publicLabel": "عام",
+      "locationLabel": "موقع",
+      "locationPlaceholder": "أدخل الموقع",
+      "addToGoogleCalendar": "إضافة إلى Google Calendar",
+      "saveChanges": "حفظ التغييرات",
+      "cancel": "إلغاء",
+      "create": "إنشاء",
+      "update": "تحديث",
+      "highlights": "المقاطع المميزة",
+      "highlightPlaceholder": "أدخل مقطعًا مميزًا...",
+      "addHighlight": "إضافة مقطع مميز",
+      "removeHighlight": "إزالة المقطع المميز",
+      "eventTitlePlaceholder": "أدخل عنوان الحدث",
+      "eventDescriptionPlaceholder": "أدخل وصف الحدث",
+      "countryPlaceholder": "أدخل البلد",
+      "cityPlaceholder": "أدخل المدينة",
+      "addressPlaceholder": "أدخل العنوان",
+      "maxAttendeesPlaceholder": "أدخل الحد الأقصى للحضور",
+      "selectCalendar": "حدد التقويم",
+      "loadingCalendars": "جار تحميل التقويمات...",
+      "noCalendarsAvailable": "لا تتوفر تقويمات",
+      "selectCalendarDescription": "اختر تقويم Google Calendar لمزامنة هذا الحدث معه",
+      "loadingGoogleCalendars": "جار تحميل تقويمات Google",
+      "eventDetails": "تفاصيل الحدث",
+      "invitationDesign": "تصميم الدعوة"
+    },
+    "status": {
+      "upcoming": "قادم",
+      "completed": "مكتمل",
+      "cancelled": "ملغي",
+      "pending": "قيد الانتظار",
+      "published": "تم النشر",
+      "draft": "مسودة"
+    },
+    "participations": "المشاركات",
+    "viewDetails": "عرض التفاصيل",
+    "getStarted": "البدء",
+    "virtualEvent": "الحدث الافتراضي",
+    "inPersonEvent": "الحدث الشخصي",
+    "onlineEvent": "الحدث عبر الإنترنت",
+    "location": "الموقع",
+    "online": "عبر الإنترنت",
+    "inPerson": "شخصيا",
+    "virtual": "افتراضي",
+    "title": "الأحداث",
+    "description": "إدارة وتنظيم أحداثك",
+    "createFirstEvent": "أنشئ حدثك الأول",
+    "noEventsFound": "لم يتم العثور على أحداث",
+    "createEvent": "إنشاء حدث",
+    "error": "خطأ",
+    "errorTitle": "خطأ",
+    "FailedToFetchEvents": "فشل تحميل الأحداث. يرجى المحاولة مرة أخرى لاحقًا.",
+    "FailedToCreateEvent": "فشل إنشاء الحدث. يرجى المحاولة مرة أخرى لاحقًا.",
+    "FailedToUpdateEvent": "فشل تحديث الحدث. يرجى المحاولة مرة أخرى لاحقًا.",
+    "FailedToDeleteEvent": "فشل حذف الحدث. يرجى المحاولة مرة أخرى لاحقًا."
+  },
+  "activities": {
+    "create": "إنشاء نشاط",
+    "title": "الأنشطة",
+    "description": "تعقب وإدارة أنشطة الحدث",
+    "createActivity": "إنشاء نشاط",
+    "manageActivities": "إدارة الأنشطة",
+    "recentActivities": "الأنشطة الحديثة",
+    "viewAll": "عرض الكل",
+    "viewDetails": "عرض التفاصيل",
+    "selectDateRange": "حدد نطاق التاريخ",
+    "filters": "المرشحات",
+    "searchPlaceholder": "بحث عن الأنشطة ...",
+    "errorLoading": "خطأ في تحميل الأنشطة",
+    "noActivitiesFound": "لم يتم العثور على أنشطة",
+    "view": "عرض",
+    "noActivities": "لم يتم العثور على أنشطة"
+  },
+  "analytics": {
+    "overview":"نظرة عامة",
+    "events":"الأحداث",
+    "attendees":"الحضور",
+    "title": "التحليلات",
+    "description": "تتبع وتحليل أداء الأحداث",
+    "dateRangeLabel": "نطاق التاريخ",
+    "stats": {
+      "totalEvents": "مجموع الأحداث",
+      "totalEventsDescription": "إجمالي عدد الأحداث التي تم إنشاؤها في الفترة المحددة",
+      "totalAttendees": "مجموع الحضور",
+      "totalAttendeesDescription": "إجمالي عدد الحضور في جميع الأحداث",
+      "averageAttendance": "متوسط ​​الحضور",
+      "averageAttendanceDescription": "متوسط ​​عدد الحضور لكل حدث",
+      "averageDuration": "المتوسط ​​الزمني",
+      "averageDurationDescription": "متوسط ​​مدة الأحداث",
+      "completionRate": "معدل الإنجاز",
+      "completionRateDescription": "نسبة الأحداث المكتملة بنجاح",
+      "activeEvents": "الأحداث النشطة",
+      "activeEventsDescription": "عدد الأحداث النشطة حاليًا"
+    },
+    "activities":{
+      "title":"أنشطة",
+      "participants":"مشاركون",
+      "noEventFound": "لم يتم العثور على أي أحداث للفترة المحددة",
+      "noActivities": "لم يتم العثور على أي أنشطة للفترة المحددة",
+      "totalActivities":"إجمالي الأنشطة",
+      "totalParticipants":"إجمالي المشاركين",
+      "avgParticipants":"متوسط المشاركين",
+      "avgDuration":"متوسط المدة",
+      "avgDurationDescription":"متوسط مدة الأنشطة",
+      "completionRate":"معدل الإنجاز",
+      "eventStatus":"توزيع حالة الأحداث",
+      "activityProgress":"تقدم النشاط",
+      "activityStatusDistribution":"توزيع حالة الأنشطة",
+      "durationInHours":"المدة (بساعات)",
+      "distributionOfActivitiesByStatus":"توزيع الأنشطة حسب الحالة",
+      "activityTrends":"اتجاهات الأنشطة",
+      "monthlyTrendsOfActivitiesAndParticipants":"اتجاهات شهرية للأنشطة والمشاركين",
+      "mostActiveTime":"أعلى وقت نشاط",
+      "timeDistribution":"توزيع الوقت",
+      "averageDuration":"متوسط المدة",
+      "averageDurationDescription":"متوسط مدة الأنشطة",
+      "statusDistribution":"توزيع الحالة"
+      },
+      "status": {
+        "pendingEvents": "أحداث معلقة",
+        "upcomingEvents": "الأحداث القادمة",
+        "completedEvents": "الأحداث المكتملة"
+      },
+      "charts": {
+        "eventStatus": "توزيع حالة الحدث",
+        "activityProgress": "تقدم النشاط",
+        "attendeeEngagement": "مشاركة الحضور",
+        "eventTrends": "اتجاهات الحدث",
+        "mostActiveTime": "أكثر وقت نشاط",
+        "hours":"ساعات",
+        "minutes":"دقايق",
+        "averageDuration": "المتوسط ​​الزمني",
+        "eventStatusDescription": "نسبة الأحداث في كل حالة",
+        "totalEvents": "مجموع الأحداث"
+      },
+      "tables": {
+        "totalEvents":"مجموع الأحداث",
+        "recentEvents": "الأحداث الحديثة",
+        "eventTitle": "عنوان الحدث",
+        "startDate": "تاريخ البدء",
+        "events":"الأحداث",
+        "attendees": "الحضور",
+        "status": "الحالة",
+        "topLocations": "أفضل المواقع",
+        "eventsCount": "{count} حدث"
+      }
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "description": "إدارة كيفية تلقي الإشعارات",
+    "desktop": "إشعارات سطح المكتب",
+    "desktopDescription": "عرض الإشعارات على سطح مكتبك عند حدوث أحداث مهمة",
+    "sound": "صوت الإشعار",
+    "volume": "صوت",
+    "volumeChanged": "تم ضبط مستوى الصوت على {volume}%",
+    "eventReminders": "تذكيرات الحدث",
+    "eventRemindersDescription": "احصل على إشعارات قبل بدء أحداثك",
+    "reminderTime": "وقت التذكير",
+    "reminderTime5": "5 دقائق قبل",
+    "reminderTime10": "10 دقائق قبل",
+    "reminderTime15": "15 دقيقة قبل",
+    "reminderTime30": "30 دقيقة قبل",
+    "reminderTime60": "ساعة قبل",
+    "reminderTimeChanged": "تم تعيين وقت التذكير على {time}",
+    "interactions": "إشعارات التفاعل",
+    "mentions": "الذكر",
+    "mentionsDescription": "احصل على إشعار عندما يذكرك شخص ما",
+    "comments": "تعليقات",
+    "commentsDescription": "احصل على إشعار عندما يعلق شخص ما على أحداثك",
+    "permissionNeeded": "تمكين الإشعارات",
+    "permissionDescription": "السماح للإشعارات بالبقاء محدثًا بشأن أحداثك",
+    "requestPermission": "تمكين الإشعارات",
+    "permission_required": "الوصول المطلوب",
+    "enable_in_browser": "الرجاء تمكين الإشعارات في إعدادات المتصفح",
+    "test_title": "إشعار الاختبار",
+    "test_body": "هذا إشعار اختبار. إذا كان يمكنك رؤية هذا ، فإن الإشعارات تعمل!",
+    "test_sent": "تم إرسال إشعار الاختبار",
+    "check_notification": "تحقق من إشعاراتك لمعرفة ما إذا كان قد نجح",
+    "test_failed": "فشل الاختبار",
+    "try_again": "الرجاء المحاولة مرة أخرى أو التحقق من إعدادات المتصفح",
+    "desktopEnabled": "تم تمكين إشعارات سطح المكتب",
+    "desktopDisabled": "تم تعطيل إشعارات سطح المكتب",
+    "soundEnabled": "تم تمكين صوت الإشعار",
+    "soundDisabled": "تم تعطيل صوت الإشعار",
+    "remindersEnabled": "تم تمكين تذكيرات الحدث",
+    "remindersDisabled": "تم تعطيل تذكيرات الحدث",
+    "mentionsEnabled": "تم تمكين إشعارات الذكر",
+    "mentionsDisabled": "تم تعطيل إشعارات الذكر",
+    "commentsEnabled": "تم تمكين إشعارات التعليق",
+    "commentsDisabled": "تم تعطيل إشعارات التعليق"
+  },
+  "teams": {
+    "title": "الفرق",
+    "create": "إنشاء فريق",
+    "settings": "إعدادات الفريق",
+    "participants": "المشاركون",
+    "calendar": "ال التقويم",
+    "teamCalendar": "تقويم الفريق",
+    "searchParticipants": "بحث عن المشاركين ...",
+    "allParticipants": "جميع المشاركين",
+    "activities": "الأنشطة",
+    "events": "الأحداث",
+    "member": "عضو",
+    "members": "الأعضاء",
+    "role": "دور",
+    "status": "الحالة"
+  },
+  "messages": {
+  "error_starring_message": "خطأ في تمييز الرسالة", 
+  "error_loading_messages": "خطأ في تحميل الرسائل",
+  "type":"نوع",
+  "content":"محتوى",
+  "error_loading_users": "خطأ في تحميل المستخدمين",
+  "message_sent": "تم إرسال الرسالة",
+  "error_refreshing_messages": "خطأ في تحديث الرسائل",
+  "message_archived": "تم أرشفة الرسالة",
+  "message_unarchived": "تم إلغاء أرشفة الرسالة",
+  "error_archiving_message": "خطأ في أرشفة الرسالة",
+  "inbox": "الوارد",
+  "sent": "المرسلة",
+  "starred": "المميزة",
+  "archived": "المؤرشفة",
+  "drafts": "المسودات",
+  "all": "الكل",
+  "noMessagesFound": "لم يتم العثور على رسائل",
+  "noStarredMessagesFound": "لم يتم العثور على رسائل مميزة",
+  "hide_archived": "إخفاء المؤرشفة",
+  "show_archived": "عرض المؤرشفة",
+  "show_all": "عرض الكل",
+  "show_starred": "عرض المميزة",
+  "search_placeholder": "بحث في الرسائل...",
+  "reply": "الرد",
+  "forward": "إعادة توجيه",
+  "filters": "الفلاتر",
+  "from": "من",
+  "message_type": "نوع الرسالة",
+  "date_range": "نطاق التاريخ",
+  "search": "بحث",
+  "no_messages_found": "لم يتم العثور على رسائل",
+  "direct": "مباشر",
+  "team": "الفريق",
+  "task": "المهمة",
+  "event": "الحدث",
+  "reminder": "التذكير",
+  "feedback": "الملاحظات",
+  "priority": "الأولوية",
+  "low": "منخفضة",
+  "medium": "متوسطة",
+  "high": "عالية",
+  "general": "عام",
+  "project": "المشروع",
+  "meeting": "الاجتماع",
+  "approval": "الموافقة",
+  "report": "التقرير",
+  "announcement": "الإعلان",
+  "question": "السؤال",
+  "draft": "مسودة",
+  "scheduled": "مجدول",
+  "delivered": "تم التسليم",
+  "read": "مُقروء",
+  "deleted": "محذوف",
+  "category": "الفئة",
+  "clear_filters": "مسح الفلاتر",
+  "no_messages": "لا توجد رسائل",
+  "new_message": "رسالة جديدة",
+  "new_message_description": "إنشاء رسالة جديدة",
+  "message_details": "تفاصيل الرسالة",
+  "select_recipient": "اختر المستلم",
+  "subject": "الموضوع",
+  "message": "الرسالة",
+  "subject_placeholder": "أدخل الموضوع",
+  "content_placeholder": "أدخل الرسالة",
+  "send": "إرسال",
+  "cancel": "إلغاء",
+  "error_sending_message": "خطأ في إرسال الرسالة",
+  "to": "إلى"
+}
 }

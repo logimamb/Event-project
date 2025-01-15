@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts'
 import { format } from 'date-fns'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
+import { useTranslations } from 'next-intl'
 
 interface EventAnalyticsProps {
   dateRange: DateRange | null
@@ -75,6 +76,7 @@ const CustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, n
 }
 
 export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
+  const t = useTranslations('analytics')
   const [data, setData] = useState<AnalyticsData>(EMPTY_DATA)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -135,7 +137,7 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
   if (data.eventsByCategory.length === 0 && data.eventTrends.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[400px] text-muted-foreground">
-        No events found for the selected time period
+        {t('activities.noEventFound')}
       </div>
     )
   }
@@ -155,7 +157,7 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Total Events</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('charts.eventStatus')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalEvents}</div>
@@ -163,13 +165,14 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Most Active Time</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('charts.mostActiveTime')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
               {Object.entries(data.timeSlotDistribution)
                 .reduce((a, b) => (a[1] > b[1] ? a : b))[0]
-                .charAt(0).toUpperCase() + 
+                .charAt(0)
+                .toUpperCase() + 
                 Object.entries(data.timeSlotDistribution)
                 .reduce((a, b) => (a[1] > b[1] ? a : b))[0]
                 .slice(1)}
@@ -178,13 +181,13 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Average Duration</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('charts.averageDuration')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
               {data.averageDurationByType.length > 0
                 ? `${Math.round(data.averageDurationByType.reduce((sum, item) => sum + item.duration, 0) / 
-                    data.averageDurationByType.length)} hrs`
+                    data.averageDurationByType.length)} ${t('charts.hours')}`
                 : '0 hrs'}
             </div>
           </CardContent>
@@ -199,9 +202,9 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Event Distribution</CardTitle>
+              <CardTitle>{t('charts.eventStatus')}</CardTitle>
               <CardDescription>
-                Distribution of events by status ({totalEvents} total events)
+                {t('charts.eventStatusDescription')} ({totalEvents} {t('tables.totalEvents')})
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -241,9 +244,9 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Event Trends</CardTitle>
+              <CardTitle>{t('charts.eventTrends')}</CardTitle>
               <CardDescription>
-                Monthly trends of events and attendees
+                {t('charts.eventStatusDescription')} ({totalEvents} {t('tables.totalEvents')})
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -256,8 +259,8 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
                     <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
                     <Tooltip content={CustomTooltip} />
                     <Legend />
-                    <Bar yAxisId="left" dataKey="events" fill="#8884d8" name="Events" />
-                    <Bar yAxisId="right" dataKey="attendees" fill="#82ca9d" name="Attendees" />
+                    <Bar yAxisId="left" dataKey="events" fill="#8884d8" name={t('tables.events')} />
+                    <Bar yAxisId="right" dataKey="attendees" fill="#82ca9d" name={t('tables.attendees')} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -274,9 +277,9 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
       >
         <Card>
           <CardHeader>
-            <CardTitle>Time Slot Distribution</CardTitle>
+            <CardTitle>{t('charts.mostActiveTime')}</CardTitle>
             <CardDescription>
-              Distribution of events across different times of day
+              {t('charts.eventStatusDescription')} ({totalEvents} {t('tables.totalEvents')})
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -315,9 +318,9 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Average Duration by Event Type</CardTitle>
+              <CardTitle>{t('charts.averageDuration')}</CardTitle>
               <CardDescription>
-                Average duration (in hours) for each event type
+                {t('charts.eventStatusDescription')} ({totalEvents} {t('tables.totalEvents')})
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -329,7 +332,7 @@ export function EventAnalytics({ dateRange }: EventAnalyticsProps) {
                     <YAxis />
                     <Tooltip content={CustomTooltip} />
                     <Legend />
-                    <Bar dataKey="duration" fill="#8884d8" name="Duration (hours)" />
+                    <Bar dataKey="duration" fill="#8884d8" name={t('charts.durationInHours')} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

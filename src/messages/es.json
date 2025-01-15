@@ -1,44 +1,23 @@
 {
-  "common": {
-    "loading": "Cargando...",
-    "error": "Error",
-    "success": "Éxito",
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "delete": "Eliminar",
-    "edit": "Editar",
-    "create": "Crear",
-    "search": "Buscar",
-    "filter": "Filtrar",
-    "sort": "Ordenar",
-    "view": "Ver",
-    "more": "Más",
-    "less": "Menos",
-    "all": "Todo",
-    "none": "Ninguno",
-    "back": "Volver",
-    "next": "Siguiente",
-    "previous": "Anterior",
-    "continue": "Continuar",
-    "submit": "Enviar",
-    "confirm": "Confirmar",
-    "actions": "Acciones"
-  },
   "auth": {
-    "signin": {
-      "signIn": "Iniciar sesión",
-      "signInSubtitle": "¡Bienvenido de nuevo! Ingresa tus datos",
-      "branding": {
-        "title": "Event Manager",
-        "subtitle": "Tu solución integral para la planificación y gestión fluida de eventos"
-      },
-      "testimonial": {
-        "quote": "Esta plataforma ha revolucionado la forma en que gestionamos nuestros eventos. La facilidad de uso y las potentes funciones la convierten en una herramienta esencial para cualquier organizador de eventos.",
-        "author": "Sarah Johnson",
-        "role": "Directora de eventos"
-      },
+    "branding": {
+    "title": "Event Manager",
+    "subtitle": "Su solución integral para la planificación y gestión fluida de eventos"
+  },
+  "testimonial": {
+    "quote": "Esta plataforma ha revolucionado la forma en que gestionamos nuestros eventos. La facilidad de uso y las potentes funciones la convierten en una herramienta esencial para cualquier organizador de eventos.",
+    "author": "Sarah Johnson",
+    "role": "Directora de eventos"
+  },
+  "signin": {
+    "form": {
+      "submit": "Iniciar sesión",
+      "title": "Iniciar sesión",
+      "subtitle": "¡Bienvenido de nuevo! Ingresa tus datos",
       "emailAddress": "Correo electrónico",
+      "emailAddressPlaceholder": "nombre@ejemplo.com",
       "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
       "or": "O continuar con",
       "continueWith": "Continuar con {provider}",
       "noAccount": "¿No tienes una cuenta?",
@@ -48,219 +27,225 @@
       "unexpectedError": "Ocurrió un error inesperado",
       "forgotPassword": "¿Olvidaste tu contraseña?"
     },
-    "forgotPassword": {
-      "title": "Restablecer contraseña",
-      "subtitle": "Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña",
-      "branding": {
-        "title": "Event Manager",
-        "subtitle": "Tu solución integral para la planificación y gestión fluida de eventos"
-      },
-      "testimonial": {
-        "quote": "Esta plataforma ha revolucionado la forma en que gestionamos nuestros eventos. La facilidad de uso y las potentes funciones la convierten en una herramienta esencial para cualquier organizador de eventos.",
-        "author": "Sarah Johnson",
-        "role": "Directora de eventos"
-      },
+    "signInSubtitle": "¡Bienvenido de nuevo! Ingresa tus datos",
+    "emailAddress": "Correo electrónico",
+    "password": "Contraseña",
+    "or": "O continuar con",
+    "continueWith": "Continuar con {provider}",
+    "noAccount": "¿No tienes una cuenta?",
+    "signUp": "Regístrate",
+    "error": "Error",
+    "invalidCredentials": "Correo electrónico o contraseña inválidos",
+    "unexpectedError": "Ocurrió un error inesperado",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "signOut": "Cerrar sesión",
+  "forgotPassword": {
+    "title": "Restablecer contraseña",
+    "subtitle": "Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "Correo electrónico",
+    "submit": "Enviar enlace de restablecimiento",
+    "backToSignIn": "¿Recordaste tu contraseña?",
+    "signIn": "Iniciar sesión",
+    "success": {
+      "title": "Revisa tu correo electrónico",
+      "description": "Si existe una cuenta para ese correo electrónico, le hemos enviado un enlace para restablecer la contraseña."
+    },
+    "error": {
+      "title": "Error",
+      "description": "Ocurrió un error al enviar el enlace de restablecimiento. Inténtalo de nuevo."
+    }
+  },
+  "register": {
+    "form": {
+      "title": "Crear una cuenta",
+      "subtitle": "Comienza a gestionar tus eventos hoy mismo",
+      "name": "Nombre completo",
+      "namePlaceholder": "Juan Pérez",
       "email": "Correo electrónico",
-      "submit": "Enviar enlace de restablecimiento",
-      "backToSignIn": "¿Recuerdas tu contraseña?",
-      "signIn": "Iniciar sesión",
-      "success": {
-        "title": "Revisa tu correo electrónico",
-        "description": "Si existe una cuenta para ese correo electrónico, le hemos enviado un enlace para restablecer la contraseña."
-      },
-      "error": {
-        "title": "Error",
-        "description": "Ocurrió un error al enviar el enlace de restablecimiento. Inténtalo de nuevo."
+      "emailPlaceholder": "nombre@ejemplo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "••••••••",
+      "continueWith": "Continuar con {provider}",
+      "orContinueWith": "O continuar con correo electrónico",
+      "submit": "Crear cuenta",
+      "haveAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar sesión"
+    },
+    "success": {
+      "title": "¡Éxito!",
+      "description": "Tu cuenta ha sido creada. Inicia sesión."
+    },
+    "error": {
+      "title": "Error",
+      "description": "Algo salió mal. Inténtalo de nuevo."
+    }
+  }
+  },
+  "Index": {
+  "title": "Event Manager",
+  "subtitle": "Su solución integral para la planificación sin complicaciones de eventos",
+  "featuresNav": "Características",
+  "pricingNav": "Precios",
+  "testimonialsNav": "Testimonios",
+  "getStarted": "Comenzar",
+  "about": "Acerca de",
+  "signUp": "Registrarse",
+  "signIn": "Iniciar sesión",
+  "register": "Registrarse",
+  "hero": {
+    "trustedBy": "Confiado por más de 10,000 organizadores de eventos",
+    "title": "Transforme su",
+    "titleHighlight": "Experiencia de gestión de eventos",
+    "subtitle": "Simplifique sus eventos con automatización potente, integraciones sin problemas e información inteligente. La plataforma todo en uno que hace que la planificación de eventos sea fácil.",
+    "startTrial": "Comenzar prueba gratuita",
+    "watchDemo": "Ver demostración"
+  },
+  "features": {
+    "security": "Seguridad de nivel empresarial",
+    "noCredit": "No se requiere tarjeta de crédito",
+    "setup": "Configuración en minutos",
+    "smartScheduling": {
+      "title": "Programación inteligente",
+      "description": "Programación basada en IA que encuentra automáticamente el momento perfecto para todos los asistentes."
+    },
+    "globalReach": {
+      "title": "Alcance global",
+      "description": "Organice eventos en todas las zonas horarias con conversión automática de hora y localización."
+    },
+    "instantAnalytics": {
+      "title": "Análisis instantáneos",
+      "description": "Información en tiempo real sobre asistencia, participación y rendimiento del evento."
+    }
+  },
+  "integrations": {
+    "title": "Integraciones sin problemas",
+    "google": {
+      "title": "Google Calendar",
+      "description": "Sincronice eventos con Google Calendar para una programación y actualizaciones sin problemas."
+    },
+    "zoom": {
+      "title": "Reuniones Zoom",
+      "description": "Cree y administre automáticamente reuniones de Zoom para sus eventos."
+    },
+    "slack": {
+      "title": "Slack",
+      "description": "Reciba notificaciones y actualizaciones directamente en sus canales de Slack."
+    },
+    "teams": {
+      "title": "Microsoft Teams",
+      "description": "Intégrese con Teams para la planificación colaborativa de eventos."
+    }
+  },
+  "pricing": {
+    "title": "Precios simples y transparentes",
+    "subtitle": "Elija el plan que mejor se adapte a sus necesidades",
+    "popular": "Más popular",
+    "free": {
+      "title": "Gratis",
+      "description": "Perfecto para comenzar",
+      "price": "$0/mes",
+      "button": "Comenzar",
+      "features": {
+        "limit1": "Hasta 5 eventos por mes",
+        "limit2": "Análisis básicos",
+        "limit3": "Soporte por correo electrónico",
+        "limit4": "1 miembro del equipo"
       }
     },
-    "register": {
-      "branding": {
-        "title": "Event Manager",
-        "subtitle": "Tu solución todo en uno para la planificación y gestión de eventos"
-      },
-      "testimonial": {
-        "quote": "Esta plataforma ha revolucionado la forma en que gestionamos nuestros eventos. La facilidad de uso y las potentes funciones la convierten en una herramienta esencial para cualquier organizador de eventos.",
-        "author": "Sarah Johnson",
-        "role": "Directora de Eventos"
-      },
-      "form": {
-        "title": "Crear una cuenta",
-        "subtitle": "Comienza a gestionar tus eventos hoy",
-        "name": "Nombre completo",
-        "namePlaceholder": "John Doe",
-        "email": "Correo electrónico",
-        "emailPlaceholder": "nombre@ejemplo.com",
-        "password": "Contraseña",
-        "passwordPlaceholder": "••••••••",
-        "confirmPassword": "Confirmar contraseña",
-        "confirmPasswordPlaceholder": "••••••••",
-        "continueWith": "Continuar con {provider}",
-        "orContinueWith": "O continuar con correo electrónico",
-        "submit": "Crear cuenta",
-        "haveAccount": "¿Ya tienes una cuenta?",
-        "signIn": "Iniciar sesión"
-      },
-      "success": {
-        "title": "¡Éxito!",
-        "description": "Tu cuenta ha sido creada. Por favor, inicia sesión."
-      },
-      "error": {
-        "title": "Error",
-        "description": "Algo salió mal. Por favor, inténtalo de nuevo."
+    "pro": {
+      "title": "Pro",
+      "description": "Ideal para equipos en crecimiento",
+      "price": "$29/mes",
+      "button": "Comenzar prueba gratuita",
+      "features": {
+        "limit1": "Eventos ilimitados",
+        "limit2": "Análisis avanzados",
+        "limit3": "Soporte prioritario",
+        "limit4": "Hasta 10 miembros del equipo",
+        "limit5": "Marca personalizada"
+      }
+    },
+    "enterprise": {
+      "title": "Empresa",
+      "description": "Para grandes organizaciones",
+      "price": "Personalizado",
+      "button": "Contactar ventas",
+      "features": {
+        "limit1": "Ilimitado todo",
+        "limit2": "Soporte premium 24/7",
+        "limit3": "Integraciones personalizadas",
+        "limit4": "Miembros del equipo ilimitados",
+        "limit5": "Seguridad avanzada",
+        "limit6": "Administrador de cuenta dedicado"
       }
     }
   },
-  "dashboard": {
-    "title": "Panel de control",
-    "welcome": "¡Bienvenido de nuevo, {name}!",
-    "welcomeBack": "Bienvenido de nuevo",
-    "dashboardDescription": "Aquí está lo que está sucediendo con tus eventos y actividades.",
-    "searchPlaceholder": "Buscar eventos...",
-    "quickActions": "Acciones rápidas",
-    "createEvent": "Crear evento",
-    "createActivity": "Crear actividad",
-    "manageEvents": "Gestionar eventos",
-    "manageActivities": "Gestionar actividades",
-    "userActivityOverview": "Resumen de tu actividad",
-    "recentEvents": "Eventos recientes",
-    "recentActivities": "Actividades recientes",
-    "viewAll": "Ver todo",
-    "view": "Ver",
-    "noEventsFound": "No se encontraron eventos",
-    "noActivitiesFound": "No se encontraron actividades",
-    "stats": {
-      "totalEvents": "Total de eventos",
-      "upcomingEvents": "Próximos eventos",
-      "pastEvents": "Eventos pasados",
-      "activeParticipants": "Participantes activos"
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "subtitle": "Todo lo que necesita saber sobre nuestra plataforma",
+    "q1": {
+      "question": "¿Cómo funciona la prueba gratuita?",
+      "answer": "Comience con una prueba gratuita de 14 días de nuestro plan Pro. No se requiere tarjeta de crédito. Cancela en cualquier momento."
     },
-    "totalEvents": "Total de eventos",
-    "totalActivities": "Total de actividades",
-    "activeParticipants": "Participantes activos",
-    "completionRate": "Tasa de finalización",
-    "eventsCreated": "Eventos creados",
-    "eventsJoined": "Eventos unidos",
-    "upcomingEvents": "Próximos eventos",
-    "calendar": "Calendario",
-    "calendarDescription": "Ver tu horario en formato calendario",
-    "settings": "Configuración",
-    "settingsDescription": "Configura los ajustes de tu cuenta"
+    "q2": {
+      "question": "¿Puedo cambiar mi plan más tarde?",
+      "answer": "Sí, puede actualizar o degradar su plan en cualquier momento. Los cambios surten efecto inmediatamente."
+    },
+    "q3": {
+      "question": "¿Qué métodos de pago aceptan?",
+      "answer": "Aceptamos todas las principales tarjetas de crédito, PayPal y transferencias bancarias para clientes empresariales."
+    },
+    "q4": {
+      "question": "¿Hay algún límite en el número de eventos?",
+      "answer": "Los planes gratuitos están limitados a 5 eventos por mes. Los planes Pro y Enterprise tienen eventos ilimitados."
+    },
+    "q5": {
+      "question": "¿Ofrecen reembolsos?",
+      "answer": "Sí, ofrecemos una garantía de devolución de dinero de 30 días si no está satisfecho con nuestro servicio."
+    }
   },
-  "events": {
-    "title": "Eventos",
-    "description": "Gestiona tus eventos",
-    "noEvents": "No se encontraron eventos",
-    "createEvent": "Crear evento",
-    "participants": "Participantes",
-    "viewDetails": "Ver detalles",
-    "status": {
-      "draft": "Borrador",
-      "scheduled": "Programado",
-      "inProgress": "En curso",
-      "completed": "Completado",
-      "cancelled": "Cancelado"
-    },
-    "actions": {
-      "edit": "Editar",
-      "delete": "Eliminar",
-      "cancel": "Cancelar",
-      "save": "Guardar",
-      "confirm": "Confirmar"
-    },
-    "filters": {
-      "all": "Todos",
-      "upcoming": "Próximos",
-      "past": "Pasados",
-      "today": "Hoy",
-      "thisWeek": "Esta semana",
-      "thisMonth": "Este mes"
-    },
-    "form": {
-      "title": "Título",
-      "description": "Descripción",
-      "startDate": "Fecha de inicio",
-      "endDate": "Fecha de fin",
-      "location": "Ubicación",
-      "type": "Tipo de evento",
-      "category": "Categoría",
-      "visibility": "Visibilidad"
-    },
-    "notifications": {
-      "createSuccess": "Evento creado con éxito",
-      "updateSuccess": "Evento actualizado con éxito",
-      "deleteSuccess": "Evento eliminado con éxito",
-      "error": "Se produjo un error"
-    },
-    "eventDetails": "Detalles del evento",
-    "eventName": "Nombre del evento",
-    "eventDescription": "Descripción del evento",
-    "eventDate": "Fecha del evento",
-    "eventTime": "Hora del evento",
-    "eventLocation": "Ubicación del evento",
-    "eventType": "Tipo de evento",
-    "eventCapacity": "Capacidad del evento",
-    "eventStatus": "Estado del evento",
-    "eventOrganizer": "Organizador",
-    "eventParticipants": "Participantes",
-    "joinEvent": "Unirse al evento",
-    "leaveEvent": "Abandonar evento",
-    "cancelEvent": "Cancelar evento",
-    "editEvent": "Editar evento",
-    "deleteEvent": "Eliminar evento",
-    "upcomingEvents": "Próximos eventos",
-    "pastEvents": "Eventos pasados",
-    "myEvents": "Mis eventos",
-    "allEvents": "Todos los eventos"
+  "testimonials": {
+    "title": "Lo que dicen nuestros usuarios",
+    "trustedBy": "Confiado por líderes de la industria",
+    "testimonial1": {
+      "name": "Sarah Johnson",
+      "role": "Directora de eventos",
+      "quote": "Esta plataforma ha revolucionado la forma en que gestionamos nuestros eventos corporativos. Solo las funciones de automatización nos han ahorrado innumerables horas."
+    }
   },
-  "activities": {
-    "title": "Actividades",
-    "createActivity": "Crear actividad",
-    "activityDetails": "Detalles de la actividad",
-    "activityName": "Nombre de la actividad",
-    "activityDescription": "Descripción de la actividad",
-    "activityDate": "Fecha de la actividad",
-    "activityTime": "Hora de la actividad",
-    "activityLocation": "Ubicación de la actividad",
-    "activityType": "Tipo de actividad",
-    "activityStatus": "Estado de la actividad",
-    "activityOrganizer": "Organizador",
-    "activityParticipants": "Participantes",
-    "joinActivity": "Unirse a la actividad",
-    "leaveActivity": "Abandonar actividad",
-    "cancelActivity": "Cancelar actividad",
-    "editActivity": "Editar actividad",
-    "deleteActivity": "Eliminar actividad",
-    "noActivities": "No se encontraron actividades",
-    "upcomingActivities": "Próximas actividades",
-    "pastActivities": "Actividades pasadas",
-    "myActivities": "Mis actividades",
-    "allActivities": "Todas las actividades"
+  "cta": {
+    "title": "¿Listo para transformar sus eventos?",
+    "subtitle": "Únase a miles de organizadores de eventos exitosos que confían en nuestra plataforma.",
+    "button": "Comenzar prueba gratuita"
+  }
   },
-  "calendar": {
-    "title": "Calendario",
-    "today": "Hoy",
-    "month": "Mes",
-    "week": "Semana",
-    "day": "Día",
-    "schedule": "Agenda",
-    "addEvent": "Añadir evento",
-    "viewEvent": "Ver evento",
-    "noEvents": "No hay eventos",
-    "allDay": "Todo el día"
+  "Footer": {
+    "copyright": "© 2024 Event Manager. Todos los derechos reservados.",
+    "links": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "features": "Características",
+      "pricing": "Precios",
+      "contact": "Contacto",
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio"
+    }
   },
-  "team": {
-    "title": "Equipo",
-    "members": "Miembros",
-    "addMember": "Añadir miembro",
-    "removeMember": "Eliminar miembro",
-    "role": "Rol",
-    "permissions": "Permisos",
-    "noMembers": "No hay miembros",
-    "inviteMember": "Invitar miembro",
-    "memberDetails": "Detalles del miembro"
+  "profile": {
+    "title": "Perfil",
+    "description": "Administra la configuración y preferencias de tu cuenta"
   },
   "settings": {
     "title": "Configuración",
+    "description": "Configura la configuración de tu cuenta",
+    "somethingwrong": "Algo salió mal",
+    "tryAgain": "Por favor, inténtalo de nuevo",
+    "eventManager": "Event Manager",
+    "quickLinks": "Enlaces rápidos",
     "account": "Cuenta",
     "profile": "Perfil",
     "security": "Seguridad",
@@ -273,236 +258,509 @@
     "password": "Contraseña",
     "changePassword": "Cambiar contraseña",
     "twoFactor": "Autenticación de dos factores",
-    "deleteAccount": "Eliminar cuenta",
-    "saveChanges": "Guardar cambios"
-  },
-  "profile": {
-    "title": "Perfil",
-    "personalInfo": "Información personal",
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "phone": "Teléfono",
-    "location": "Ubicación",
-    "bio": "Biografía",
-    "editProfile": "Editar perfil",
-    "changeAvatar": "Cambiar avatar",
-    "socialLinks": "Enlaces sociales"
-  },
-  "analytics": {
-    "title": "Análisis",
-    "overview": "Resumen",
-    "statistics": "Estadísticas",
-    "reports": "Informes",
-    "performance": "Rendimiento",
-    "engagement": "Participación",
-    "growth": "Crecimiento",
-    "trends": "Tendencias",
-    "exportData": "Exportar datos"
-  },
-  "help": {
-    "title": "Ayuda",
-    "faq": "Preguntas frecuentes",
-    "support": "Soporte",
-    "contact": "Contacto",
-    "documentation": "Documentación",
-    "guides": "Guías",
-    "feedback": "Comentarios"
-  },
-  "landing": {
-    "signIn": "Iniciar sesión",
-    "getStarted": "Comenzar",
-    "hero": {
-      "title": "Gestiona tus eventos como nunca antes",
-      "subtitle": "Una plataforma simple y potente para organizar y gestionar tus eventos",
-      "cta": "Comenzar gratis"
+    "signOut": "Cerrar sesión",
+    "cancel": "Cancelar",
+    "saveChanges": "Guardar cambios",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "settings": "Configuración",
+    "dashboard": "Panel de control",
+    "privacy": {
+      "profileVisibility": "Visibilidad del perfil",
+      "calendarVisibility": "Visibilidad del calendario",
+      "activityVisibility": "Visibilidad de la actividad",
+      "showUpcomingEvents": "Mostrar próximos eventos",
+      "allowTagging": "Permitir etiquetas",
+      "allowComments": "Permitir comentarios",
+      "showUpcomingEventsDescription": "Mostrar próximos eventos en tu panel de control",
+      "allowTaggingDescription": "Permitir que otros etiqueten tus eventos",
+      "allowCommentsDescription": "Permitir que otros comenten tus eventos",
+      "saveChanges": "Guardar cambios",
+      "title": "Privacidad",
+      "privacyNote": "Al continuar usando Event Manager, aceptas nuestra",
+      "privacyPolicy": "Política de privacidad",
+      "termsOfService": "Términos de servicio",
+      "privacyDescription": "Recopilamos y usamos tu información personal de acuerdo con nuestra",
+      "privacyPolicyLink": "Política de privacidad",
+      "visibilityOptions": {
+        "team": "Equipo",
+        "title": "Opciones de visibilidad",
+        "public": "Público",
+        "private": "Privado"
+      }
     },
-    "features": {
-      "title": "Características",
-      "subtitle": "Todo lo que necesitas para gestionar tus eventos",
-      "items": {
-        "calendar": {
-          "title": "Calendario inteligente",
-          "description": "Planifica y gestiona tus eventos con nuestro calendario intuitivo"
-        },
-        "collaboration": {
-          "title": "Colaboración en tiempo real",
-          "description": "Trabaja en equipo y comparte información fácilmente"
-        },
-        "customization": {
-          "title": "Personalización completa",
-          "description": "Adapta la plataforma a tus necesidades específicas"
-        },
-        "security": {
-          "title": "Seguridad reforzada",
-          "description": "Tus datos están protegidos con las últimas tecnologías"
-        },
-        "performance": {
-          "title": "Rendimiento óptimo",
-          "description": "Una plataforma rápida y confiable para todos tus eventos"
-        },
-        "global": {
-          "title": "Alcance global",
-          "description": "Gestiona eventos en cualquier parte del mundo"
+    "display": {
+      "title": "Pantalla",
+      "displayName": "Nombre para mostrar",
+      "theme": {
+        "title": "Tema",
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+      },
+      "density": {
+        "title": "Densidad",
+        "comfortable": "Cómodo",
+        "cosy": "Acogedor",
+        "compact": "Compacto",
+        "comfortableDescription": "Una experiencia de lectura cómoda",
+        "cosyDescription": "Una experiencia de lectura acogedora",
+        "compactDescription": "Una experiencia de lectura compacta"
+      },
+      "timeFormat": {
+        "title": "Formato de hora",
+        "12h": "12 horas",
+        "24h": "24 horas"
+      },
+      "dateFormat": {
+        "title": "Formato de fecha",
+        "options": {
+          "MMDDYYYY": "MM/DD/AAAA",
+          "DDMMYYYY": "DD/MM/AAAA",
+          "YYYYMMDD": "AAAA/MM/DD"
         }
+      },
+      "saveChanges": "Guardar cambios",
+      "timezone": {
+        "title": "Zona horaria",
+        "timezone": "Zona horaria"
+      },
+      "language": {
+        "title": "Idioma",
+        "language": "Idioma"
       }
     },
-    "cta": {
-      "title": "¿Listo para empezar?",
-      "description": "Únete a miles de organizadores que confían en nuestra plataforma",
-      "button": "Comenzar ahora"
-    }
-  },
-  "Index": {
-    "featuresNav": "Funciones",
-"pricingNav": "Precios",
-"about": "Acerca de",
-"signUp": "Registrarse",
-"signIn": "Iniciar sesión",
-"register": "Registrarse",
-"hero": {
-    "trustedBy": "Confiado por más de 10,000 organizadores de eventos",
-    "title": "Transforma tu",
-    "titleHighlight": "Experiencia de Gestión de Eventos",
-    "subtitle": "Simplifica tus eventos con automatización poderosa, integraciones fluidas e información inteligente. La plataforma todo en uno que hace que la planificación de eventos sea fácil.",
-    "startTrial": "Comenzar prueba gratuita",
-    "watchDemo": "Ver demostración"
-},
-    "features": {
-      "security": "Seguridad de nivel empresarial",
-      "noCredit": "No se requiere tarjeta de crédito",
-      "setup": "Configuración en minutos",  
-      "smartScheduling": {
-        "title": "Programación Inteligente",
-        "description": "Programación impulsada por IA que encuentra automáticamente el momento perfecto para todos los asistentes."
+    "security": {
+      "title": "Seguridad",
+      "twoFactorAuth": {
+        "title": "Autenticación de dos factores",
+        "description": "Habilita la autenticación de dos factores para mayor seguridad"
       },
-      "globalReach": {
-        "title": "Alcance Global",
-        "description": "Organiza eventos a través de zonas horarias con conversión automática y localización."
-      },
-      "instantAnalytics": {
-        "title": "Análisis Instantáneo",
-        "description": "Información en tiempo real sobre asistencia, participación y rendimiento de eventos."
-      }
+      "loginNotifications": "Notificaciones de inicio de sesión",
+      "loginNotificationsDescription": "Recibe notificaciones cuando alguien inicie sesión en tu cuenta",
+      "sessionTimeout": "Tiempo de espera de sesión",
+      "securityTip": "Consejo: Usa una contraseña segura y habilita la autenticación de dos factores para mayor seguridad",
+      "saveChanges": "Guardar cambios"
     },
     "integrations": {
-        "title": "Integraciones fluidas",
-        "google": {
-            "title": "Google Calendar",
-            "description": "Sincroniza eventos con Google Calendar para una programación y actualizaciones sin problemas."
-        },
-        "zoom": {
-            "title": "Reuniones de Zoom",
-            "description": "Crea y gestiona automáticamente reuniones de Zoom para tus eventos."
-        },
-        "slack": {
-            "title": "Slack",
-            "description": "Recibe notificaciones y actualizaciones directamente en tus canales de Slack."
-        },
-        "teams": {
-            "title": "Microsoft Teams",
-            "description": "Integra con Teams para una planificación colaborativa de eventos."
+      "title": "Integraciones",
+      "googleCalendar": {
+        "title": "Google Calendar",
+        "description": "Sincroniza eventos con Google Calendar para una programación y actualizaciones sin problemas.",
+        "syncFrequency": {
+          "title": "Frecuencia de sincronización",
+          "realtime": "En tiempo real",
+          "hourly": "Por hora",
+          "daily": "Diaria"
         }
+      },
+      "microsoftOutlook": {
+        "title": "Microsoft Outlook",
+        "description": "Sincroniza eventos con Microsoft Outlook para una programación y actualizaciones sin problemas."
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Recibe notificaciones y actualizaciones directamente en tus canales de Slack.",
+        "channel": "Canal"
+      },
+      "zoom": {
+        "title": "Reuniones Zoom",
+        "description": "Crea y administra automáticamente reuniones de Zoom para tus eventos.",
+        "autoCreateMeeting": "Crear reuniones automáticamente"
+      },
+      "teams": {
+        "title": "Microsoft Teams",
+        "description": "Intégrate con Teams para la planificación colaborativa de eventos."
+      },
+      "saveChanges": "Guardar cambios"
     },
-    "pricing": {
-        "title": "Precios simples y transparentes",
-        "subtitle": "Elige el plan que mejor se adapte a tus necesidades",
-        "popular": "Más popular",
-        "free": {
-            "title": "Gratis",
-            "description": "Perfecto para comenzar",
-            "price": "$0/mes",
-            "button": "Comenzar",
-            "features": {
-                "limit1": "Hasta 5 eventos por mes",
-                "limit2": "Análisis básicos",
-                "limit3": "Soporte por correo electrónico",
-                "limit4": "1 miembro del equipo"
-            }
-        },
-        "pro": {
-            "title": "Pro",
-            "description": "Ideal para equipos en crecimiento",
-            "price": "$29/mes",
-            "button": "Comenzar prueba gratuita",
-            "features": {
-                "limit1": "Eventos ilimitados",
-                "limit2": "Análisis avanzados",
-                "limit3": "Soporte prioritario",
-                "limit4": "Hasta 10 miembros del equipo",
-                "limit5": "Marca personalizada"
-            }
-        },
-        "enterprise": {
-            "title": "Enterprise",
-            "description": "Para grandes organizaciones",
-            "price": "Personalizado",
-            "button": "Contactar ventas",
-            "features": {
-                "limit1": "Todo ilimitado",
-                "limit2": "Soporte premium 24/7",
-                "limit3": "Integraciones personalizadas",
-                "limit4": "Miembros de equipo ilimitados",
-                "limit5": "Seguridad avanzada",
-                "limit6": "Administrador de cuenta dedicado"
-            }
-        }
-    },
-    "faq": {
-        "title": "Preguntas frecuentes",
-        "subtitle": "Todo lo que necesitas saber sobre nuestra plataforma",
-        "q1": {
-            "question": "¿Cómo funciona la prueba gratuita?",
-            "answer": "Comienza con una prueba gratuita de 14 días de nuestro plan Pro. No se requiere tarjeta de crédito. Cancela en cualquier momento."
-        },
-        "q2": {
-            "question": "¿Puedo cambiar mi plan más tarde?",
-            "answer": "Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios surten efecto inmediatamente."
-        },
-        "q3": {
-            "question": "¿Qué métodos de pago aceptan?",
-            "answer": "Aceptamos todas las principales tarjetas de crédito, PayPal y transferencias bancarias para clientes empresariales."
-        },
-        "q4": {
-            "question": "¿Hay algún límite en el número de eventos?",
-            "answer": "Los planes gratuitos están limitados a 5 eventos por mes. Los planes Pro y Enterprise tienen eventos ilimitados."
-        },
-        "q5": {
-            "question": "¿Ofrecen reembolsos?",
-            "answer": "Sí, ofrecemos una garantía de devolución de dinero de 30 días si no está satisfecho con nuestro servicio."
-        }
-    },
-    "testimonials": {
-      "title": "Lo que dicen nuestros usuarios",
-      "trustedBy": "Confiado por líderes de la industria",
-      "testimonial1": {
-        "name": "Sarah Johnson",
-        "role": "Directora de Eventos",
-        "quote": "Esta plataforma ha revolucionado cómo gestionamos nuestros eventos corporativos. Las funciones de automatización por sí solas nos han ahorrado innumerables horas."
-      }
-    },
-    "cta": {
-      "title": "¿Listo para transformar tus eventos?",
-      "subtitle": "Únete a miles de organizadores de eventos exitosos que confían en nuestra plataforma.",
-      "button": "Comienza tu prueba gratuita"
+    "profile": {
+      "title": "Perfil",
+      "displayName": "Nombre",
+      "email": "Correo electrónico",
+      "privacy": "Privacidad"
     }
   },
-  "integrations": {
-    "title": "Integraciones Seamless", 
-    "google": {
-        "title": "Google Calendar",
-        "description": "Sincroniza eventos con Google Calendar para una programación y actualizaciones sin problemas."
+  "team": {
+    "errors": {
+      "fetchFailed": "Error al cargar los miembros del equipo"
     },
-    "zoom": {
-        "title": "Reuniones de Zoom",
-        "description": "Crea y gestiona automáticamente reuniones de Zoom para tus eventos."
+    "status": "Estado",
+    "search": "Buscar miembros del equipo...",
+    "actions": "Acciones",
+    "sendMessage": "Enviar mensaje",
+    "teamMembers": "Miembros del equipo",
+    "manageRole": "Administrar rol",
+    "remove": "Eliminar",
+    "event": "Evento",
+    "activity": "Actividad",
+    "noResults": "No se encontraron resultados"
+  },
+  "dashboard": {
+    "noRecentEvents": "Sin eventos recientes",
+    "title": "Panel de control",
+    "eventsCreated": "Eventos creados",
+    "eventsJoined": "Eventos unidos",
+    "totalActivities": "Total de actividades",
+    "totalParticipants": "Total de participantes",
+    "recentActivities": "Actividades recientes",
+    "noRecentActivities": "Sin actividades recientes",
+    "createdEvents": "Eventos creados",
+    "noCreatedEvents": "Aún no se han creado eventos",
+    "joinedEvents": "Eventos unidos",
+    "noJoinedEvents": "Aún no se han unido eventos",
+    "activities": "Actividades",
+    "members": "Miembros",
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "dashboardDescription": "Esto es lo que está sucediendo con tus eventos y actividades.",
+    "searchPlaceholder": "Buscar eventos...",
+    "stats": {
+      "totalEvents": "Total de eventos",
+      "totalActivities": "Total de actividades",
+      "totalParticipants": "Total de participantes",
+      "completionRate": "Tasa de finalización",
+      "eventsCreated": "Eventos creados",
+      "eventsJoined": "Eventos unidos",
+      "upcomingEvents": "Próximos eventos"
     },
-    "slack": {
-        "title": "Slack",
-        "description": "Recibe notificaciones y actualizaciones directamente en tus canales de Slack."
+    "activityOverviewCard": {
+      "title": "Resumen de actividad",
+      "description": "Tu actividad reciente y progreso",
+      "inProgress": "En progreso",
+      "completed": "Completado",
+      "upcoming": "Próximo",
+      "cancelled": "Cancelado",
+      "pending": "Pendiente"
     },
-    "teams": {
-        "title": "Microsoft Teams",
-        "description": "Integra con Teams para una planificación colaborativa de eventos."
-    }
+    "quickActions": "Acciones rápidas",
+    "createEvent": "Crear evento",
+    "createActivity": "Crear actividad",
+    "manageEvents": "Administrar eventos",
+    "manageActivities": "Administrar actividades",
+    "userActivityOverview": "Resumen de tu actividad",
+    "recentEvents": "Eventos recientes",
+    "recentActivities": "Actividades recientes",
+    "viewAll": "Ver todo",
+    "view": "Ver",
+    "noEventsFound": "No se encontraron eventos",
+    "noActivitiesFound": "No se encontraron actividades",
+    "totalEvents": "Total de eventos",
+    "totalActivities": "Total de actividades",
+    "activeParticipants": "Participantes activos",
+    "completionRate": "Tasa de finalización",
+    "eventsCreated": "Eventos creados",
+    "eventsJoined": "Eventos unidos",
+    "upcomingEvents": "Próximos eventos",
+    "activityOverview": "Resumen de actividad",
+    "upcomingActivities": "Próximas actividades",
+    "totalCreatedEvents": "Total de eventos creados",
+    "totalJoinedEvents": "Total de eventos unidos"
+  },
+  "events": {
+    "form": {
+      "createTitle": "Crear evento",
+      "helpTitle": "Ayuda",
+      "titleLabel": "Título del evento",
+      "titlePlaceholder": "Ingrese el título del evento",
+      "descriptionLabel": "Descripción del evento",
+      "descriptionPlaceholder": "Ingrese la descripción del evento",
+      "editTitle": "Editar evento",
+      "creating": "Creando...",
+      "description": "Descripción",
+      "startDateLabel": "Fecha de inicio",
+      "endDateLabel": "Fecha de finalización",
+      "countryLabel": "País",
+      "helpTip1": "Seleccione una fecha de inicio y una fecha de finalización para su evento",
+      "helpTip2": "Seleccione una fecha de inicio y una fecha de finalización para su evento",
+      "helpTip3": "Seleccione una fecha de inicio y una fecha de finalización para su evento",
+      "previewTitle": "Vista previa",
+      "previewDescription": "Vista previa de la descripción",
+      "title": "Título",
+      "description": "Descripción",
+      "countryPlaceholder": "Seleccione país",
+      "cityLabel": "Ciudad",
+      "cityPlaceholder": "Ingrese la ciudad",
+      "addressLabel": "Dirección",
+      "addressPlaceholder": "Ingrese la dirección",
+      "maxAttendeesLabel": "Máximo de asistentes",
+      "maxAttendeesPlaceholder": "Ingrese el máximo de asistentes",
+      "googleCalendarLabel": "Google Calendar",
+      "publicLabel": "Público",
+      "locationLabel": "Ubicación",
+      "locationPlaceholder": "Ingrese la ubicación",
+      "addToGoogleCalendar": "Agregar a Google Calendar",
+      "saveChanges": "Guardar cambios",
+      "cancel": "Cancelar",
+      "create": "Crear",
+      "update": "Actualizar",
+      "highlights": "Destacados",
+      "highlightPlaceholder": "Ingrese un destacado...",
+      "addHighlight": "Agregar destacado",
+      "removeHighlight": "Eliminar destacado",
+      "eventTitlePlaceholder": "Ingrese el título del evento",
+      "eventDescriptionPlaceholder": "Ingrese la descripción del evento",
+      "countryPlaceholder": "Ingrese el país",
+      "cityPlaceholder": "Ingrese la ciudad",
+      "addressPlaceholder": "Ingrese la dirección",
+      "maxAttendeesPlaceholder": "Ingrese el número máximo de asistentes",
+      "selectCalendar": "Seleccionar un calendario",
+      "loadingCalendars": "Cargando calendarios...",
+      "noCalendarsAvailable": "No hay calendarios disponibles",
+      "selectCalendarDescription": "Elija un calendario de Google para sincronizar este evento con",
+      "loadingGoogleCalendars": "Cargando calendarios de Google...",
+      "eventDetails": "Detalles del evento",
+      "invitationDesign": "Diseño de invitación"
+    },
+    "status": {
+      "upcoming": "Próximo",
+      "completed": "Completado",
+      "cancelled": "Cancelado",
+      "pending": "Pendiente",
+      "published": "Publicado",
+      "draft": "Borrador"
+    },
+    "participations": "Participaciones",
+    "viewDetails": "Ver detalles",
+    "getStarted": "Comenzar",
+    "virtualEvent": "Evento virtual",
+    "inPersonEvent": "Evento en persona",
+    "onlineEvent": "Evento en línea",
+    "location": "Ubicación",
+    "online": "En línea",
+    "inPerson": "En persona",
+    "virtual": "Virtual",
+    "title": "Eventos",
+    "description": "Administra y organiza tus eventos",
+    "createFirstEvent": "Crea tu primer evento",
+    "noEventsFound": "No se encontraron eventos",
+    "createEvent": "Crear evento",
+    "error": "Error",
+    "errorTitle": "Error",
+    "FailedToFetchEvents": "No se pudieron cargar los eventos. Por favor, inténtalo de nuevo más tarde.",
+    "FailedToCreateEvent": "No se pudo crear el evento. Por favor, inténtalo de nuevo más tarde.",
+    "FailedToUpdateEvent": "No se pudo actualizar el evento. Por favor, inténtalo de nuevo más tarde.",
+    "FailedToDeleteEvent": "No se pudo eliminar el evento. Por favor, inténtalo de nuevo más tarde."
+  },
+  "activities": {
+    "create": "Crear actividad",
+    "title": "Actividades",
+    "description": "Rastrea y administra las actividades de los eventos",
+    "createActivity": "Crear actividad",
+    "manageActivities": "Administrar actividades",
+    "recentActivities": "Actividades recientes",
+    "viewAll": "Ver todo",
+    "viewDetails": "Ver detalles",
+    "selectDateRange": "Seleccionar rango de fechas",
+    "filters": "Filtros",
+    "searchPlaceholder": "Buscar actividades...",
+    "errorLoading": "Error al cargar las actividades",
+    "noActivitiesFound": "No se encontraron actividades",
+    "view": "Ver",
+    "noActivities": "No se encontraron actividades"
+  },
+  "analytics": {
+    "overview":"Visión general",
+"events":"Eventos",
+"attendees":"Asistentes",
+"title": "Análisis",
+"description": "Rastree y analice el rendimiento de sus eventos",
+"dateRangeLabel": "Rango de fechas",
+"stats": {
+  "totalEvents": "Total de eventos",
+  "totalEventsDescription": "Número total de eventos creados en el período seleccionado",
+  "totalAttendees": "Total de asistentes",
+  "totalAttendeesDescription": "Número total de asistentes en todos los eventos",
+  "averageAttendance": "Asistencia promedio",
+  "averageAttendanceDescription": "Número promedio de asistentes por evento",
+  "averageDuration": "Duración promedio",
+  "averageDurationDescription": "Duración promedio de los eventos",
+  "completionRate": "Tasa de finalización",
+  "completionRateDescription": "Porcentaje de eventos completados con éxito",
+  "activeEvents": "Eventos activos",
+  "activeEventsDescription": "Número de eventos actualmente activos"
+},
+"activities":{
+  "title":"Actividades",
+  "participants":"Participantes",
+  "noEventFound": "No se encontraron eventos para el período seleccionado",
+  "noActivities": "No se encontraron actividades para el período seleccionado",
+  "totalActivities":"Total de actividades",
+  "totalParticipants":"Total de participantes",
+  "avgParticipants":"Promedio de participantes",
+  "avgDuration":"Duración promedio",
+  "avgDurationDescription":"Duración promedio de las actividades",
+  "completionRate":"Tasa de finalización",
+  "eventStatus":"Distribución del estado de los eventos",
+  "activityProgress":"Progreso de la actividad",
+  "activityStatusDistribution":"Distribución del estado de las actividades",
+  "durationInHours":"Duración (en horas)",
+  "distributionOfActivitiesByStatus":"Distribución de actividades por estado",
+  "activityTrends":"Tendencias de actividad",
+  "monthlyTrendsOfActivitiesAndParticipants":"Tendencias mensuales de actividades y participantes",
+  "mostActiveTime":"Hora pico de actividad",
+  "timeDistribution":"Distribución del tiempo",
+  "averageDuration":"Duración promedio",
+  "averageDurationDescription":"Duración promedio de las actividades",
+  "statusDistribution":"Distribución del estado"
+  },
+  "status": {
+    "pendingEvents": "Eventos pendientes",
+    "upcomingEvents": "Próximos eventos",
+    "completedEvents": "Eventos completados"
+  },
+  "charts": {
+    "eventStatus": "Distribución del estado del evento",
+    "activityProgress": "Progreso de la actividad",
+    "attendeeEngagement": "Compromiso de los asistentes",
+    "eventTrends": "Tendencias de los eventos",
+    "mostActiveTime": "Hora de mayor actividad",
+    "averageDuration": "Duración promedio",
+    "eventStatusDescription": "Porcentaje de eventos en cada estado",
+    "totalEvents": "Total de eventos",
+    "hours":"Horas",
+    "minutes":"Minutos"
+  },
+  "tables": {
+    "recentEvents": "Eventos recientes",
+    "eventTitle": "Título del evento",
+    "totalEvents":"Total de eventos",
+    "startDate": "Fecha de inicio",
+    "events":"Eventos",
+    "attendees": "Asistentes",
+    "status": "Estado",
+    "topLocations": "Mejores ubicaciones",
+    "eventsCount": "{count} eventos"
+  }
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "description": "Administra cómo recibes las notificaciones",
+    "desktop": "Notificaciones de escritorio",
+    "desktopDescription": "Mostrar notificaciones en tu escritorio cuando ocurran eventos importantes",
+    "sound": "Sonido de notificación",
+    "volume": "Volumen",
+    "volumeChanged": "Volumen establecido en {volume}%",
+    "eventReminders": "Recordatorios de eventos",
+    "eventRemindersDescription": "Recibe notificaciones antes de que comiencen tus eventos",
+    "reminderTime": "Tiempo de recordatorio",
+    "reminderTime5": "5 minutos antes",
+    "reminderTime10": "10 minutos antes",
+    "reminderTime15": "15 minutos antes",
+    "reminderTime30": "30 minutos antes",
+    "reminderTime60": "1 hora antes",
+    "reminderTimeChanged": "Tiempo de recordatorio establecido en {time}",
+    "interactions": "Notificaciones de interacción",
+    "mentions": "Menciones",
+    "mentionsDescription": "Recibe una notificación cuando alguien te mencione",
+    "comments": "Comentarios",
+    "commentsDescription": "Recibe una notificación cuando alguien comente tus eventos",
+    "permissionNeeded": "Habilitar notificaciones",
+    "permissionDescription": "Permitir notificaciones para mantenerse actualizado sobre tus eventos",
+    "requestPermission": "Habilitar notificaciones",
+    "permission_required": "Permiso requerido",
+    "enable_in_browser": "Habilita las notificaciones en la configuración de tu navegador",
+    "test_title": "Notificación de prueba",
+    "test_body": "¡Esta es una notificación de prueba. Si puedes ver esto, las notificaciones están funcionando!",
+    "test_sent": "Notificación de prueba enviada",
+    "check_notification": "Revisa tus notificaciones para ver si funcionó",
+    "test_failed": "Prueba fallida",
+    "try_again": "Por favor, inténtalo de nuevo o verifica la configuración de tu navegador",
+    "desktopEnabled": "Notificaciones de escritorio habilitadas",
+    "desktopDisabled": "Notificaciones de escritorio deshabilitadas",
+    "soundEnabled": "Sonido de notificación habilitado",
+    "soundDisabled": "Sonido de notificación deshabilitado",
+    "remindersEnabled": "Recordatorios de eventos habilitados",
+    "remindersDisabled": "Recordatorios de eventos deshabilitados",
+    "mentionsEnabled": "Notificaciones de menciones habilitadas",
+    "mentionsDisabled": "Notificaciones de menciones deshabilitadas",
+    "commentsEnabled": "Notificaciones de comentarios habilitadas",
+    "commentsDisabled": "Notificaciones de comentarios deshabilitadas"
+  },
+  "teams": {
+    "title": "Equipos",
+    "create": "Crear equipo",
+    "settings": "Configuración del equipo",
+    "participants": "Participantes",
+    "calendar": "Calendario",
+    "teamCalendar": "Calendario del equipo",
+    "searchParticipants": "Buscar participantes...",
+    "allParticipants": "Todos los participantes",
+    "activities": "Actividades",
+    "events": "Eventos",
+    "member": "Miembro",
+    "members": "Miembros",
+    "role": "Rol",
+    "status": "Estado"
+  },
+  "messages": {
+  "error_starring_message": "Error al marcar el mensaje como favorito",
+  "type":"Tipo",
+  "content":"Contenido",
+  "error_loading_messages": "Error al cargar los mensajes",
+  "error_loading_users": "Error al cargar los usuarios",
+  "message_sent": "Mensaje enviado",
+  "error_refreshing_messages": "Error al actualizar los mensajes",
+  "message_archived": "Mensaje archivado",
+  "message_unarchived": "Mensaje desarchivado",
+  "error_archiving_message": "Error al archivar el mensaje",
+  "inbox": "Bandeja de entrada",
+  "sent": "Enviados",
+  "starred": "Favoritos",
+  "archived": "Archivados",
+  "drafts": "Borradores",
+  "all": "Todos",
+  "noMessagesFound": "No se encontraron mensajes",
+  "noStarredMessagesFound": "No se encontraron mensajes favoritos",
+  "hide_archived": "Ocultar archivados",
+  "show_archived": "Mostrar archivados",
+  "show_all": "Mostrar todos",
+  "show_starred": "Mostrar favoritos",
+  "search_placeholder": "Buscar mensajes...",
+  "reply": "Responder",
+  "forward": "Reenviar",
+  "filters": "Filtros",
+  "from": "De",
+  "message_type": "Tipo de mensaje",
+  "date_range": "Rango de fechas",
+  "search": "Buscar",
+  "no_messages_found": "No se encontraron mensajes",
+  "direct": "Directo",
+  "team": "Equipo",
+  "task": "Tarea",
+  "event": "Evento",
+  "reminder": "Recordatorio",
+  "feedback": "Comentarios",
+  "priority": "Prioridad",
+  "low": "Baja",
+  "medium": "Media",
+  "high": "Alta",
+  "general": "General",
+  "project": "Proyecto",
+  "meeting": "Reunión",
+  "approval": "Aprobación",
+  "report": "Informe",
+  "announcement": "Anuncio",
+  "question": "Pregunta",
+  "draft": "Borrador",
+  "scheduled": "Programado",
+  "delivered": "Entregado",
+  "read": "Leído",
+  "deleted": "Eliminado",
+  "category": "Categoría",
+  "clear_filters": "Borrar filtros",
+  "no_messages": "Sin mensajes",
+  "new_message": "Nuevo mensaje",
+  "new_message_description": "Redactar un nuevo mensaje",
+  "message_details": "Detalles del mensaje",
+  "select_recipient": "Seleccionar destinatario",
+  "subject": "Asunto",
+  "message": "Mensaje",
+  "subject_placeholder": "Ingrese el asunto",
+  "content_placeholder": "Ingrese el mensaje",
+  "send": "Enviar",
+  "cancel": "Cancelar",
+  "error_sending_message": "Error al enviar el mensaje",
+  "to": "Para"
 }
 }
